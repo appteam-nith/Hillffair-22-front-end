@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="app/src/main/res/layout/activity_forgot_password.xml" value="0.3111413043478261" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.30520833333333336" />
+        <entry key="app/src/main/res/layout/activity_play_quiz.xml" value="0.3111413043478261" />
+        <entry key="app/src/main/res/layout/activity_signup.xml" value="0.3111413043478261" />
+        <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.3111413043478261" />
+        <entry key="app/src/main/res/layout/activity_team_details.xml" value="0.3111413043478261" />
+        <entry key="app/src/main/res/layout/fragment_all_events_and_workshops.xml" value="0.3111413043478261" />
+        <entry key="app/src/main/res/layout/fragment_all_quizzes.xml" value="0.30520833333333336" />
+        <entry key="app/src/main/res/layout/fragment_create_new_feed.xml" value="0.3111413043478261" />
+        <entry key="app/src/main/res/layout/fragment_quiz_standings.xml" value="0.3111413043478261" />
+        <entry key="app/src/main/res/layout/fragment_user_feed.xml" value="0.30520833333333336" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
