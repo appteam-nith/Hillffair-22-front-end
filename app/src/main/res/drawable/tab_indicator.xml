@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle"
+    >
+    <solid android:color="@color/tab_top_event_workshop">
+    </solid>
+    <corners android:radius="@dimen/tab_radius_5">
+
+    </corners>
+
+</shape>
