@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/blindDate.xml" value="0.2195" />
         <entry key="app/src/main/res/drawable/blind_date.xml" value="0.2195" />
         <entry key="app/src/main/res/drawable/custom_button.xml" value="0.273" />
         <entry key="app/src/main/res/drawable/custom_text.xml" value="0.2305" />
