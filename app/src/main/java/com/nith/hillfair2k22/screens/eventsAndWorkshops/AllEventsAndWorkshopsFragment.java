@@ -15,7 +15,7 @@ import com.nith.hillfair2k22.R;
  * Use the {@link AllEventsAndWorkshopsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class AllEventsAndWorkshopsFragment extends Fragment {
+public class  AllEventsAndWorkshopsFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

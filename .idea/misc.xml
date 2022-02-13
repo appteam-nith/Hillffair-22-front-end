@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/tab_indicator.xml" value="0.314" />
         <entry key="app/src/main/res/layout/activity_forgot_password.xml" value="0.3111413043478261" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.30520833333333336" />
         <entry key="app/src/main/res/layout/activity_play_quiz.xml" value="0.3111413043478261" />
@@ -12,6 +13,7 @@
         <entry key="app/src/main/res/layout/fragment_all_events_and_workshops.xml" value="0.3111413043478261" />
         <entry key="app/src/main/res/layout/fragment_all_quizzes.xml" value="0.30520833333333336" />
         <entry key="app/src/main/res/layout/fragment_create_new_feed.xml" value="0.3111413043478261" />
+        <entry key="app/src/main/res/layout/fragment_event_and_workshop_details.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/fragment_quiz_standings.xml" value="0.3111413043478261" />
         <entry key="app/src/main/res/layout/fragment_user_feed.xml" value="0.30520833333333336" />
       </map>
