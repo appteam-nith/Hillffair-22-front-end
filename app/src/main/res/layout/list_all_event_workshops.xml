@@ -32,10 +32,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12px"
-            android:text="Treasure hunt"
+            android:text="Treasure hunt Events"
             android:textColor="@color/black"
             android:textSize="@dimen/text_size_18"
-            android:layout_marginBottom="50px"
+            android:layout_marginBottom="20px"
             >
 
         </TextView>
@@ -44,9 +44,11 @@
             android:id="@+id/Club_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="english club"
+            android:text="English club"
             android:textColor="@color/black"
-            android:textSize="@dimen/text_size_15">
+            android:textSize="@dimen/text_size_15"
+            android:layout_marginBottom="30px"
+            >
 
         </TextView>
 
@@ -65,7 +67,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/register"
-            android:text="Register">
+            android:text="Register"
+            android:layout_marginBottom="20px"
+            android:layout_marginTop="25px"
+            >
 
         </Button>
 
