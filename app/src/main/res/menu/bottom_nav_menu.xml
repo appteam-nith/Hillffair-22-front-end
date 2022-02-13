@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:title="Home"
+        android:icon="@drawable/home"/>
+    <item
+        android:id="@+id/quizzes"
+        android:title="Quizzes"
+        android:icon="@drawable/quizzes"/>
+    <item
+        android:id="@+id/events_and_workshops"
+        android:title="Events and Workshops"
+        android:icon="@drawable/events_workshops"/>
+    <item
+        android:id="@+id/blind_date"
+        android:title="Blind Date"
+        android:icon="@drawable/blindDate"/>
+    <item
+        android:id="@+id/profile"
+        android:title="Profile"
+        android:icon="@drawable/profile"/>
+</menu>
