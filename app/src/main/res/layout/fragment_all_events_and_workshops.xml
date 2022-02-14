@@ -1,14 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".screens.eventsAndWorkshops.AllEventsAndWorkshopsFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".screens.eventsAndWorkshops.AllEventsAndWorkshopsFragment"
+    android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+<com.google.android.material.tabs.TabLayout
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:id="@+id/events_tab_layout"
+    app:tabMode="fixed"
+    app:tabGravity="fill"
+    app:tabIndicatorGravity="stretch"
+    app:tabSelectedTextColor="@color/white"
+    app:tabIndicatorAnimationMode="elastic"
+    app:tabIndicator="@drawable/tab_indicator"/>
+
+    <androidx.viewpager2.widget.ViewPager2
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/events_TL_viewP2"/>
 
-</FrameLayout>
+
+
+
+</LinearLayout>

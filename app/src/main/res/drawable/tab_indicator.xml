@@ -4,7 +4,7 @@
     >
     <solid android:color="@color/tab_top_event_workshop">
     </solid>
-    <corners android:radius="@dimen/tab_radius_5">
+    <corners android:radius="30dp">
 
     </corners>
 
