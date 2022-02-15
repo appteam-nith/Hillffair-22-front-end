@@ -11,15 +11,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardElevation="3dp"
-    app:cardCornerRadius="@dimen/card_radius"
+    app:cardCornerRadius="15dp"
     android:layout_marginStart="@dimen/side_margin_16"
     android:layout_marginTop="@dimen/top_margin_0"
-    android:layout_marginEnd="@dimen/side_margin_10"
+    android:layout_marginEnd="@dimen/side_margin_16_end"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
-
-    >
+    android:paddingBottom="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -33,10 +32,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12px"
-            android:text="Treasure hunt"
+            android:text="Treasure hunt Events"
             android:textColor="@color/black"
-            android:textSize="@dimen/text_size_18"
-            android:layout_marginBottom="50px"
+            android:textSize="@dimen/text_size_24"
+            android:layout_marginBottom="3dp"
             >
 
         </TextView>
@@ -45,9 +44,11 @@
             android:id="@+id/Club_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="english club"
+            android:text="English club"
             android:textColor="@color/black"
-            android:textSize="@dimen/text_size_15">
+            android:textSize="@dimen/text_size_15"
+            android:layout_marginBottom="@dimen/layout_margin_bottom_5"
+            >
 
         </TextView>
 
@@ -57,17 +58,19 @@
             android:layout_height="wrap_content"
             android:text="5th April 2022"
             android:textColor="@color/black"
-            android:textSize="@dimen/text_size_18">
+            android:layout_marginBottom="@dimen/layout_margin_bottom_5"
+            >
 
         </TextView>
 
         <Button
-            android:visibility="gone"
+
             android:id="@+id/btn_register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/register"
-            android:text="Register">
+            android:text="Register"
+            android:layout_marginBottom="@dimen/layout_margin_bottom_5">
 
         </Button>
 
