@@ -1,5 +1,6 @@
 package com.nith.hillfair2k22.adapters;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +17,9 @@ import com.nith.hillfair2k22.screens.teams.Team;
 import java.util.List;
 
 public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.MyViewHolder> {
+    private static final int TYPE =  1;
     private onItemClickListener mListener;
+    private final Context context;
     private List<Team> teamList;
     public interface onItemClickListener{
         void onItemClick(int position);
@@ -29,17 +32,23 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.MyViewHolder> 
                 .inflate(R.layout.item_team,parent,false);
         return new MyViewHolder(itemView);
     }
-    public TeamAdapter(List<Team> teamList){
+    public TeamAdapter(Context context, List<Team> teamList){
+        this.context = context;
         this.teamList=teamList;
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        Team team=teamList.get(position);
-        holder.Team_Name.setText(team.getTeam_Name());
-        holder.Team_Member_Name.setText(team.getTeam_Member_Name());
-        holder.Designation.setText(team.getDesignation());
-
+        int viewType=getItemViewType(position);
+        switch (viewType) {
+            case TYPE:
+            default:
+                MyViewHolder myViewHolder = (MyViewHolder) holder;
+                Team team = teamList.get(position);
+                holder.Team_Name.setText(team.getTeam_Name());
+                holder.Team_Member_Name.setText(team.getTeam_Member_Name());
+                holder.Designation.setText(team.getDesignation());
+        }
 
     }
 

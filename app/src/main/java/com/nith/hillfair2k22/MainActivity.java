@@ -1,16 +1,14 @@
 package com.nith.hillfair2k22;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.TextView;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
@@ -18,6 +16,14 @@ import com.nith.hillfair2k22.adapters.TeamAdapter;
 import com.nith.hillfair2k22.screens.teams.Team;
 import com.nith.hillfair2k22.screens.teams.TeamDetailsActivity;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,38 +32,61 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
    private List<Team> teamList = new ArrayList<>();
    private RecyclerView recyclerView;
    private TeamAdapter teamAdapter;
+   private RecyclerView.LayoutManager layoutManager;
+   private static final String TAG="MainActivity";
 //   private RequestQueue mRequestQueue;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        prepareTeamData();
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        teamAdapter = new TeamAdapter(teamList);
-        RecyclerView.LayoutManager tLayoutManager= new LinearLayoutManager(getApplicationContext());
+        recyclerView.setHasFixedSize(true);
+        layoutManager= new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+
+        teamAdapter = new TeamAdapter(this,teamList);
         recyclerView.setAdapter(teamAdapter);
-        teamAdapter.setOnItemClickListener(MainActivity.this);
-        recyclerView.setLayoutManager(tLayoutManager);
-//        mRequestQueue = Volley.newRequestQueue(this);
-
+        addTeamDataFromJSON();
+//        mRequestQueue= Volley.newRequestQueue(this);
            }
 
-//    private void parseJSON() {
-//        String url="";
-//    }
+    private void addTeamDataFromJSON() {
+           try {
+               String jsonDataString= readJSONDataFromFile();
+               JSONArray jsonArray= new JSONArray(jsonDataString);
+               for(int i=0 ; i< jsonArray.length();++i){
+                   JSONObject itemObj = jsonArray.getJSONObject(i);
+                   String teamName = itemObj.getString("Team_Name");
+                   String teamMemName=itemObj.getString("Team_mem_Name");
+                   String  teamImgUrl=itemObj.getString("team image");
+                   String teamMemImgUrl=itemObj.getString("team member image");
+                   String designation=itemObj.getString("designation");
+                   Team teamData = new Team(teamName,teamMemName,teamImgUrl,teamMemImgUrl,designation);
+                  teamList.add(teamData) ;
 
-    private  void prepareTeamData(){
-               Team team= new Team("App Team" ,"Abc","Executive");
-               teamList.add(team);
-                team= new Team("Vibhav" ,"ABHI","Executive");
-               teamList.add(team);
-                team= new Team("PR" ,"xyz","Mentor");
-               teamList.add(team);
-               team= new Team("PIXO" ,"Abce","Executive");
-               teamList.add(team);
-                team= new Team("META" ,"Abcj","Volunteer");
-               teamList.add(team);
+               }
+           } catch (JSONException | IOException e) {
+               Log.d(TAG,"addTeamDataFromJSON:",e);
            }
+
+    }
+
+    private String readJSONDataFromFile() throws IOException {
+        InputStream inputStream=null;
+        StringBuilder builder=new StringBuilder();
+        try {
+            String jsonString=null;
+            inputStream= getResources().openRawResource(R.raw.teamdata);
+            BufferedReader bufferedReader=new BufferedReader(new InputStreamReader(inputStream,"UTF-8"));
+            while ((jsonString=bufferedReader.readLine())!=null){
+                builder.append(jsonString);
+            }
+        }finally {
+            if(inputStream!= null){
+                inputStream.close();
+            }
+        } return new String(builder);
+    }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

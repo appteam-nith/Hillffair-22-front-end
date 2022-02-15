@@ -4,14 +4,18 @@ public class Team {
     private  String  Team_Name;
     private  String  Team_Member_Name;
     private  String  Designation;
-    private String imageurl1;
-    private String imageurl2;
+    private String TeamImage;
+    private String Team_mem_Img;
 
 
-    public Team(String team_Name, String team_Member_Name, String designation) {
+    public Team(String team_Name, String team_Member_Name, String designation,String teamImage,String team_mem_Img) {
         Team_Name = team_Name;
         Team_Member_Name = team_Member_Name;
         Designation = designation;
+       TeamImage= teamImage;
+       Team_mem_Img= team_mem_Img;
+
+
     }
 
     public String getTeam_Name() {
@@ -36,5 +40,20 @@ public class Team {
 
     public void setDesignation(String designation) {
         this.Designation = designation;
+    }
+    public String getTeamImage(){
+        return TeamImage;
+    }
+
+    public void setTeamImage(String teamImage) {
+     this.TeamImage=teamImage;
+    }
+
+    public String getTeam_mem_Img() {
+        return Team_mem_Img;
+    }
+
+    public void setTeam_mem_Img(String team_mem_Img) {
+       this.Team_mem_Img=team_mem_Img;
     }
 }
