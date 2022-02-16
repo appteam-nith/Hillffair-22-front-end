@@ -19,8 +19,12 @@ import java.util.List;
 public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.MyViewHolder> {
     private static final int TYPE =  1;
     private onItemClickListener mListener;
-    private final Context context;
+//    private final Context context;
     private List<Team> teamList;
+
+    public TeamAdapter(List<Team> teamList) {
+    }
+
     public interface onItemClickListener{
         void onItemClick(int position);
     }
@@ -33,28 +37,28 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.MyViewHolder> 
         return new MyViewHolder(itemView);
     }
     public TeamAdapter(Context context, List<Team> teamList){
-        this.context = context;
+//        this.context = context;
         this.teamList=teamList;
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         int viewType=getItemViewType(position);
-        switch (viewType) {
-            case TYPE:
-            default:
-                MyViewHolder myViewHolder = (MyViewHolder) holder;
+//        switch (viewType) {
+//            case TYPE:
+//            default:
+//                MyViewHolder myViewHolder = (MyViewHolder) holder;
                 Team team = teamList.get(position);
                 holder.Team_Name.setText(team.getTeam_Name());
                 holder.Team_Member_Name.setText(team.getTeam_Member_Name());
                 holder.Designation.setText(team.getDesignation());
-        }
+//        }
 
     }
 
     @Override
     public int getItemCount() {
-        return teamList.size();
+        return 0;
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder{

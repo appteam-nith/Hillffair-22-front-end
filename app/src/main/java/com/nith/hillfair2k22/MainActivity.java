@@ -3,6 +3,7 @@ package com.nith.hillfair2k22;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -29,7 +30,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
-   private List<Team> teamList = new ArrayList<>();
+   private List<Team> mteamList = new ArrayList<>();
    private RecyclerView recyclerView;
    private TeamAdapter teamAdapter;
    private RecyclerView.LayoutManager layoutManager;
@@ -38,14 +39,17 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        recyclerView.setHasFixedSize(true);
-        layoutManager= new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-
-        teamAdapter = new TeamAdapter(this,teamList);
+        setContentView(R.layout.fragment_teams);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        TeamAdapter teamAdapter=new TeamAdapter(mteamList);
         recyclerView.setAdapter(teamAdapter);
+        StaggeredGridLayoutManager gridLayoutManager =
+                new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+       recyclerView.setLayoutManager(gridLayoutManager);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+// Attach the layout manager to the recycler view
+
+
         addTeamDataFromJSON();
 //        mRequestQueue= Volley.newRequestQueue(this);
            }
@@ -62,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                    String teamMemImgUrl=itemObj.getString("team member image");
                    String designation=itemObj.getString("designation");
                    Team teamData = new Team(teamName,teamMemName,teamImgUrl,teamMemImgUrl,designation);
-                  teamList.add(teamData) ;
+                  mteamList.add(teamData) ;
 
                }
            } catch (JSONException | IOException e) {
@@ -91,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
       Intent intent= new Intent(this, TeamDetailsActivity.class);
-      Team clickedItem=teamList.get(position);
+      Team clickedItem=mteamList.get(position);
 
     }
 }
