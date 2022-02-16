@@ -12,12 +12,17 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.nith.hillfair2k22.R;
 
 import java.util.ArrayList;
+import java.util.Objects;
+
+import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter;
+import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter;
 
 public class EventsFragment extends Fragment {
 
@@ -32,6 +37,8 @@ public class EventsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_events, container, false);
+
+
 
         eventsRV = view.findViewById(R.id.events_RecV);
         eventsModalArrayList = new ArrayList<>();
@@ -53,7 +60,16 @@ public class EventsFragment extends Fragment {
 
         eventsRV.setLayoutManager(manager);
 
-        eventsRV.setAdapter(eventsAdapter);
+//        eventsRV.setAdapter(eventsAdapter);
+
+        // <-----ANIMATIONS---->
+
+        AlphaInAnimationAdapter animationAdapter = new AlphaInAnimationAdapter(eventsAdapter);
+        animationAdapter.setDuration(1000);
+        animationAdapter.setInterpolator(new AccelerateDecelerateInterpolator());
+        animationAdapter.setFirstOnly(false);
+        eventsRV.setAdapter(animationAdapter);
+
 
 //        eventsRV.addOnScrollListener(new RecyclerView.OnScrollListener() {
 //            @Override
@@ -97,7 +113,7 @@ public class EventsFragment extends Fragment {
     }
 
     private void getEventData() {
-        for (int i = 0; i < 9; i++) {
+        for (int i = 0; i < 19; i++) {
             eventsModalArrayList.add(new EventsModal("Treasure Hunt Event", "English Club", "04 April 2022", false));
         }
     }

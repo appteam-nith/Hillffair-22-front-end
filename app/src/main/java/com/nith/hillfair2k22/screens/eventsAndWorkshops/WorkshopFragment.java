@@ -10,11 +10,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.Button;
 
 import com.nith.hillfair2k22.R;
 
 import java.util.ArrayList;
+
+import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter;
+import jp.wasabeef.recyclerview.adapters.SlideInBottomAnimationAdapter;
 
 
 public class WorkshopFragment extends Fragment {
@@ -41,8 +45,8 @@ public class WorkshopFragment extends Fragment {
     }
 
     private void getWorkshopData() {
-        for (int i=0;i<9; i++){
-            workshopsModalArrayList.add(new EventsModal("E_Title"+i,"E_club"+i,"E_date"+i,false));
+        for (int i=0;i<19; i++){
+            workshopsModalArrayList.add(new EventsModal("Treasure Hunt Workshop", "English Club", "04 April 2022", false));
 
         }
     }
@@ -55,7 +59,14 @@ public class WorkshopFragment extends Fragment {
 
         workshopsRV.setLayoutManager(manager);
 
-        workshopsRV.setAdapter(workshopsAdapter);
+//        workshopsRV.setAdapter(workshopsAdapter);
+
+        SlideInBottomAnimationAdapter animationAdapter = new SlideInBottomAnimationAdapter(workshopsAdapter);
+        animationAdapter.setDuration(1000);
+        animationAdapter.setInterpolator(new AccelerateDecelerateInterpolator());
+        animationAdapter.setFirstOnly(false);
+        workshopsRV.setAdapter(animationAdapter);
+
 
 //        int firstVisibleItemPosition = ((LinearLayoutManager) workshopsRV.getLayoutManager()).findFirstVisibleItemPosition();
 //        int secondVisibleItemPosition = firstVisibleItemPosition++;
