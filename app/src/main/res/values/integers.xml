@@ -2,7 +2,7 @@
 <resources>
 <dimen name="card_radius"> 10px </dimen>
     <dimen name="top_margin_0"> 10dp</dimen>
-    <dimen name="side_margin_10">10dp</dimen>
+    <dimen name="side_margin_16_end">16dp</dimen>
     <dimen name="side_margin_12">12dp</dimen>
     <dimen name="side_margin_14">14dp</dimen>
     <dimen name="side_margin_16">16dp</dimen>
@@ -10,8 +10,9 @@
     <dimen name="tab_radius_5">5px</dimen>
     <dimen name="btn_register_radius">12px</dimen>
 
-    <dimen name="text_size_18">18dp</dimen>
+    <dimen name="text_size_24">24dp</dimen>
     <dimen name="text_size_15">15dp</dimen>
+    <dimen name="layout_margin_bottom_5">5dp</dimen>
 
 
 
