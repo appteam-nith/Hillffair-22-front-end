@@ -13,7 +13,7 @@ public class EventsModal {
         this.eventStartDate = eventStartDate;
         this.eventClubName = eventClubName;
         this.eventRegUrl = null;
-        this.expanded = false;
+        this.expanded = expanded;
     }
 
     public String getEventTitle() {

@@ -19,6 +19,7 @@
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
 
+
     >
 
     <LinearLayout
@@ -60,6 +61,7 @@
             android:textSize="@dimen/text_size_18">
 
         </TextView>
+
 
         <Button
             android:visibility="gone"
