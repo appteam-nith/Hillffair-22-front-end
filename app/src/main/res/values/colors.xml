@@ -16,5 +16,5 @@
     <color name="tab_event">#DBB05E</color>
     <color name="register">#462609</color>
     <color name="btn_all_events">#E7CC9D</color>
-
+<color name="bg_event_details">#DEC699</color>
 </resources>
