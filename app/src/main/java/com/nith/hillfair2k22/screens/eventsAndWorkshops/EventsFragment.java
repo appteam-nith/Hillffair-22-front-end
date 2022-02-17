@@ -12,15 +12,23 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.Button;
+import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.nith.hillfair2k22.R;
 
 import java.util.ArrayList;
+import java.util.Objects;
+
+import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter;
+import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter;
 
 public class EventsFragment extends Fragment {
 
     private RecyclerView eventsRV;
+    private FloatingActionButton eventFab,teamsFab,sponsorsFab;
 
     private EventsAdapter eventsAdapter;
     private ArrayList<EventsModal> eventsModalArrayList;
@@ -30,9 +38,16 @@ public class EventsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view= inflater.inflate(R.layout.fragment_events, container, false);
+        View view = inflater.inflate(R.layout.fragment_events, container, false);
 
-        eventsRV =view.findViewById(R.id.events_RecV);
+
+
+        eventsRV = view.findViewById(R.id.events_RecV);
+
+        eventFab = view.findViewById(R.id.btn_team_sponsor);
+        teamsFab = view.findViewById(R.id.btn_teams);
+        sponsorsFab = view.findViewById(R.id.btn_sponsors);
+
         eventsModalArrayList = new ArrayList<>();
 
 
@@ -40,8 +55,27 @@ public class EventsFragment extends Fragment {
 
         buildRecyclerView();
 
+        //<---Fab--->
+        
+        if (eventFab==null){
+            Toast.makeText(getActivity(), "NULL", Toast.LENGTH_SHORT).show();
+        }
+
+//        eventFab.setOnClickListener(view1 -> {
+//
+//            teamsFab.setVisibility(View.VISIBLE);
+//            sponsorsFab.setVisibility(View.VISIBLE);
+//
+//        });
+
+
+
+
         return view;
     }
+
+    
+
 
     private void buildRecyclerView() {
 
@@ -52,35 +86,23 @@ public class EventsFragment extends Fragment {
 
         eventsRV.setLayoutManager(manager);
 
-        eventsRV.setAdapter(eventsAdapter);
+//        eventsRV.setAdapter(eventsAdapter);
 
-        eventsRV.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
-                super.onScrollStateChanged(recyclerView, newState);
-                    int firstVisibleItemPosition = ((LinearLayoutManager)recyclerView.getLayoutManager()).findFirstVisibleItemPosition();
-                    int secondVisibleItemPosition = firstVisibleItemPosition + 1;
-                    int thirdVisibleItemPosition = firstVisibleItemPosition +2;
+        // <-----ANIMATIONS---->
 
-                    RecyclerView.ViewHolder holder = recyclerView.findViewHolderForAdapterPosition(secondVisibleItemPosition);
-                    Button regBtn = holder.itemView.findViewById(R.id.btn_register);
-                    CardView itemCV = holder.itemView.findViewById(R.id.events_RV_item_CV);
-
-//                    EventsModal eventsModal = eventsModalArrayList.get(firstVisibleItemPosition);
-                    regBtn.setVisibility(View.VISIBLE);
-                    itemCV.setElevation(50);
+        AlphaInAnimationAdapter animationAdapter = new AlphaInAnimationAdapter(eventsAdapter);
+        animationAdapter.setDuration(1000);
+        animationAdapter.setInterpolator(new AccelerateDecelerateInterpolator());
+        animationAdapter.setFirstOnly(false);
+        eventsRV.setAdapter(animationAdapter);
 
 
 
-
-
-            }
-        });
     }
 
     private void getEventData() {
-        for (int i=0;i<9; i++){
-            eventsModalArrayList.add(new EventsModal("E_Title"+i,"E_club"+i,"E_date"+i,false));
+        for (int i = 0; i < 19; i++) {
+            eventsModalArrayList.add(new EventsModal("Treasure Hunt Event", "English Club", "04 April 2022", false));
         }
     }
 }

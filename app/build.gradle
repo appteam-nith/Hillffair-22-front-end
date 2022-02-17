@@ -41,4 +41,11 @@ dependencies {
 
     // volley
     implementation 'com.android.volley:volley:1.2.1'
+
+    // recycler animators
+    implementation 'jp.wasabeef:recyclerview-animators:4.0.2'
+
+    //fab
+    implementation 'com.balysv:material-ripple:1.0.2'
+
 }
