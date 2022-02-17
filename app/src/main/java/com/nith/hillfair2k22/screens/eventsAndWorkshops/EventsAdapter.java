@@ -1,6 +1,7 @@
 package com.nith.hillfair2k22.screens.eventsAndWorkshops;
 
 import android.content.Context;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -31,10 +33,11 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventViewH
     public EventViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         //inflate layout
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_all_event_workshops,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_all_event_workshops, parent, false);
         return new EventViewHolder(view);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public void onBindViewHolder(@NonNull EventViewHolder holder, int position) {
 
@@ -42,12 +45,52 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventViewH
         holder.eventTitle.setText(eventsModal.getEventTitle());
         holder.clubName.setText(eventsModal.getEventTitle());
         holder.dateTime.setText(eventsModal.getEventStartDate());
+
         holder.regBtn.setOnClickListener(view -> {
             Toast.makeText(context, "regBtn clicked", Toast.LENGTH_SHORT).show();
         });
+
+
+//        if (eventsModal.isExpanded()==true){
+//            holder.regBtn.setVisibility(View.VISIBLE);
+//        }else {
+//            holder.regBtn.setVisibility(View.GONE);
+//        }
+
         holder.item_CV.setOnClickListener(view -> {
-            holder.regBtn.setVisibility(View.VISIBLE);
+
+            if (!eventsModal.isExpanded()) {
+                holder.regBtn.setVisibility(View.VISIBLE);
+                eventsModal.setExpanded(true);
+                
+            } else {
+                holder.regBtn.setVisibility(View.GONE);
+                eventsModal.setExpanded(false);
+            }
+            for (int i=0;i<eventsModalArrayList.size();i++){
+                if (i!= position){
+                    eventsModalArrayList.get(i).setExpanded(false);
+
+                }
+
+            }
+
+
+
+
+
+
         });
+
+        if (position==1){
+            holder.regBtn.setVisibility(View.VISIBLE);
+            eventsModal.setExpanded(true);
+        }
+
+
+
+
+
     }
 
     @Override
@@ -56,24 +99,22 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventViewH
     }
 
 
-
-
-
-    public class EventViewHolder extends RecyclerView.ViewHolder{
+    public class EventViewHolder extends RecyclerView.ViewHolder {
 
         //create variable for views
         private TextView eventTitle, clubName, dateTime;
         private Button regBtn;
         private CardView item_CV;
+
         public EventViewHolder(@NonNull View itemView) {
             super(itemView);
 
             // initialize views with ids.
             eventTitle = itemView.findViewById(R.id.Event_name);
             clubName = itemView.findViewById(R.id.Club_name);
-            dateTime= itemView.findViewById(R.id.date_time);
-            regBtn=itemView.findViewById(R.id.btn_register);
-            item_CV=itemView.findViewById(R.id.events_RV_item_CV);
+            dateTime = itemView.findViewById(R.id.date_time);
+            regBtn = itemView.findViewById(R.id.btn_register);
+            item_CV = itemView.findViewById(R.id.events_RV_item_CV);
         }
     }
 }

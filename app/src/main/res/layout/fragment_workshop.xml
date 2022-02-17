@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#c2f542"
+    android:background="@color/item_card_bg"
     tools:context=".screens.eventsAndWorkshops.WorkshopFragment">
 
     <androidx.recyclerview.widget.RecyclerView
