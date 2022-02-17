@@ -46,7 +46,7 @@ public class WorkshopFragment extends Fragment {
 
     private void getWorkshopData() {
         for (int i=0;i<19; i++){
-            workshopsModalArrayList.add(new EventsModal("Treasure Hunt Workshop", "English Club", "04 April 2022", false));
+            workshopsModalArrayList.add(new EventsModal("Treasure Hunt Event", "04 April 2022", "English Club", "regUrl","EventDescription","https://media.geeksforgeeks.org/img-practice/banner/dsa-self-paced-thumbnail.png"));
 
         }
     }
@@ -59,7 +59,6 @@ public class WorkshopFragment extends Fragment {
 
         workshopsRV.setLayoutManager(manager);
 
-//        workshopsRV.setAdapter(workshopsAdapter);
 
         SlideInBottomAnimationAdapter animationAdapter = new SlideInBottomAnimationAdapter(workshopsAdapter);
         animationAdapter.setDuration(1000);
@@ -68,15 +67,6 @@ public class WorkshopFragment extends Fragment {
         workshopsRV.setAdapter(animationAdapter);
 
 
-//        int firstVisibleItemPosition = ((LinearLayoutManager) workshopsRV.getLayoutManager()).findFirstVisibleItemPosition();
-//        int secondVisibleItemPosition = firstVisibleItemPosition++;
-//
-//        RecyclerView.ViewHolder holder = workshopsRV.findViewHolderForAdapterPosition(1);
-//
-//        if (holder == null){
-//            Log.d("HOLDER", "buildRecyclerView: NULL");
-//        }
-//                    Button regBtn = holder.itemView.findViewById(R.id.btn_register);
-//                    regBtn.setVisibility(View.VISIBLE);
+
     }
 }

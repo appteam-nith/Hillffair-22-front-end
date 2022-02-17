@@ -2,6 +2,7 @@ package com.nith.hillfair2k22.screens.eventsAndWorkshops;
 
 import android.content.Context;
 import android.os.Build;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +12,10 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.nith.hillfair2k22.R;
@@ -46,46 +50,27 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventViewH
         holder.clubName.setText(eventsModal.getEventTitle());
         holder.dateTime.setText(eventsModal.getEventStartDate());
 
-        holder.regBtn.setOnClickListener(view -> {
-            Toast.makeText(context, "regBtn clicked", Toast.LENGTH_SHORT).show();
-        });
 
 
-//        if (eventsModal.isExpanded()==true){
-//            holder.regBtn.setVisibility(View.VISIBLE);
-//        }else {
-//            holder.regBtn.setVisibility(View.GONE);
-//        }
+
+
 
         holder.item_CV.setOnClickListener(view -> {
 
-            if (!eventsModal.isExpanded()) {
-                holder.regBtn.setVisibility(View.VISIBLE);
-                eventsModal.setExpanded(true);
-                
-            } else {
-                holder.regBtn.setVisibility(View.GONE);
-                eventsModal.setExpanded(false);
-            }
-            for (int i=0;i<eventsModalArrayList.size();i++){
-                if (i!= position){
-                    eventsModalArrayList.get(i).setExpanded(false);
+            AppCompatActivity activity = (AppCompatActivity) view.getContext();
+            Fragment eventAndWorkshopDetailsFragment = new EventAndWorkshopDetailsFragment();
+            activity.getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, eventAndWorkshopDetailsFragment).addToBackStack(null).commit();
 
-                }
-
-            }
-
-
-
-
-
+            Bundle bundle = new Bundle();
+            bundle.putString("Title",eventsModal.getEventTitle());
+            bundle.putString("ImageUrl",eventsModal.getImageUrl());
+            bundle.putString("description",eventsModal.getEventDescription());
+            bundle.putString("regUrl",eventsModal.getEventRegUrl());
+            eventAndWorkshopDetailsFragment.setArguments(bundle);
 
         });
 
-        if (position==1){
-            holder.regBtn.setVisibility(View.VISIBLE);
-            eventsModal.setExpanded(true);
-        }
+
 
 
 
@@ -103,7 +88,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventViewH
 
         //create variable for views
         private TextView eventTitle, clubName, dateTime;
-        private Button regBtn;
+
         private CardView item_CV;
 
         public EventViewHolder(@NonNull View itemView) {
@@ -113,7 +98,6 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventViewH
             eventTitle = itemView.findViewById(R.id.Event_name);
             clubName = itemView.findViewById(R.id.Club_name);
             dateTime = itemView.findViewById(R.id.date_time);
-            regBtn = itemView.findViewById(R.id.btn_register);
             item_CV = itemView.findViewById(R.id.events_RV_item_CV);
         }
     }

@@ -1,4 +1,4 @@
-package com.nith.hillfair2k22.screens.eventsAndWorkshops;
+package com.nith.hillfair2k22.screens.sponsors;
 
 import android.os.Bundle;
 
