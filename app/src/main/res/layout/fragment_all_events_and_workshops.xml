@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,22 +7,28 @@
     android:orientation="vertical"
     tools:context=".screens.eventsAndWorkshops.AllEventsAndWorkshopsFragment">
 
-
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/events_tab_layout"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        app:tabGravity="fill"
-        app:tabIndicator="@drawable/tab_indicator"
-        app:tabIndicatorAnimationMode="elastic"
-        app:tabIndicatorGravity="stretch"
-        app:tabMode="fixed"
-        app:tabSelectedTextColor="@color/white" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/events_TL_viewP2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/events_tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:tabGravity="fill"
+            app:tabIndicator="@drawable/tab_indicator"
+            app:tabIndicatorAnimationMode="elastic"
+            app:tabIndicatorGravity="stretch"
+            app:tabMode="fixed"
+            app:tabSelectedTextColor="@color/white" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/events_TL_viewP2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -31,9 +37,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
+        android:clickable="true"
         android:layout_margin="10dp"
         android:backgroundTint="@color/btn_all_events"
-        app:srcCompat="@drawable/ic_baseline_more_vert_24" />
+        app:srcCompat="@drawable/ic_three_dots" />
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btn_teams"
@@ -48,7 +56,7 @@
         android:layout_marginBottom="10dp"
         android:backgroundTint="@color/btn_all_events"
         android:visibility="gone"
-        app:srcCompat="@drawable/teams_button" />
+        app:srcCompat="@drawable/sponsors_fab_btn" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btn_sponsors"
@@ -64,7 +72,7 @@
         android:layout_marginBottom="10dp"
         android:backgroundTint="@color/btn_all_events"
         android:visibility="gone"
-        app:srcCompat="@drawable/sponsorship_team" />
+        app:srcCompat="@drawable/team_fab_btn" />
 
 
-</LinearLayout>
+</RelativeLayout>

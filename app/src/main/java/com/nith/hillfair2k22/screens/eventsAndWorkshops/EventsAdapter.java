@@ -1,6 +1,7 @@
 package com.nith.hillfair2k22.screens.eventsAndWorkshops;
 
 import android.content.Context;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -35,6 +37,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventViewH
         return new EventViewHolder(view);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public void onBindViewHolder(@NonNull EventViewHolder holder, int position) {
 
@@ -47,6 +50,13 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventViewH
             Toast.makeText(context, "regBtn clicked", Toast.LENGTH_SHORT).show();
         });
 
+
+//        if (eventsModal.isExpanded()==true){
+//            holder.regBtn.setVisibility(View.VISIBLE);
+//        }else {
+//            holder.regBtn.setVisibility(View.GONE);
+//        }
+
         holder.item_CV.setOnClickListener(view -> {
 
             if (!eventsModal.isExpanded()) {
@@ -57,12 +67,26 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventViewH
                 holder.regBtn.setVisibility(View.GONE);
                 eventsModal.setExpanded(false);
             }
+            for (int i=0;i<eventsModalArrayList.size();i++){
+                if (i!= position){
+                    eventsModalArrayList.get(i).setExpanded(false);
+
+                }
+
+            }
+
+
+
+
+
+
         });
 
         if (position==1){
             holder.regBtn.setVisibility(View.VISIBLE);
             eventsModal.setExpanded(true);
         }
+
 
 
 
