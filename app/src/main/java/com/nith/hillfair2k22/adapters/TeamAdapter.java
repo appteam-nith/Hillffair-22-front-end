@@ -1,10 +1,10 @@
 package com.nith.hillfair2k22.adapters;
 
 import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,77 +17,60 @@ import com.nith.hillfair2k22.screens.teams.Team;
 import java.util.List;
 
 public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.MyViewHolder> {
-    private static final int TYPE =  1;
-    private onItemClickListener mListener;
-//    private final Context context;
+    private OnItemClickListener mListener;
+    private final Context context;
     private List<Team> teamList;
 
-    public TeamAdapter(List<Team> teamList) {
+    public TeamAdapter(List<Team> teamList, Context context) {
+        this.teamList = teamList;
+        this.context = context;
     }
 
-    public interface onItemClickListener{
-        void onItemClick(int position);
-    }
-    public void setOnItemClickListener(AdapterView.OnItemClickListener listener){
-        mListener= (onItemClickListener) listener;
-    }
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView= LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_team,parent,false);
+        View itemView = LayoutInflater.from(context).inflate(R.layout.item_team, parent, false);
         return new MyViewHolder(itemView);
-    }
-    public TeamAdapter(Context context, List<Team> teamList){
-//        this.context = context;
-        this.teamList=teamList;
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        int viewType=getItemViewType(position);
-//        switch (viewType) {
-//            case TYPE:
-//            default:
-//                MyViewHolder myViewHolder = (MyViewHolder) holder;
-                Team team = teamList.get(position);
-                holder.Team_Name.setText(team.getTeam_Name());
-                holder.Team_Member_Name.setText(team.getTeam_Member_Name());
-                holder.Designation.setText(team.getDesignation());
-//        }
+        Team team = teamList.get(position);
 
+        holder.teamNameTextView.setText(team.getTeam_Name());
+        holder.teamImageImageView.setImageURI(Uri.parse(team.getTeamImage()));
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return teamList.size();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder{
-        public TextView  Team_Name;
-        public TextView Team_Member_Name;
-        public TextView Designation;
-        public ImageView TeamImage;
-        public ImageView TeamMemberImage;
-        public MyViewHolder(View view){
+    public interface OnItemClickListener {
+        void onItemClick(int position);
+    }
+
+    public void setItemOnClickListener(OnItemClickListener listener) {
+        mListener = listener;
+    }
+
+    public class MyViewHolder extends RecyclerView.ViewHolder {
+        TextView teamNameTextView;
+        ImageView teamImageImageView;
+        public MyViewHolder(View view) {
             super(view);
-            Team_Name = (TextView) view.findViewById(R.id.team_name);
-            Team_Member_Name = (TextView) view.findViewById(R.id.team_member_name);
-            Designation = (TextView) view.findViewById(R.id.designation);
-            TeamImage=(ImageView) view.findViewById(R.id.team_img);
-            TeamMemberImage=(ImageView) view.findViewById(R.id.team_mem_img);
+            teamNameTextView = (TextView) view.findViewById(R.id.team_name);
+            teamImageImageView =(ImageView) view.findViewById(R.id.team_img);
+
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v){
-                    if(mListener!= null){
+                public void onClick(View view) {
+                    if (mListener != null) {
                         int position = getAdapterPosition();
-                        if (position!=RecyclerView.NO_POSITION){
+                        if (position != RecyclerView.NO_POSITION) {
                             mListener.onItemClick(position);
                         }
                     }
                 }
-
             });
-
         }
     }
-
 }
