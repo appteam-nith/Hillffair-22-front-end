@@ -12,21 +12,21 @@ import com.nith.hillfair2k22.screens.eventsAndWorkshops.EventAndWorkshopDetailsF
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button fragBtn;
+//    private Button fragBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        fragBtn = findViewById(R.id.fragBtn);
-
-        fragBtn.setOnClickListener(view -> {
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.frameLayout,new AllEventsAndWorkshopsFragment());
-            fragmentTransaction.commit();
-
-        });
+//        fragBtn = findViewById(R.id.fragBtn);
+//
+//        fragBtn.setOnClickListener(view -> {
+//            FragmentManager fragmentManager = getSupportFragmentManager();
+//            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//            fragmentTransaction.replace(R.id.frameLayout,new AllEventsAndWorkshopsFragment());
+//            fragmentTransaction.commit();
+//
+//        });
     }
 }
