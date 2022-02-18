@@ -8,27 +8,34 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".screens.eventsAndWorkshops.EventAndWorkshopDetailsFragment"
     android:layout_gravity="top"
-    android:layout_marginLeft="30dp"
-    android:layout_marginTop="50dp">
+    android:layout_marginTop="0dp"
+    android:orientation="vertical"
+    android:background="@color/bg_event_details"
+    >
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="350dp"
-        android:layout_height="300dp"
-        app:cardBackgroundColor="@color/item_card_bg"
-        app:cardCornerRadius="30dp"
-        app:cardElevation="30dp">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/sponsors_top_tab"
+        android:text="Sponsors"
+        android:textAlignment="center"
+        android:textColor="@color/tab_event"
+        android:textSize="25sp"
+        tools:ignore="MissingConstraints"
+        android:paddingTop="3dp"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="70dp"
+        >
 
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Description"
-            android:textAlignment="textStart"
-            android:layout_marginTop="200dp"
-            android:textSize="20dp"
-            android:layout_marginLeft="20dp"
-            android:textColor="@color/register"/>
-    </androidx.cardview.widget.CardView>
+
+    </androidx.recyclerview.widget.RecyclerView>
 
 
 

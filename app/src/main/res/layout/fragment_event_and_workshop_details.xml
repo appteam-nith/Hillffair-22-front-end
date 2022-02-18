@@ -1,49 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".screens.eventsAndWorkshops.EventAndWorkshopDetailsFragment"
-    android:gravity="center">
+    android:layout_gravity="top"
+    android:orientation="horizontal"
+    android:background="@color/bg_event_details"
+    >
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/tab_indicator"
+        android:text="Title of Workshop"
+        android:textAlignment="center"
+        android:textColor="@color/tab_event"
+        android:textSize="25sp"
+        tools:ignore="MissingConstraints"
+        android:paddingTop="5dp"
+        />
 
     <androidx.cardview.widget.CardView
         android:layout_width="350dp"
         android:layout_height="550dp"
         app:cardBackgroundColor="@color/item_card_bg"
         app:cardCornerRadius="30dp"
-        app:cardElevation="30dp">
+        app:cardElevation="30dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="30dp"
+        tools:ignore="MissingConstraints">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"/>
+            android:orientation="vertical">
 
-          <ImageView
-              android:layout_width="match_parent"
-              android:layout_height="400dp"
-              android:src="@drawable/full_spec_poster"
-              android:scaleType="centerCrop"
-              android:id="@+id/details_event_1"
+            <ImageView
+                android:id="@+id/details_event_1"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/full_spec_poster"
 
-              />
+                />
+        </LinearLayout>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Description"
+            android:text="Description:"
             android:textAlignment="textStart"
             android:layout_marginTop="380dp"
             android:textSize="20dp"
             android:layout_marginLeft="20dp"
             android:textColor="@color/register"/>
 
-
+<View
+    android:layout_width="match_parent"
+    android:layout_height="2dp"
+    android:background="@color/register"
+    android:layout_marginTop="410dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"/>
 
     </androidx.cardview.widget.CardView>
 
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="630dp"
+        android:background="@drawable/tab_indicator"
+        android:text="Register"
+        android:textColor="@color/tab_event"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:paddingTop="5dp"/>
 
 
 
-
-
-</LinearLayout>
+</RelativeLayout>
