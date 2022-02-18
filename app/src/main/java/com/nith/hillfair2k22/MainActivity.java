@@ -1,6 +1,7 @@
 package com.nith.hillfair2k22;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -12,21 +13,29 @@ import com.nith.hillfair2k22.screens.eventsAndWorkshops.EventAndWorkshopDetailsF
 
 public class MainActivity extends AppCompatActivity {
 
-//    private Button fragBtn;
+    private Button fragBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        fragBtn = findViewById(R.id.fragBtn);
-//
-//        fragBtn.setOnClickListener(view -> {
-//            FragmentManager fragmentManager = getSupportFragmentManager();
-//            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//            fragmentTransaction.replace(R.id.frameLayout,new AllEventsAndWorkshopsFragment());
-//            fragmentTransaction.commit();
-//
-//        });
+        fragBtn = findViewById(R.id.fragBtn);
+
+
+
+        fragBtn.setOnClickListener(view -> {
+            fragmentChange(new AllEventsAndWorkshopsFragment());
+
+        });
+    }
+
+    private void fragmentChange(Fragment fragment) {
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.frameLayout,fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
 }

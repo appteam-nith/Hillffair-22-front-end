@@ -51,32 +51,28 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventViewH
         holder.dateTime.setText(eventsModal.getEventStartDate());
 
 
-
-
-
-
         holder.item_CV.setOnClickListener(view -> {
 
-            AppCompatActivity activity = (AppCompatActivity) view.getContext();
-            Fragment eventAndWorkshopDetailsFragment = new EventAndWorkshopDetailsFragment();
-            //TODO: replace id
-            activity.getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, eventAndWorkshopDetailsFragment).addToBackStack("tag").commit();
+            changeFragment(new EventAndWorkshopDetailsFragment(), view, eventsModal);
 
-            Bundle bundle = new Bundle();
-            bundle.putString("Title",eventsModal.getEventTitle());
-            bundle.putString("ImageUrl",eventsModal.getImageUrl());
-            bundle.putString("description",eventsModal.getEventDescription());
-            bundle.putString("regUrl",eventsModal.getEventRegUrl());
-            eventAndWorkshopDetailsFragment.setArguments(bundle);
 
         });
 
 
+    }
 
+    private void changeFragment(Fragment fragment, View view, EventsModal eventsModal) {
 
+        AppCompatActivity activity = (AppCompatActivity) view.getContext();
+        //TODO: replace id
+        activity.getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, fragment).addToBackStack(null).commit();
 
-
-
+        Bundle bundle = new Bundle();
+        bundle.putString("Title", eventsModal.getEventTitle());
+        bundle.putString("ImageUrl", eventsModal.getImageUrl());
+        bundle.putString("description", eventsModal.getEventDescription());
+        bundle.putString("regUrl", eventsModal.getEventRegUrl());
+        fragment.setArguments(bundle);
     }
 
     @Override

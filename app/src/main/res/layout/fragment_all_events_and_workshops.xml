@@ -48,7 +48,7 @@
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btn_teams"
+        android:id="@+id/btn_sponsors"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/btn_team_sponsor"
@@ -63,10 +63,10 @@
         app:srcCompat="@drawable/sponsors_fab_btn" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btn_sponsors"
+        android:id="@+id/btn_teams"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/btn_teams"
+        android:layout_above="@+id/btn_sponsors"
         android:layout_alignParentEnd="true"
         android:layout_margin="10dp"
         android:layout_marginStart="10dp"

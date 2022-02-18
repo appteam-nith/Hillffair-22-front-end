@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.view.LayoutInflater;
@@ -15,19 +16,19 @@ import android.view.ViewGroup;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.nith.hillfair2k22.R;
+import com.nith.hillfair2k22.screens.sponsors.SponsorsFragment;
+import com.nith.hillfair2k22.screens.teams.TeamsFragment;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
 
-public class  AllEventsAndWorkshopsFragment extends Fragment {
+public class AllEventsAndWorkshopsFragment extends Fragment {
 
     private TabLayout eventTabLayout;
     private ViewPager2 eventViewPager2;
     private EventsFragmentAdapter adapter;
 
-    private FloatingActionButton eventFab,teamsFab,sponsorsFab;
-
-
+    private FloatingActionButton eventFab, teamsFab, sponsorsFab;
 
 
     @Override
@@ -38,10 +39,10 @@ public class  AllEventsAndWorkshopsFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_all_events_and_workshops, container, false);
 
-        eventFab=view.findViewById(R.id.btn_team_sponsor);
-        teamsFab=view.findViewById(R.id.btn_teams);
-        sponsorsFab=view.findViewById(R.id.btn_sponsors);
-        
+        eventFab = view.findViewById(R.id.btn_team_sponsor);
+        teamsFab = view.findViewById(R.id.btn_teams);
+        sponsorsFab = view.findViewById(R.id.btn_sponsors);
+
         ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
 
 
@@ -84,12 +85,12 @@ public class  AllEventsAndWorkshopsFragment extends Fragment {
         AtomicBoolean fabExpanded = new AtomicBoolean(false);
         eventFab.setOnClickListener(view1 -> {
 
-            if (fabExpanded.get()==false) {
+            if (fabExpanded.get() == false) {
                 teamsFab.setVisibility(View.VISIBLE);
                 sponsorsFab.setVisibility(View.VISIBLE);
                 eventFab.setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.ic_cancel));
                 fabExpanded.set(true);
-            }else {
+            } else {
                 teamsFab.setVisibility(View.GONE);
                 sponsorsFab.setVisibility(View.GONE);
                 eventFab.setImageDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.ic_three_dots));
@@ -97,11 +98,30 @@ public class  AllEventsAndWorkshopsFragment extends Fragment {
             }
 
 
+        });
 
+        teamsFab.setOnClickListener(view1 -> {
+            changeFragment(new TeamsFragment());
+
+        });
+
+        sponsorsFab.setOnClickListener(view1 -> {
+            changeFragment(new SponsorsFragment());
 
         });
 
         return view;
+    }
+
+
+    private void changeFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        //TODO : replace id
+        fragmentTransaction.replace(R.id.frameLayout, fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+
     }
 
 
