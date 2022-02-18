@@ -12,6 +12,7 @@
 
 
     <TextView
+        android:id="@+id/title_TV"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginLeft="10dp"
@@ -27,6 +28,7 @@
         />
 
     <androidx.cardview.widget.CardView
+        android:layout_centerHorizontal="true"
         android:layout_width="350dp"
         android:layout_height="550dp"
         app:cardBackgroundColor="@color/item_card_bg"
@@ -39,10 +41,11 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+
             android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/details_event_1"
+                android:id="@+id/event_image"
                 android:layout_width="match_parent"
                 android:layout_height="400dp"
                 android:scaleType="centerCrop"
@@ -52,6 +55,7 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/description_TV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Description:"

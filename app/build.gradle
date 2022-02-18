@@ -45,7 +45,8 @@ dependencies {
     // recycler animators
     implementation 'jp.wasabeef:recyclerview-animators:4.0.2'
 
-    //fab
-    implementation 'com.balysv:material-ripple:1.0.2'
+    //picasso
+
+    implementation 'com.squareup.picasso:picasso:2.71828'
 
 }

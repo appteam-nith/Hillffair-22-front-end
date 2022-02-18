@@ -11,18 +11,20 @@
     <Button
         android:id="@+id/fragBtn"
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:text="Frag_Btn"
         android:layout_alignParentBottom="true"
-        android:layout_below="@+id/frameLayout"
         android:layout_centerHorizontal="true"
+
 
        />
 
     <FrameLayout
+        android:layout_above="@+id/fragBtn"
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
-        android:layout_height="640dp"
+        android:layout_height="match_parent"
+
         >
 
     </FrameLayout>
