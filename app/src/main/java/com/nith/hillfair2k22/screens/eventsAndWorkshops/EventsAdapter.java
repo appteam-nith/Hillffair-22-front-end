@@ -59,7 +59,8 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.EventViewH
 
             AppCompatActivity activity = (AppCompatActivity) view.getContext();
             Fragment eventAndWorkshopDetailsFragment = new EventAndWorkshopDetailsFragment();
-            activity.getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, eventAndWorkshopDetailsFragment).addToBackStack(null).commit();
+            //TODO: replace id
+            activity.getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, eventAndWorkshopDetailsFragment).addToBackStack("tag").commit();
 
             Bundle bundle = new Bundle();
             bundle.putString("Title",eventsModal.getEventTitle());

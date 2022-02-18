@@ -20,6 +20,8 @@
             app:tabIndicator="@drawable/tab_indicator"
             app:tabIndicatorAnimationMode="elastic"
             app:tabIndicatorGravity="stretch"
+            android:background="@drawable/events_tab"
+            android:padding="@dimen/side_margin_12"
             app:tabMode="fixed"
             app:tabSelectedTextColor="@color/white" />
 
