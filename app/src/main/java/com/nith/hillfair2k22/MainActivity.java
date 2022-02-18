@@ -1,61 +1,95 @@
 package com.nith.hillfair2k22;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
+import android.util.Log;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.nith.hillfair2k22.screens.account.ViewProfileFragment;
-import com.nith.hillfair2k22.screens.blindDate.BlindDateFragment;
-import com.nith.hillfair2k22.screens.eventsAndWorkshops.AllEventsAndWorkshopsFragment;
-import com.nith.hillfair2k22.screens.home.UserFeedFragment;
-import com.nith.hillfair2k22.screens.quiz.AllQuizzesFragment;
+import com.nith.hillfair2k22.adapters.TeamAdapter;
+import com.nith.hillfair2k22.screens.teams.Team;
+import com.nith.hillfair2k22.screens.teams.TeamDetailsActivity;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    private Button button;
+   private List<Team> mTeamList = new ArrayList<>();
+   private RecyclerView recyclerView;
+   private TeamAdapter teamAdapter;
+   private RecyclerView.LayoutManager layoutManager;
+   private static final String TAG="MainActivity";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        button =(Button) findViewById(R.id.button);
+        setContentView(R.layout.fragment_teams);
 
-        replaceFragment(new UserFeedFragment());
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        addTeamDataFromJSON();
+        TeamAdapter teamAdapter = new TeamAdapter(mTeamList, this);
+        recyclerView.setAdapter(teamAdapter);
+        StaggeredGridLayoutManager gridLayoutManager =
+                new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+       recyclerView.setLayoutManager(gridLayoutManager);
 
-        bottomNavigationView.setOnItemSelectedListener(item -> {
-
-            switch (item.getItemId()) {
-                case R.id.home:
-                    replaceFragment(new UserFeedFragment());
-                    break;
-                case R.id.quizzes:
-                    replaceFragment(new AllQuizzesFragment());
-                    break;
-                case R.id.events_and_workshops:
-                    replaceFragment(new AllEventsAndWorkshopsFragment());
-                    break;
-                case R.id.blind_date:
-                    replaceFragment(new BlindDateFragment());
-                    break;
-                case R.id.profile:
-                    replaceFragment(new ViewProfileFragment());
-                    break;
-            }
-
-            return true;
-        });
-
+       // set on item click listener for a particular team card
+       teamAdapter.setItemOnClickListener(new TeamAdapter.OnItemClickListener() {
+           @Override
+           public void onItemClick(int position) {
+               mTeamList.get(position);
+               Intent intent = new Intent(getApplicationContext(), TeamDetailsActivity.class);
+               startActivity(intent);
+           }
+       });
     }
 
-    private void replaceFragment(Fragment fragment){
+    private void addTeamDataFromJSON() {
+       try {
+           String jsonDataString= readJSONDataFromFile();
+           JSONArray jsonArray= new JSONArray(jsonDataString);
+           for(int i=0 ; i< jsonArray.length();++i){
+               System.out.println(jsonArray.get(i).toString());
+               JSONObject itemObj = jsonArray.getJSONObject(i);
+               String teamName = itemObj.getString("Team_Name");
+               String teamMemName=itemObj.getString("Team_mem_Name");
+               String  teamImgUrl=itemObj.getString("team image");
+               String teamMemImgUrl=itemObj.getString("team member image");
+               String designation=itemObj.getString("designation");
+               Team teamData = new Team(teamName, teamMemName, teamImgUrl, teamMemImgUrl, designation);
+              mTeamList.add(teamData) ;
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.fragment_frame_layout,fragment);
-        fragmentTransaction.commit();
+           }
+       } catch (JSONException | IOException e) {
+           Log.d(TAG,"addTeamDataFromJSON:", e);
+       }
+    }
+
+    // function to read teams' json data from file
+    private String readJSONDataFromFile() throws IOException {
+        InputStream inputStream = null;
+        StringBuilder builder = new StringBuilder();
+        try {
+            String jsonString = null;
+            inputStream = getResources().openRawResource(R.raw.teamdata);
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream,"UTF-8"));
+            while ((jsonString = bufferedReader.readLine()) != null){
+                builder.append(jsonString);
+            }
+        } finally {
+            if (inputStream != null) {
+                inputStream.close();
+            }
+        } return new String(builder);
     }
 }
