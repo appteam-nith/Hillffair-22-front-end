@@ -4,6 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".screens.sponsors.SponsorsFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".screens.eventsAndWorkshops.EventAndWorkshopDetailsFragment"
     android:layout_gravity="top"
     android:layout_marginTop="0dp"

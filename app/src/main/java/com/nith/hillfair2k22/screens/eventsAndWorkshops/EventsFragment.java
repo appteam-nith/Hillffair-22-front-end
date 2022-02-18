@@ -44,9 +44,6 @@ public class EventsFragment extends Fragment {
 
         eventsRV = view.findViewById(R.id.events_RecV);
 
-        eventFab = view.findViewById(R.id.btn_team_sponsor);
-        teamsFab = view.findViewById(R.id.btn_teams);
-        sponsorsFab = view.findViewById(R.id.btn_sponsors);
 
         eventsModalArrayList = new ArrayList<>();
 
@@ -57,16 +54,6 @@ public class EventsFragment extends Fragment {
 
         //<---Fab--->
         
-        if (eventFab==null){
-            Toast.makeText(getActivity(), "NULL", Toast.LENGTH_SHORT).show();
-        }
-
-//        eventFab.setOnClickListener(view1 -> {
-//
-//            teamsFab.setVisibility(View.VISIBLE);
-//            sponsorsFab.setVisibility(View.VISIBLE);
-//
-//        });
 
 
 
@@ -102,7 +89,7 @@ public class EventsFragment extends Fragment {
 
     private void getEventData() {
         for (int i = 0; i < 19; i++) {
-            eventsModalArrayList.add(new EventsModal("Treasure Hunt Event", "English Club", "04 April 2022", false));
+            eventsModalArrayList.add(new EventsModal("Treasure Hunt Event", "04 April 2022", "English Club", "regUrl","EventDescription","https://media.geeksforgeeks.org/img-practice/banner/dsa-self-paced-thumbnail.png"));
         }
     }
 }

@@ -6,14 +6,17 @@ public class EventsModal {
     private String eventStartDate;
     private String eventClubName;
     private String eventRegUrl;
-    private boolean expanded;
+    private String eventDescription;
+    private String imageUrl;
 
-    public EventsModal(String eventTitle, String eventClubName,String eventStartDate, boolean expanded) {
+
+    public EventsModal(String eventTitle, String eventStartDate, String eventClubName, String eventRegUrl, String eventDescription,String imageUrl) {
         this.eventTitle = eventTitle;
         this.eventStartDate = eventStartDate;
         this.eventClubName = eventClubName;
-        this.eventRegUrl = null;
-        this.expanded = expanded;
+        this.eventRegUrl = eventRegUrl;
+        this.eventDescription = eventDescription;
+        this.imageUrl = imageUrl;
     }
 
     public String getEventTitle() {
@@ -24,8 +27,6 @@ public class EventsModal {
         this.eventTitle = eventTitle;
     }
 
-
-
     public String getEventStartDate() {
         return eventStartDate;
     }
@@ -33,8 +34,6 @@ public class EventsModal {
     public void setEventStartDate(String eventStartDate) {
         this.eventStartDate = eventStartDate;
     }
-
-
 
     public String getEventClubName() {
         return eventClubName;
@@ -52,11 +51,19 @@ public class EventsModal {
         this.eventRegUrl = eventRegUrl;
     }
 
-    public boolean isExpanded() {
-        return expanded;
+    public String getEventDescription() {
+        return eventDescription;
     }
 
-    public void setExpanded(boolean expanded) {
-        this.expanded = expanded;
+    public void setEventDescription(String eventDescription) {
+        this.eventDescription = eventDescription;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }
