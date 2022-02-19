@@ -85,8 +85,12 @@ public class MainActivity extends AppCompatActivity {
         v1.getUser_Read("firebase");
         v1.getUser_Check_User_Read("firebase");
         v1.getLike_Read("post_id");
-        v1.PostUser("Rohit","kamal","9680382601","yadavrohit1411@gmail.com","RohitYadav","yadav1411","https://www.pexels.com/photo/a-photography-of-a-man-standing-on-a-tree-3680219/");
+     //  https://www.pexels.com/photo/a-photography-of-a-man-standing-on-a-tree-3680219/
+      v1.PostUser("ab1234","Jaipur"
+                ,"95935454643","ab@gmail.com","Rohit","yadavrohi23"," https://www.pexels.com/photo/a-photography-of-a-man-standing-on-a-tree-3680219/");
         // v1.imageFeedcreate("https://www.pexels.com/photo/a-photography-of-a-man-standing-on-a-tree-3680219/","Rohit","Jaipur");
+       v1.PutUser("ab1234","Rohit Yadav"
+               ,"9680382","rohit1411@gmail.com","Rohit  Yadav","yadav11","https://www.pexels.com/photo/a-photography-of-a-man-standing-on-a-tree-3680219/");
 
 
 

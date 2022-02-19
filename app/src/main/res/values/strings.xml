@@ -6,5 +6,10 @@
     <string name="designation">Designation</string>
     <string name="app">App Team</string>
     <string name="team_name">Team Name</string>
+    <string name="home">Home</string>
+    <string name="all_quizzes">All Quizzes</string>
+    <string name="all_events_and_workshops">All Events and Workshops</string>
+    <string name="blind_date">Blind Date</string>
+    <string name="view_profile">View Profile</string>
 
 </resources>

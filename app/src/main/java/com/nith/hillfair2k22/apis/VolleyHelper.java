@@ -568,18 +568,77 @@ public class VolleyHelper {
 //    final String title, final String description, final String startTime, final String endTime,final String clubName,final String platform,final String image,final String regUrl,final int type
 
     public void PostUser(String firebase, String username, String phone, String email, String name, String instagramId, String profileImage) {
+     if(firebase.isEmpty()){
+         Toast.makeText(context,"plis fill all the details",Toast.LENGTH_SHORT).show();
+         Log.e("empty","plis fill details");
+     }
+     else if(username.isEmpty()){
+         Log.e("emptyuser","fill user name");
+
+     }
+     else if(phone.isEmpty()){
+         Log.e("empty phone","fill phone no");
+     }
+     else if(email.isEmpty()){
+         Log.e("empty email","fill email");
+     }
+     else if(name.isEmpty()){
+         Log.e("name","plis fill name");
+     }
+     else if(instagramId.isEmpty()){
+         Log.e("emptyInsta","fill insta");
+     }
+     else if(profileImage.isEmpty()){
+         Log.e("No Profile","Upload profile image");
+     }
+      else {
+         StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://anmolcoder.pythonanywhere.com/user/", new Response.Listener<String>() {
+             @Override
+             public void onResponse(String response) {
+                 Log.e("postevents", String.valueOf(response));
+             }
+         },
+                 new Response.ErrorListener() {
+                     @Override
+                     public void onErrorResponse(VolleyError error) {
+                         Log.e("RErrorPost", error.toString());
+                     }
+                 }) {
+             @Nullable
+             @Override
+             protected Map<String, String> getParams() throws AuthFailureError {
+                 Map<String, String> params = new HashMap<String, String>();
+                 params.put("firebase", firebase);
+                 params.put("username", username);
+                 params.put("phone", phone);
+                 params.put("email", email);
+                 params.put("name", name);
+                 params.put("instagramId", instagramId);
+                 params.put("profileImage", profileImage);
+
+                 return params;
 
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://anmolcoder.pythonanywhere.com/user/", new Response.Listener<String>() {
+             }
+         };
+         requestQueue.add(stringRequest);
+     }
+
+    }
+
+    public void PutUser(String firebase, String username, String phone, String email, String name, String instagramId, String profileImage) {
+
+
+        StringRequest stringRequest = new StringRequest(Request.Method.PUT, "https://anmolcoder.pythonanywhere.com/user/"+firebase, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Log.e("postevents", String.valueOf(response));
+                Log.e("PutUserdetails", String.valueOf(response));
             }
         },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Log.e("RErrorPost", error.toString());
+                        Log.e("ErrorUserPut", error.toString());
                     }
                 }) {
             @Nullable
@@ -593,8 +652,7 @@ public class VolleyHelper {
                 params.put("name", name);
                 params.put("instagramId", instagramId);
                 params.put("profileImage", profileImage);
-                //  params.put("regUrl",regUrl);
-                // params.put("type",String.valueOf(type));
+
                 return params;
 
 
@@ -604,6 +662,30 @@ public class VolleyHelper {
 
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //       public void imageFeedcreate(String  photo , String text , String location){
 //        StringRequest stringRequest = new StringRequest(Request.Method.POST, "https://anmolcoder.pythonanywhere.com/imagefeed/", new Response.Listener<String>() {
 //            @Override
