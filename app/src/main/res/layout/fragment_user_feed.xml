@@ -18,7 +18,7 @@
         tools:listitem="@layout/item_user_feed" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btn_team_sponsor"
+        android:id="@+id/btn_add_new_post"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="30dp"

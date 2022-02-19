@@ -24,7 +24,6 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-
             android:layout_height="match_parent"
             android:orientation="vertical">
 
@@ -34,7 +33,7 @@
                 android:layout_marginTop="10dp">
 
                 <ImageView
-                    android:id="@+id/user_icon"
+                    android:id="@+id/user_comment_profile_image"
                     android:layout_width="45dp"
                     android:layout_height="45dp"
                     android:layout_marginStart="25dp"
@@ -49,10 +48,11 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="10dp"
-                    android:layout_toEndOf="@+id/user_icon"
+                    android:layout_toEndOf="@+id/user_comment_profile_image"
                     android:text="user_name" />
 
                 <ImageView
+                    android:id="@+id/user_comment_more_icon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
@@ -82,7 +82,7 @@
                     app:cardCornerRadius="24dp">
 
                     <ImageView
-                        android:id="@+id/posted_image"
+                        android:id="@+id/user_comment_posted_image"
                         android:layout_width="match_parent"
                         android:layout_height="138dp"
                         android:adjustViewBounds="true"
@@ -99,7 +99,7 @@
                     android:layout_marginTop="7dp">
 
                     <TextView
-                        android:id="@+id/caption_goe"
+                        android:id="@+id/user_comment_caption_goe"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
@@ -111,7 +111,7 @@
                         android:textSize="14sp" />
 
                     <ImageView
-                        android:id="@+id/messageicon"
+                        android:id="@+id/user_comment_message_icon"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
@@ -122,7 +122,7 @@
                         android:id="@+id/heart_icon"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_toStartOf="@+id/messageicon"
+                        android:layout_toStartOf="@+id/user_comment_message_icon"
                         android:padding="8dp"
                         android:src="@drawable/vector" />
 
@@ -135,7 +135,7 @@
                     android:layout_marginBottom="20dp">
 
                     <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/recyclerView2"
+                        android:id="@+id/user_comment_recyclerview"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_above="@+id/comment_section"
@@ -158,11 +158,11 @@
                             android:background="@drawable/user_feed_comment_outline">
 
                             <EditText
-                                android:id="@+id/cost_of_service"
+                                android:id="@+id/user_comment_write_your_comment"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_centerVertical="true"
-                                android:layout_toStartOf="@+id/post"
+                                android:layout_toStartOf="@+id/user_comment_post_comment_icon"
                                 android:backgroundTint="#DBB05E"
                                 android:gravity="start"
                                 android:hint="Write your comment"
@@ -173,7 +173,7 @@
                                 />
 
                             <ImageView
-                                android:id="@+id/post"
+                                android:id="@+id/user_comment_post_comment_icon"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentEnd="true"
@@ -191,6 +191,7 @@
             </LinearLayout>
 
         </LinearLayout>
+
     </com.google.android.material.card.MaterialCardView>
 
 </FrameLayout>

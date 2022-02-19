@@ -7,16 +7,21 @@
     android:layout_marginTop="10dp"
     app:cardBackgroundColor="#DBB05E"
     android:padding="10dp">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <TextView
+            android:id="@+id/user_comment_user_name_in_comment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="7dp"
             android:text="Username"/>
+
         <TextView
+            android:id="@+id/user_comment_comment_in_comment_section"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="7dp"
@@ -30,6 +35,7 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/line_3"
             />
+
     </LinearLayout>
 
 </com.google.android.material.card.MaterialCardView>

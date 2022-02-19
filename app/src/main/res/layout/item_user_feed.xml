@@ -15,7 +15,6 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-
         android:layout_height="match_parent"
         android:orientation="vertical">
 
@@ -26,7 +25,7 @@
             >
 
             <ImageView
-                android:id="@+id/user_icon"
+                android:id="@+id/user_feed_profile_image"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
                 android:layout_marginStart="25dp"
@@ -36,15 +35,16 @@
                 android:background="@drawable/user_icon_view" />
 
             <TextView
-                android:id="@+id/user_name"
+                android:id="@+id/user_feed_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="10dp"
-                android:layout_toEndOf="@+id/user_icon"
+                android:layout_toEndOf="@+id/user_feed_profile_image"
                 android:text="user_name" />
 
             <ImageView
+                android:id="@+id/user_feed_more"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -82,7 +82,7 @@
                 app:cardCornerRadius="24dp">
 
                 <ImageView
-                    android:id="@+id/posted_image"
+                    android:id="@+id/user_feed_posted_image"
                     android:layout_width="match_parent"
                     android:layout_height="138dp"
                     android:adjustViewBounds="true"
@@ -109,35 +109,36 @@
                 android:layout_marginEnd="22dp">
 
                 <TextView
-                    android:id="@+id/caption_goe"
+                    android:id="@+id/user_feed_caption_goes_here"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="8dp"
                     android:textSize="14sp"
                     android:text="Caption Goes Here"
+                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@+id/user_feed_heart_icon"
                     android:textAppearance="@style/caption_goe"
-                    android:gravity="center_horizontal|center_vertical"
+                    android:gravity="start"
                     />
                 <ImageView
-                    android:id="@+id/messageicon"
+                    android:id="@+id/user_feed_message_icon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:padding="8dp"
                     android:src="@drawable/ic_baseline_message_24"/>
                 <ImageView
+                    android:id="@+id/user_feed_heart_icon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_toStartOf="@+id/messageicon"
+                    android:layout_toStartOf="@+id/user_feed_message_icon"
                     android:padding="8dp"
                     android:src="@drawable/vector"/>
 
             </RelativeLayout>
 
-
-
-
         </LinearLayout>
 
     </LinearLayout>
+
 </com.google.android.material.card.MaterialCardView>
