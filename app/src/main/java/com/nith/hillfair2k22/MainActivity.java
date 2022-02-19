@@ -7,8 +7,10 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.TextView;
 
 import com.nith.hillfair2k22.adapters.TeamAdapter;
+import com.nith.hillfair2k22.adapters.TeamDetailAdapater;
 import com.nith.hillfair2k22.screens.teams.Team;
 import com.nith.hillfair2k22.screens.teams.TeamDetailsActivity;
 
@@ -23,22 +25,24 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
-   private List<Team> mTeamList = new ArrayList<>();
+
+
+public class MainActivity extends AppCompatActivity implements TeamAdapter.OnItemClickListener {
+    public static final String EXTRA_TEAM_NAME="Team_Name";
+   private final List<Team> mTeamList = new ArrayList<>();
    private RecyclerView recyclerView;
    private TeamAdapter teamAdapter;
-   private RecyclerView.LayoutManager layoutManager;
-   private static final String TAG="MainActivity";
+    private static final String TAG="MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_teams);
-
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         addTeamDataFromJSON();
         TeamAdapter teamAdapter = new TeamAdapter(mTeamList, this);
         recyclerView.setAdapter(teamAdapter);
+        teamAdapter.setItemOnClickListener(MainActivity.this);
         StaggeredGridLayoutManager gridLayoutManager =
                 new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
        recyclerView.setLayoutManager(gridLayoutManager);
@@ -62,11 +66,8 @@ public class MainActivity extends AppCompatActivity {
                System.out.println(jsonArray.get(i).toString());
                JSONObject itemObj = jsonArray.getJSONObject(i);
                String teamName = itemObj.getString("Team_Name");
-               String teamMemName=itemObj.getString("Team_mem_Name");
                String  teamImgUrl=itemObj.getString("team image");
-               String teamMemImgUrl=itemObj.getString("team member image");
-               String designation=itemObj.getString("designation");
-               Team teamData = new Team(teamName, teamMemName, teamImgUrl, teamMemImgUrl, designation);
+               Team teamData = new Team(teamName, teamImgUrl);
               mTeamList.add(teamData) ;
 
            }
@@ -91,5 +92,13 @@ public class MainActivity extends AppCompatActivity {
                 inputStream.close();
             }
         } return new String(builder);
+    }
+
+    @Override
+    public void onItemClick(int position) {
+        Intent detailIntent= new Intent(this,TeamDetailsActivity.class);
+        Team clickedItem=mTeamList.get(position);
+        detailIntent.putExtra(EXTRA_TEAM_NAME,clickedItem.getTeam_Name());
+        startActivity(detailIntent);
     }
 }

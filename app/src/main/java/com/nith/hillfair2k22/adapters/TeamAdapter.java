@@ -13,19 +13,20 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.nith.hillfair2k22.R;
 import com.nith.hillfair2k22.screens.teams.Team;
-
 import java.util.List;
 
 public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.MyViewHolder> {
     private OnItemClickListener mListener;
     private final Context context;
-    private List<Team> teamList;
+    private final List<Team> teamList;
 
     public TeamAdapter(List<Team> teamList, Context context) {
         this.teamList = teamList;
         this.context = context;
     }
 
+
+    @NonNull
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(context).inflate(R.layout.item_team, parent, false);
         return new MyViewHolder(itemView);

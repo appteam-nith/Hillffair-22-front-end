@@ -36,7 +36,7 @@
                 android:background="#462609"
                 android:text="@string/team_name"
                 android:textAlignment="center"
-                android:textColor="#DBB05E"
+                android:textColor="@color/imgbg"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

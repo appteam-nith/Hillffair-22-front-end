@@ -2,9 +2,14 @@
     <string name="app_name">Hillfair2k22</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+<!--    Teams String -->
     <string name="name">Name</string>
     <string name="designation">Designation</string>
-    <string name="app">App Team</string>
     <string name="team_name">Team Name</string>
-
+    <!-- bottom_nav_menu.xml resources -->
+    <string name = "home">Home</string>
+    <string name = "all_quizzes">Quizzes</string>
+    <string name = "all_events_and_workshops">Events and Workshops</string>
+    <string name = "blind_date">Blind Date</string>
+    <string name = "view_profile">Profile</string>
 </resources>
