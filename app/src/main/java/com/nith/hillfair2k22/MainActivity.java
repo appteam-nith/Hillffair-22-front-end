@@ -53,6 +53,8 @@ public class MainActivity extends AppCompatActivity implements TeamAdapter.OnIte
            public void onItemClick(int position) {
                mTeamList.get(position);
                Intent intent = new Intent(getApplicationContext(), TeamDetailsActivity.class);
+               // put team name in the intent as extra
+               intent.putExtra(EXTRA_TEAM_NAME, mTeamList.get(position).getTeam_Name());
                startActivity(intent);
            }
        });

@@ -26,7 +26,7 @@ import java.util.List;
 
 public class TeamDetailsActivity<TeamDetailAdapter> extends AppCompatActivity {
     private final List<Team> mTeamDetailList = new ArrayList<>();
-    private static final String TAG="MainActivity";
+    private static final String TAG = "TeamDetailsActivity";
 
 
     @Override
@@ -34,10 +34,10 @@ public class TeamDetailsActivity<TeamDetailAdapter> extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team_details);
         RecyclerView recyclerView = findViewById(R.id.teamsDRV);
-//        Intent intent=getIntent();                               //39-42 for team name on activity detail screen
-//        String Team_Name=intent.getStringExtra(EXTRA_TEAM_NAME);
-//        TextView textViewTeamName=findViewById(R.id.team_name1);
-//        textViewTeamName.setText(Team_Name);
+        Intent intent = getIntent();
+        String Team_Name = intent.getStringExtra(EXTRA_TEAM_NAME);
+        TextView textViewTeamName = findViewById(R.id.team_name1);
+        textViewTeamName.setText(Team_Name);
 
         TeamDetailAdapter teamDetailAdapter = (TeamDetailAdapter) new TeamDetailAdapater(mTeamDetailList, this);
         recyclerView.setAdapter((RecyclerView.Adapter<RecyclerView.ViewHolder>) teamDetailAdapter);
@@ -53,12 +53,12 @@ public class TeamDetailsActivity<TeamDetailAdapter> extends AppCompatActivity {
             for(int i=0 ; i< jsonArray.length();++i){
                 System.out.println(jsonArray.get(i).toString());
                 JSONObject itemObj1 = jsonArray.getJSONObject(i);
-                String  teamImage=itemObj1.getString("team image");
-                String team_Name=itemObj1.getString("Team_Name");
-                String teamMemName=itemObj1.getString("Team_mem_Name");
-                String teamMemImgUrl=itemObj1.getString("team member image");
-                String designation=itemObj1.getString("designation");
-                Team teamDetailData = new Team(teamImage,team_Name, teamMemName, teamMemImgUrl, designation);
+                String teamImage = itemObj1.getString("team image");
+                String team_Name = itemObj1.getString("Team_Name");
+                String teamMemName = itemObj1.getString("Team_mem_Name");
+                String teamMemImgUrl = itemObj1.getString("team member image");
+                String designation = itemObj1.getString("designation");
+                Team teamDetailData = new Team(team_Name, teamImage, teamMemName, designation, teamMemImgUrl);
                 mTeamDetailList.add(teamDetailData) ;
 
             }
