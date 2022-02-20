@@ -14,7 +14,8 @@
             android:exported="false" />
         <activity
             android:name=".screens.account.ForgotPasswordActivity"
-            android:exported="false" />
+            android:exported="false">
+        </activity>
         <activity
             android:name=".screens.account.LoginActivity"
             android:exported="false" />
