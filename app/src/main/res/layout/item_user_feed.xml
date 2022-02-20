@@ -32,7 +32,8 @@
                 android:layout_marginTop="7dp"
                 android:layout_marginEnd="7dp"
                 android:layout_marginBottom="7dp"
-                android:background="@drawable/user_icon_view" />
+                android:background="@drawable/user_icon_view"
+                android:contentDescription="User profile image" />
 
             <TextView
                 android:id="@+id/user_feed_name"
@@ -50,7 +51,8 @@
                 android:layout_alignParentEnd="true"
                 android:padding="15dp"
                 android:layout_marginEnd="22dp"
-                android:src="@drawable/ic_baseline_more_horiz_24" />
+                android:src="@drawable/ic_baseline_more_horiz_24"
+                android:contentDescription="more option"/>
 
 
         </RelativeLayout>
@@ -88,7 +90,8 @@
                     android:adjustViewBounds="true"
                     android:background="#F9FAF6"
                     android:elevation="20dp"
-                    android:scaleType="centerCrop" />
+                    android:scaleType="centerCrop"
+                    android:contentDescription="user post"/>
 
             </com.google.android.material.card.MaterialCardView>
             <View
@@ -126,14 +129,17 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:padding="8dp"
-                    android:src="@drawable/ic_baseline_message_24"/>
+                    android:src="@drawable/ic_baseline_message_24"
+                    android:contentDescription="comments button"/>
+
                 <ImageView
                     android:id="@+id/user_feed_heart_icon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_toStartOf="@+id/user_feed_message_icon"
                     android:padding="8dp"
-                    android:src="@drawable/vector"/>
+                    android:src="@drawable/vector"
+                    android:contentDescription="like button"/>
 
             </RelativeLayout>
 
