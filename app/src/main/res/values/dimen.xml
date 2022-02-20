@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+
+    <!-- main xml dimens -->
+
+        <!--fragment frame layout dimens -->
+        <dimen name="fragment_frame_layout_width">0dp</dimen>
+        <dimen name="fragment_frame_layout_height">0dp</dimen>
+
+        <!-- Navigation bar dimens -->
+        <dimen name="navigation_bar_width">0dp</dimen>
+        <dimen name="navigation_margin_from_start">0dp</dimen>
+        <dimen name="navigation_margin_from_end">0dp</dimen>
+</resources>
