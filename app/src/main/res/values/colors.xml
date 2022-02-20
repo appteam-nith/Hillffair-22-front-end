@@ -9,6 +9,7 @@
     <color name="white">#FFFFFFFF</color>
 
 
+
     //colors used for card and bg
     <color name="item_card_bg">#E7CC9D </color>
     <color name="item_card"> #DDBB7D</color>
@@ -17,4 +18,21 @@
     <color name="register">#462609</color>
     <color name="btn_all_events">#E7CC9D</color>
 <color name="bg_event_details">#DEC699</color>
+
+    <color name="item_signup_text_color">#c37332</color>
+    <color name="item_signup_bg_color">#DBB05E</color>
+    <color name="background_color">#DEC699</color>
+    <color name="button_text_color">#DBB05E</color>
+    <color name="et_text_color">#462609</color>
+
+    <color name="brown">#462609</color>
+    <color name="imgbg">#DBB05E</color>
+
+
+
+    <!-- Navigation bar colors-->
+    <color name="bottom_navigation_background">#462609</color>
+    <color name ="bottom_navigation_icon_color">#E7CC9D</color>
+
+
 </resources>
