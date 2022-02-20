@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.nith.hillfair2k22.R;
 import com.nith.hillfair2k22.screens.teams.Team;
+import com.nith.hillfair2k22.screens.teams.TeamsFragment;
 
 import java.util.List;
 
@@ -25,6 +26,7 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.MyViewHolder> 
         this.teamList = teamList;
         this.context = context;
     }
+
 
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(context).inflate(R.layout.item_team, parent, false);
