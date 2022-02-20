@@ -5,8 +5,14 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.nith.hillfair2k22.screens.account.EditProfileActivity;
+import com.nith.hillfair2k22.screens.account.LoginActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.nith.hillfair2k22.screens.account.ViewProfileFragment;
@@ -17,10 +23,19 @@ import com.nith.hillfair2k22.screens.quiz.AllQuizzesFragment;
 
 public class MainActivity extends AppCompatActivity {
     private Button button;
+    private FirebaseAuth auth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        auth = FirebaseAuth.getInstance();
+        if (auth.getCurrentUser() == null) {
+            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            finish();
+        }
+
         button =(Button) findViewById(R.id.button);
 
         replaceFragment(new UserFeedFragment());
