@@ -10,6 +10,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.nith.hillfair2k22.screens.eventsAndWorkshops.AllEventsAndWorkshopsFragment;
+import com.nith.hillfair2k22.screens.eventsAndWorkshops.EventAndWorkshopDetailsFragment;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.nith.hillfair2k22.screens.account.EditProfileActivity;
 import com.nith.hillfair2k22.screens.account.LoginActivity;
@@ -30,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
-
         auth = FirebaseAuth.getInstance();
         if (auth.getCurrentUser() == null) {
             startActivity(new Intent(MainActivity.this, LoginActivity.class));
