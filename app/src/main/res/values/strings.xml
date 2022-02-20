@@ -2,16 +2,11 @@
     <string name="app_name">Hillfair2k22</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="name">Name</string>
-    <string name="designation">Designation</string>
-    <string name="app">App Team</string>
-    <string name="team_name">Team Name</string>
+    <string name="button">Button</string>
 
-    // bottom navbar
-    <string name="bottom_nav_home">Home</string>
-    <string name="bottom_nav_quiz">Quiz</string>
-    <string name="bottom_nav_events_and_workshop">Events</string>
-    <string name="bottom_nav_blind_date">Blind Date</string>
-    <string name="bottom_nav_profile">Profile</string>
-
+    <!-- user_feed resources-->
+    <style name="caption_goe">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#000000</item>
+    </style>
 </resources>
