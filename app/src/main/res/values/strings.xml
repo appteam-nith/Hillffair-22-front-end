@@ -7,4 +7,11 @@
     <string name="app">App Team</string>
     <string name="team_name">Team Name</string>
 
+    // bottom navbar
+    <string name="bottom_nav_home">Home</string>
+    <string name="bottom_nav_quiz">Quiz</string>
+    <string name="bottom_nav_events_and_workshop">Events</string>
+    <string name="bottom_nav_blind_date">Blind Date</string>
+    <string name="bottom_nav_profile">Profile</string>
+
 </resources>

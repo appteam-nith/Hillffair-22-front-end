@@ -435,7 +435,7 @@ public class VolleyHelper {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         NetworkResponse networkResponse = error.networkResponse;
-                        Log.e("er", String.valueOf(networkResponse.data));
+                        Log.e("er", String.valueOf(networkResponse));
                     }
                 });
         requestQueue.add(jsonObjectRequest);
