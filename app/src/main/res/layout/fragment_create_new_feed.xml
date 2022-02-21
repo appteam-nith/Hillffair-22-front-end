@@ -1,14 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#E7CC9D"
     tools:context=".screens.home.CreateNewFeedFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <ImageView
+        android:id="@+id/user_post_back_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/bx_arrow_back_svg"
+        android:layout_marginTop="12dp"
+        android:layout_marginStart="12dp"
+        android:contentDescription="back button"/>
 
-</FrameLayout>
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:elevation="20dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="115dp"
+        app:cardBackgroundColor="#DBB05E"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="20dp"
+        android:padding="12dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="2dp"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:layout_marginTop="10dp">
+
+                <ImageView
+                    android:id="@+id/user_post_user_profile_icon"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginEnd="7dp"
+                    android:layout_marginBottom="7dp"
+                    android:background="@drawable/user_icon_view"
+                    android:contentDescription="user profile picture"/>
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="22dp"
+                    android:background="@drawable/user_feed_caption_outline"
+                    android:layout_toEndOf="@+id/user_post_user_profile_icon">
+
+                    <EditText
+                        android:id="@+id/user_post_captions"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="start"
+                        android:hint="Captions"
+                        android:backgroundTint="#DBB05E"
+                        android:inputType="textCapSentences|textMultiLine"
+                        android:padding="10dp"
+                        android:singleLine="true" />
+
+                </FrameLayout>
+
+            </RelativeLayout>
+
+
+
+            <ImageView
+                android:id="@+id/user_post_image_upload"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginEnd="7dp"
+                android:layout_marginBottom="7dp"
+                android:background="@drawable/user_post_image_outline"
+                android:src="@drawable/ic_add"
+                android:contentDescription="add picture placeholder"/>
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btn_user_post_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="24dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:backgroundTint="#DBB05E"
+        android:elevation="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        app:srcCompat="@drawable/user_feed_send_icon"
+        android:contentDescription="post user feed button"/>
+
+</RelativeLayout>
