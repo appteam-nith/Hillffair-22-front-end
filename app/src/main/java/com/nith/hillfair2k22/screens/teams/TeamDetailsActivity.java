@@ -1,9 +1,5 @@
 package com.nith.hillfair2k22.screens.teams;
-
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
 import static com.nith.hillfair2k22.screens.teams.TeamsFragment.EXTRA_TEAM_NAME;
-
-import static java.security.AccessController.getContext;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
@@ -24,7 +20,8 @@ import java.io.InputStreamReader;
 import com.nith.hillfair2k22.adapters.TeamDetailAdapter;
 import java.util.ArrayList;
 import java.util.List;
-public class TeamDetailsActivity<TeamDetailAdapter> extends AppCompatActivity {
+
+public class TeamDetailsActivity extends AppCompatActivity {
     private final List<TeamDetail> mTeamDetailList = new ArrayList<>();
     private static final String TAG = "TeamDetailsActivity";
 
@@ -39,8 +36,8 @@ public class TeamDetailsActivity<TeamDetailAdapter> extends AppCompatActivity {
         TextView textViewTeamName = findViewById(R.id.team_name1);
         textViewTeamName.setText(Team_Name);
 
-//        TeamDetailAdapter teamDetailAdapter =(TeamDetailAdapter) new TeamDetailAdapter(mTeamDetailList,this);
-//        recyclerView.setAdapter((RecyclerView.Adapter<RecyclerView.ViewHolder>) teamDetailAdapter);
+        TeamDetailAdapter teamDetailAdapter =(TeamDetailAdapter) new TeamDetailAdapter(mTeamDetailList,this);
+        recyclerView.setAdapter(teamDetailAdapter);
         StaggeredGridLayoutManager gridLayoutManager =
                 new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(gridLayoutManager);
