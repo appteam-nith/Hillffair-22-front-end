@@ -115,14 +115,13 @@
                     android:id="@+id/user_feed_caption_goes_here"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:padding="8dp"
-                    android:textSize="14sp"
-                    android:text="Caption Goes Here"
                     android:layout_alignParentStart="true"
                     android:layout_toStartOf="@+id/user_feed_heart_icon"
-                    android:textAppearance="@style/caption_goe"
                     android:gravity="start"
-                    />
+                    android:padding="8dp"
+                    android:text="Caption Goes Here"
+                    android:textAppearance="@style/caption_goe"
+                    android:textSize="14sp" />
                 <ImageView
                     android:id="@+id/user_feed_message_icon"
                     android:layout_width="wrap_content"
