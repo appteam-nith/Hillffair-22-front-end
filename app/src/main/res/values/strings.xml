@@ -33,4 +33,8 @@
     <string name="don_t_have_an_accout_sign_up_here">Don\'t have an accout? Sign up here</string>
     <string name="sign_up">Sign Up</string>
 
+
+    <string name="event_name">Treasure hunt event </string>
+    <string name="club_name">English Club</string>
+
 </resources>
