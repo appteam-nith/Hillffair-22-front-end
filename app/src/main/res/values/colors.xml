@@ -15,5 +15,17 @@
     <!-- Navigation bar colors-->
     <color name="bottom_navigation_background">#462609</color>
     <color name ="bottom_navigation_icon_color">#E7CC9D</color>
+    //colors used for card and bg
+    <color name="item_card_bg">#E7CC9D </color>
+    <color name="item_card"> #DDBB7D</color>
+    <color name="tab_top_event_workshop">#462609 </color>
+    <color name="tab_event">#DBB05E</color>
+    <color name="register">#462609</color>
+    <color name="btn_all_events">#E7CC9D</color>
+    <color name="bg_event_details">#DEC699</color>
+    <color name="option_quiz">#D7AE64</color>
+    <color name="correct_incorrect">#DBB05E</color>
+    <color name="correct">#14AF2D</color>
+    <color name="Incorrect">#FF3D00</color>
 
 </resources>
