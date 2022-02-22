@@ -62,7 +62,7 @@ public class TeamsFragment extends Fragment implements TeamAdapter.OnItemClickLi
                 System.out.println(jsonArray.get(i).toString());
                 JSONObject itemObj = jsonArray.getJSONObject(i);
                 String teamName = itemObj.getString("Team_Name");
-                String  teamImgUrl=itemObj.getString("team image");
+                String  teamImgUrl=itemObj.getString("team_image");
                 Team teamData = new Team(teamName, teamImgUrl);
                 mTeamList.add(teamData) ;
 

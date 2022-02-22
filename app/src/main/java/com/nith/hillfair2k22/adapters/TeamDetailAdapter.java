@@ -35,7 +35,6 @@ public class TeamDetailAdapter extends RecyclerView.Adapter<TeamDetailAdapter.My
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder detailholder, int position) {
         TeamDetail teamDetail = teamDetailList.get(position);
-       detailholder.teamNameTextView.setText(teamDetail.getTeam_Name1());
         detailholder.teamMemImageView.setImageURI(Uri.parse(teamDetail.getTeam_mem_Img()));
         detailholder.teamMemName.setText(teamDetail.getTeam_Member_Name());
         detailholder.memDesignation.setText(teamDetail.getDesignation());
