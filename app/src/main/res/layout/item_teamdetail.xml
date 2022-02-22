@@ -69,11 +69,12 @@
 
                 <TextView
                     android:id="@+id/designation"
-                    android:layout_width="54dp"
+                    android:layout_width="match_parent"
                     android:layout_height="18dp"
                     android:text="@string/designation"
                     android:textColor="@color/brown"
                     android:textSize="10sp"
+                    android:textAlignment="center"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.495"
