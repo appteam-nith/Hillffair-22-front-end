@@ -14,4 +14,8 @@
     <string name="bottom_nav_blind_date">Blind Date</string>
     <string name="bottom_nav_profile">Profile</string>
 
+
+    <string name="event_name">Treasure hunt event </string>
+    <string name="club_name">English Club</string>
+
 </resources>
