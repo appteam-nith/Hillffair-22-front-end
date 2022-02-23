@@ -6,6 +6,7 @@
     <string name="designation">Designation</string>
     <string name="app">App Team</string>
     <string name="team_name">Team Name</string>
+    <integer name="score">100</integer>
 
     // bottom navbar
     <string name="bottom_nav_home">Home</string>
@@ -17,5 +18,26 @@
 
     <string name="event_name">Treasure hunt event </string>
     <string name="club_name">English Club</string>
+    <string name="Event_workshop_details">Title of Workshop</string>
+    <string name="Description">Description</string>
+    <string name="Register">Register</string>
+    <string name="TODO">TODO</string>
+    <string name="Sponsors">Sponsors</string>
+    <string name="sponsors">Sponsors</string>
+
+    <string name="April">April</string>
+    <string name="Quiz">Quiz</string>
+    <string name="Name_leaderboard">Name</string>
+    <string name="Leaderboard">Leaderboard</string>
+    <string name="_100">100</string>
+    <string name="_1000">1000</string>
+    <string name="option_A">A.</string>
+    <string name="option_B">B.</string>
+    <string name="option_C">C.</string>
+    <string name="option_D">D.</string>
+    <string name="Correct">Correct</string>
+    <string name="Incorrect">Incorrect</string>
+    <string name="question">Question:</string>
+    <string name="Next_Submit">Next/Submit</string>
 
 </resources>
