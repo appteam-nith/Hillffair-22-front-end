@@ -29,11 +29,10 @@ import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter;
 import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter;
 
 
- */
+
 public class EventsFragment extends Fragment {
 
     private RecyclerView eventsRV;
-    private FloatingActionButton eventFab,teamsFab,sponsorsFab;
 
     private EventAdapter eventsAdapter;
     private ArrayList<Events> eventsModalArrayList;
@@ -94,6 +93,6 @@ public class EventsFragment extends Fragment {
 
     private void getEventData() {
         for (int i = 0; i < 19; i++) {
-            eventsModalArrayList.add(new Events("Treasure Hunt Event", "04 April 2022", "English Club", "regUrl","EventDescription","https://media.geeksforgeeks.org/img-practice/banner/dsa-self-paced-thumbnail.png"));
+            eventsModalArrayList.add(new Events("title","description","starttime","endTime","clubName","platform","https://media.geeksforgeeks.org/img-practice/banner/dsa-self-paced-thumbnail.png","regUrl",1));
         }
     }}

@@ -51,7 +51,7 @@ public class WorkshopFragment extends Fragment {
 
     private void getWorkshopData() {
         for (int i=0;i<19; i++){
-            workshopsModalArrayList.add(new Events());
+            workshopsModalArrayList.add(new Events("title","description","starttime","endTime","clubName","platform","img","regUrl",1));
 
         }
     }

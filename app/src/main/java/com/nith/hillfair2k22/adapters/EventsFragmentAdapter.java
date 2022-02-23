@@ -9,7 +9,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import com.nith.hillfair2k22.screens.eventsAndWorkshops.EventsFragment;
 import com.nith.hillfair2k22.screens.eventsAndWorkshops.WorkshopFragment;
 
-public class EventsFragmentAdapter {
+public class EventsFragmentAdapter extends FragmentStateAdapter{
 
     public EventsFragmentAdapter(@NonNull FragmentManager fragmentManager, @NonNull Lifecycle lifecycle) {
         super(fragmentManager, lifecycle);

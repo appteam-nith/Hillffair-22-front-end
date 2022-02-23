@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.nith.hillfair2k22.R;
+import com.nith.hillfair2k22.adapters.EventsFragmentAdapter;
 import com.nith.hillfair2k22.screens.sponsors.SponsorsFragment;
 import com.nith.hillfair2k22.screens.teams.TeamsFragment;
 
@@ -31,6 +32,7 @@ public class AllEventsAndWorkshopsFragment extends Fragment {
     private FloatingActionButton eventFab, teamsFab, sponsorsFab;
 
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -43,7 +45,7 @@ public class AllEventsAndWorkshopsFragment extends Fragment {
         teamsFab = view.findViewById(R.id.btn_teams);
         sponsorsFab = view.findViewById(R.id.btn_sponsors);
 
-        ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
+
 
 
         eventTabLayout = view.findViewById(R.id.events_tab_layout);
@@ -114,11 +116,12 @@ public class AllEventsAndWorkshopsFragment extends Fragment {
     }
 
 
+
     private void changeFragment(Fragment fragment) {
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         //TODO : replace id
-        fragmentTransaction.replace(R.id.frameLayout, fragment);
+        fragmentTransaction.replace(R.id.all_events_workshop_RL, fragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
 

@@ -32,9 +32,8 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
     @NonNull
     @Override
     public EventViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-//        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_all_event_workshops, parent, false);
-//        return new EventViewHolder(view);
-        return null;
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_all_events_workshops, parent, false);
+        return new EventViewHolder(view);
     }
 
     @Override
@@ -60,7 +59,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
 
         AppCompatActivity activity = (AppCompatActivity) view.getContext();
         //TODO: replace id
-//        activity.getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, fragment).addToBackStack(null).commit();
+        activity.getSupportFragmentManager().beginTransaction().replace(R.id.all_events_workshop_RL, fragment).addToBackStack(null).commit();
 
         Bundle bundle = new Bundle();
         bundle.putString("Title", events.getTitle());
@@ -84,11 +83,11 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
         public EventViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            // initialize views with ids.
-//            eventTitle = itemView.findViewById(R.id.Event_name);
-//            clubName = itemView.findViewById(R.id.Club_name);
-//            dateTime = itemView.findViewById(R.id.date_time);
-//            item_CV = itemView.findViewById(R.id.events_RV_item_CV);
+//             initialize views with ids.
+            eventTitle = itemView.findViewById(R.id.Event_name);
+            clubName = itemView.findViewById(R.id.Club_name);
+            dateTime = itemView.findViewById(R.id.date_time);
+            item_CV = itemView.findViewById(R.id.events_RV_item_CV);
         }
     }
 }

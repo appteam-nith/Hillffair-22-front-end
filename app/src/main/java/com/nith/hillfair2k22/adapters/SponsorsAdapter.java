@@ -32,9 +32,8 @@ public class SponsorsAdapter extends RecyclerView.Adapter<SponsorsAdapter.Sponso
     @NonNull
     @Override
     public SponsorsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-//        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_sponsors, parent, false);
-//        return new SponsorsViewHolder(view);
-        return null;
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_sponsors, parent, false);
+        return new SponsorsViewHolder(view);
     }
 
     @Override
@@ -58,8 +57,8 @@ public class SponsorsAdapter extends RecyclerView.Adapter<SponsorsAdapter.Sponso
         public SponsorsViewHolder(@NonNull View itemView) {
             super(itemView);
 
-//            sponsorImage =itemView.findViewById(R.id.sponsors_image);
-//            sponsorDetatils =itemView.findViewById(R.id.sponsors_detailsTV);
+            sponsorImage =itemView.findViewById(R.id.sponsors_IV);
+            sponsorDetatils =itemView.findViewById(R.id.sponsors_detailsTV);
         }
     }
 }
