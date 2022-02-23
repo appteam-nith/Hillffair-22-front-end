@@ -131,14 +131,23 @@
                     android:src="@drawable/ic_baseline_message_24"
                     android:contentDescription="comments button"/>
 
-                <ImageView
-                    android:id="@+id/user_feed_heart_icon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <ToggleButton
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_toStartOf="@+id/user_feed_message_icon"
-                    android:padding="8dp"
-                    android:src="@drawable/vector"
-                    android:contentDescription="like button"/>
+                    android:background="@drawable/toggle_selector"
+
+                    android:textOff=""
+                    android:textOn="" />
+<!--                <ImageView-->
+<!--                    android:id="@+id/user_feed_heart_icon"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_toStartOf="@+id/user_feed_message_icon"-->
+<!--                    android:contentDescription="like button"-->
+<!--                    android:padding="8dp"-->
+<!--                    android:src="@drawable/vector" />-->
+
 
             </RelativeLayout>
 

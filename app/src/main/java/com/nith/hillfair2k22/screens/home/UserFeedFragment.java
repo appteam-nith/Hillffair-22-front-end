@@ -37,15 +37,15 @@ public class UserFeedFragment extends Fragment {
         // Required empty public constructor
     }
 
-    Contact o1=new Contact("a1","b1");
-    Contact o2=new Contact("a1","b1");
-    Contact o3=new Contact("a1","b1");
-    Contact o4=new Contact("a1","b1");
-    Contact o5=new Contact("a1","b1");
-    Contact o6=new Contact("a1","b1");
-    Contact o7=new Contact("a1","b1");
-    Contact o8=new Contact("a1","b1");
-    Contact o9=new Contact("a1","b1");
+    Contact o1=new Contact("name","caption");
+    Contact o2=new Contact("name","caption");
+    Contact o3=new Contact("name","caption");
+    Contact o4=new Contact("name","caption");
+    Contact o5=new Contact("name","caption");
+    Contact o6=new Contact("name","caption");
+    Contact o7=new Contact("name","caption");
+    Contact o8=new Contact("name","caption");
+    Contact o9=new Contact("name","caption");
     Contact [] contacts={o1,o2,o3,o4,o5,o6,o7,o8,o9};
     RecyclerView recyclerView;
 
@@ -76,7 +76,8 @@ public class UserFeedFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
-
+    }
+    public void onCustomToggleClick(View view){
 
     }
 
