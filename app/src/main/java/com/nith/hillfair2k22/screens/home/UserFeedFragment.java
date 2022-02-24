@@ -1,5 +1,6 @@
 package com.nith.hillfair2k22.screens.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,7 +10,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
+import com.nith.hillfair2k22.MainActivity;
 import com.nith.hillfair2k22.R;
 import com.nith.hillfair2k22.adapters.CustomAdapter;
 
@@ -24,14 +27,24 @@ import com.nith.hillfair2k22.adapters.CustomAdapter;
 
 public class UserFeedFragment extends Fragment {
 
+
+
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+    private ImageView imageview;
+    private ImageView imageview2;
+
+
+
+
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    ImageView imageView;
 
     public UserFeedFragment() {
         // Required empty public constructor
@@ -76,6 +89,9 @@ public class UserFeedFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
+
+
+
     }
     public void onCustomToggleClick(View view){
 
@@ -90,7 +106,18 @@ public class UserFeedFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
         CustomAdapter ad=new CustomAdapter(contacts);
         recyclerView.setAdapter(ad);
-        
+        imageview= view.findViewById(R.id.btn_add_new_post);
+
+        imageview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(),CreateNewFeedFragment.class);
+                startActivity(intent);
+            }
+        });
+
+
         return view;
+        
     }
 }
