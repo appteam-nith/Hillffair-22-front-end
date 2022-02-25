@@ -3,62 +3,45 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Akash/Hillffair-22-front-end/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2265" />
-        <entry key="..\:/Users/Akash/Hillffair-22-front-end/app/src/main/res/layout/activity_main.xml" value="0.23229166666666667" />
-        <entry key="..\:/Users/Akash/Hillffair-22-front-end/app/src/main/res/layout/activity_team_details.xml" value="0.2" />
-        <entry key="..\:/Users/Akash/Hillffair-22-front-end/app/src/main/res/layout/fragment_all_events_and_workshops.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/Akash/Hillffair-22-front-end/app/src/main/res/layout/fragment_teams.xml" value="0.2" />
-        <entry key="..\:/Users/Akash/Hillffair-22-front-end/app/src/main/res/layout/item_team.xml" value="0.264" />
-        <entry key="..\:/Users/Akash/Hillffair-22-front-end/app/src/main/res/layout/item_teamdetail.xml" value="0.2" />
-        <entry key="..\:/Users/Akash/Hillffair-22-front-end/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
-        <entry key="..\:/Users/Akash/Hillffair-22-front-end/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2265" />
-        <entry key="..\:/Users/Akash/Hillffair-22-front-end/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2265" />
-        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2855" />
-        <entry key="app/src/main/res/drawable/blind_date.xml" value="0.2855" />
-        <entry key="app/src/main/res/drawable/bx_arrow_back_svg.xml" value="0.2855" />
-        <entry key="app/src/main/res/drawable/custom_button.xml" value="0.2855" />
-        <entry key="app/src/main/res/drawable/custom_text.xml" value="0.2855" />
-        <entry key="app/src/main/res/drawable/events_workshops.xml" value="0.2855" />
-        <entry key="app/src/main/res/drawable/home.xml" value="0.2855" />
-        <entry key="app/src/main/res/drawable/ic_add.xml" value="0.2855" />
-        <entry key="app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.2855" />
-        <entry key="app/src/main/res/drawable/ic_baseline_message_24.xml" value="0.2855" />
-        <entry key="app/src/main/res/drawable/ic_baseline_more_horiz_24.xml" value="0.2855" />
-        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.2855" />
-        <entry key="app/src/main/res/drawable/like_fill.xml" value="0.1" />
-        <entry key="app/src/main/res/drawable/line_3.xml" value="0.2855" />
-        <entry key="app/src/main/res/drawable/profile.xml" value="0.2855" />
-        <entry key="app/src/main/res/drawable/quizzes.xml" value="0.2855" />
-        <entry key="app/src/main/res/drawable/toggle_selector.xml" value="0.2855" />
-        <entry key="app/src/main/res/drawable/user_feed_caption_outline.xml" value="0.2855" />
-        <entry key="app/src/main/res/drawable/user_feed_comment_outline.xml" value="0.2855" />
-        <entry key="app/src/main/res/drawable/user_feed_send_icon.xml" value="0.2855" />
-        <entry key="app/src/main/res/drawable/user_icon_view.xml" value="0.1315" />
-        <entry key="app/src/main/res/drawable/user_post_image_outline.xml" value="0.2855" />
-        <entry key="app/src/main/res/drawable/vector.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_create_new_feed.xml" value="0.19610507246376813" />
+        <entry key="..\:/Hillffair-22-front-end/app/src/main/res/drawable/events_tab.xml" value="0.1945" />
+        <entry key="..\:/Hillffair-22-front-end/app/src/main/res/drawable/item_event_workshop_card.xml" value="0.1945" />
+        <entry key="..\:/Hillffair-22-front-end/app/src/main/res/drawable/sponsors_top_tab.xml" value="0.1945" />
+        <entry key="..\:/Hillffair-22-front-end/app/src/main/res/drawable/tab_indicator.xml" value="0.1945" />
+        <entry key="..\:/Hillffair-22-front-end/app/src/main/res/layout/activity_play_quiz.xml" value="0.20416666666666666" />
+        <entry key="..\:/Hillffair-22-front-end/app/src/main/res/layout/activity_team_details.xml" value="0.20416666666666666" />
+        <entry key="..\:/Hillffair-22-front-end/app/src/main/res/layout/fragment_all_events_and_workshops.xml" value="0.20416666666666666" />
+        <entry key="..\:/Hillffair-22-front-end/app/src/main/res/layout/fragment_event_and_workshop_details.xml" value="0.20416666666666666" />
+        <entry key="..\:/Hillffair-22-front-end/app/src/main/res/layout/fragment_quiz_standings.xml" value="0.20416666666666666" />
+        <entry key="..\:/Hillffair-22-front-end/app/src/main/res/layout/list_all_events_workshops.xml" value="0.20416666666666666" />
+        <entry key="..\:/Hillffair-22-front-end/app/src/main/res/layout/list_item_sponsors.xml" value="0.20416666666666666" />
+        <entry key="..\:/Hillffair-22-front-end/app/src/main/res/layout/list_quiz_item.xml" value="0.20416666666666666" />
+        <entry key="app/src/main/res/drawable/custom_button.xml" value="0.273" />
+        <entry key="app/src/main/res/drawable/custom_text.xml" value="0.2305" />
+        <entry key="app/src/main/res/drawable/events_tab.xml" value="0.231" />
+        <entry key="app/src/main/res/drawable/ic_baseline_more_vert_24.xml" value="0.1315" />
+        <entry key="app/src/main/res/drawable/tab_indicator.xml" value="0.13" />
         <entry key="app/src/main/res/layout/activity_forgot_password.xml" value="0.3111413043478261" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.30520833333333336" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.3507692307692308" />
         <entry key="app/src/main/res/layout/activity_play_quiz.xml" value="0.3111413043478261" />
         <entry key="app/src/main/res/layout/activity_signup.xml" value="0.3111413043478261" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.3111413043478261" />
         <entry key="app/src/main/res/layout/activity_team_details.xml" value="0.3111413043478261" />
+        <entry key="app/src/main/res/layout/buttons.xml" value="0.2947916666666667" />
         <entry key="app/src/main/res/layout/fragment_all_events_and_workshops.xml" value="0.3111413043478261" />
         <entry key="app/src/main/res/layout/fragment_all_quizzes.xml" value="0.30520833333333336" />
         <entry key="app/src/main/res/layout/fragment_blind_date.xml" value="0.19610507246376813" />
         <entry key="app/src/main/res/layout/fragment_comment_user_feed.xml" value="0.19610507246376813" />
         <entry key="app/src/main/res/layout/fragment_create_new_feed.xml" value="0.3111413043478261" />
-        <entry key="app/src/main/res/layout/fragment_event_and_workshop_details.xml" value="0.19610507246376813" />
+        <entry key="app/src/main/res/layout/fragment_event_and_workshop_details.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_events.xml" value="0.3507692307692308" />
         <entry key="app/src/main/res/layout/fragment_quiz_standings.xml" value="0.3111413043478261" />
-        <entry key="app/src/main/res/layout/fragment_teams.xml" value="0.19610507246376813" />
+        <entry key="app/src/main/res/layout/fragment_sponsors.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_user_feed.xml" value="0.30520833333333336" />
-        <entry key="app/src/main/res/layout/fragment_view_profile.xml" value="0.19610507246376813" />
-        <entry key="app/src/main/res/layout/item_comment_user_feed.xml" value="0.19610507246376813" />
-        <entry key="app/src/main/res/layout/item_team.xml" value="0.19610507246376813" />
-        <entry key="app/src/main/res/layout/item_teamdetail.xml" value="0.19610507246376813" />
-        <entry key="app/src/main/res/layout/item_user_feed.xml" value="0.19610507246376813" />
-        <entry key="app/src/main/res/layout/textfields.xml" value="0.23867753623188406" />
-        <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_workshop.xml" value="0.3507692307692308" />
+        <entry key="app/src/main/res/layout/list_all_event_workshops.xml" value="0.35625" />
+        <entry key="app/src/main/res/layout/list_item_sponsors.xml" value="0.35625" />
+        <entry key="app/src/main/res/layout/textfields.xml" value="0.2947916666666667" />
       </map>
     </option>
   </component>

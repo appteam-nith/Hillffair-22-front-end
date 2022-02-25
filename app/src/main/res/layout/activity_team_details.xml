@@ -10,40 +10,32 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView_Team_Name"
-        android:layout_width="336dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10sp"
         android:layout_marginTop="10dp"
-        android:layout_height="56dp"
         android:layout_centerHorizontal="true"
         android:background="@color/brown"
-        app:cardCornerRadius="20dp">
+        app:cardCornerRadius="20sp">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/brown"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="8dp">
+            android:padding="10sp">
 
             <TextView
                 android:id="@+id/team_name1"
                 android:layout_width="84dp"
                 android:layout_height="26dp"
+                android:layout_centerHorizontal="true"
                 android:background="#462609"
                 android:text="@string/team_name"
                 android:textAlignment="center"
-                android:textColor="#DBB05E"
-                android:textSize="14sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                android:textColor="@color/imgbg"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
 
@@ -52,8 +44,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/cardView_Team_Name"
-        android:layout_marginTop="20dp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
+        android:layout_marginTop="5sp" />
 
 </RelativeLayout>

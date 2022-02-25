@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="side_margin_10">10dp</dimen>
+    <dimen name="et_padding_left">9dp</dimen>
+    <dimen name="et_padding_right">3dp</dimen>
+    <dimen name="et_padding_top">16dp</dimen>
+    <dimen name="et_padding_bottom">13dp</dimen>
+    <dimen name="layout_padding_left">19dp</dimen>
+    <dimen name="layout_padding_right">25dp</dimen>
+</resources>
