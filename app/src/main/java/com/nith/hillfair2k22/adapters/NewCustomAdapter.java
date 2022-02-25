@@ -9,21 +9,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.ToggleButton;
 
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.nith.hillfair2k22.R;
 import com.nith.hillfair2k22.screens.home.CommentUserFeedFragment;
 import com.nith.hillfair2k22.screens.home.Contact;
+import com.nith.hillfair2k22.screens.home.UserComments;
 
-public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
+public class NewCustomAdapter extends RecyclerView.Adapter<NewCustomAdapter.ViewHolder> {
 
-    private Contact[] localDataSet;
-    private TextView user_feed_name;
-    private TextView user_feed_caption_goes_here;
-    private ImageView imageview2;
-    private ToggleButton toggleButton;
+    private UserComments[] localDataSet;
+//    private TextView user_feed_name;
+//    private TextView user_feed_caption_goes_here;
+//    private ImageView imageview2;
+    private TextView username;
+    private  TextView comments;
     /**
      * Provide a reference to the type of views that you are using
      * (custom ViewHolder).
@@ -49,7 +50,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
      * @param dataSet String[] containing the data to populate views to be used
      * by RecyclerView.
      */
-    public CustomAdapter(Contact[] dataSet) {
+    public NewCustomAdapter(UserComments[] dataSet) {
         localDataSet = dataSet;
     }
 
@@ -58,20 +59,21 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         // Create a new view, which defines the UI of the list item
         View view = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.item_user_feed, viewGroup, false);
-        user_feed_name=view.findViewById(R.id.user_feed_name);
-        user_feed_caption_goes_here=view.findViewById(R.id.user_feed_caption_goes_here);
-        toggleButton=view.findViewById(R.id.like_button);
+                .inflate(R.layout.item_comment_user_feed, viewGroup, false);
+//        user_feed_name=view.findViewById(R.id.user_feed_name);
+//        user_feed_caption_goes_here=view.findViewById(R.id.user_feed_caption_goes_here);
+//        imageview2=view.findViewById(R.id.user_feed_message_icon);
+//        imageview2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent=new Intent(view.getContext(), CommentUserFeedFragment.class);
+//                view.getContext().startActivity(intent);
+//            }
+//        });
+        username=view.findViewById(R.id.user_comment_user_name_in_comment);
+        comments=view.findViewById(R.id.user_comment_comment_in_comment_section);
 
-        imageview2=view.findViewById(R.id.user_feed_message_icon);
-        imageview2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(view.getContext(), CommentUserFeedFragment.class);
-                intent.putExtra("post_like",toggleButton.isChecked());
-                view.getContext().startActivity(intent);
-            }
-        });
+
         return new ViewHolder(view);
     }
 
@@ -83,8 +85,10 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
 
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
-        user_feed_name.setText(localDataSet[position].name);
-        user_feed_caption_goes_here.setText(localDataSet[position].caption);
+//        user_feed_name.setText(localDataSet[position].name);
+//        user_feed_caption_goes_here.setText(localDataSet[position].caption);
+        username.setText(localDataSet[position].username);
+        comments.setText(localDataSet[position].comments);
     }
 
     // Return the size of your dataset (invoked by the layout manager)

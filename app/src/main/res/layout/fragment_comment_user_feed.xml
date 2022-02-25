@@ -117,7 +117,7 @@
                         android:id="@+id/heart_icon"
                         android:layout_width="25dp"
                         android:layout_height="25dp"
-                        android:layout_marginEnd="2dp"
+                        android:layout_marginEnd="4dp"
                         android:layout_toStartOf="@+id/user_comment_message_icon"
 
                         android:background="@drawable/toggle_selector"
@@ -196,9 +196,9 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentEnd="true"
                                 android:layout_marginEnd="12dp"
+                                android:contentDescription="comment post button"
                                 android:padding="12dp"
-                                android:src="@drawable/user_feed_send_icon"
-                                android:contentDescription="comment post button"/>
+                                android:src="@drawable/user_feed_send_icon" />
                         </RelativeLayout>
 
 
