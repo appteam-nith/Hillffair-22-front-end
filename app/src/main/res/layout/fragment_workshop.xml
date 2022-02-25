@@ -1,50 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="@color/item_card_bg"
     android:background="@color/item_card_bg"
-    android:id="@+id/all_events_workshop_RL"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".screens.eventsAndWorkshops.AllEventsAndWorkshopsFragment">
-<LinearLayout
-    android:orientation="vertical"
-android:background="@color/item_card_bg"
-    android:backgroundTint="@color/item_card_bg"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    tools:context=".screens.eventsAndWorkshops.WorkshopFragment">
 
-    <androidx.cardview.widget.CardView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/workshop_RecV"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="wrap_content" />
 
-        android:layout_margin="@dimen/side_margin_12">
-
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/events_tab_layout"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@drawable/events_tab"
-            android:backgroundTint="@color/bottom_navigation_background"
-            android:padding="5dp"
-            app:tabGravity="fill"
-            app:tabIndicator="@drawable/tab_indicator"
-            app:tabIndicatorColor="@color/item_card"
-            app:tabIndicatorAnimationMode="elastic"
-            app:tabIndicatorGravity="stretch"
-            app:tabMode="fixed"
-            app:tabSelectedTextColor="@color/white" />
-</androidx.cardview.widget.CardView>
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/events_TL_viewP2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-</LinearLayout>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btn_team_sponsor"
         android:layout_width="wrap_content"
-        app:borderWidth="0dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
@@ -53,6 +23,7 @@ android:background="@color/item_card_bg"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         android:backgroundTint="@color/btn_all_events"
+        app:borderWidth="0dp"
 
         app:srcCompat="@drawable/ic_three_dots" />
 
@@ -60,7 +31,6 @@ android:background="@color/item_card_bg"
         android:id="@+id/btn_sponsors"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:borderWidth="0dp"
         android:layout_above="@+id/btn_team_sponsor"
         android:layout_alignParentEnd="true"
         android:layout_margin="10dp"
@@ -70,6 +40,7 @@ android:background="@color/item_card_bg"
         android:layout_marginBottom="10dp"
         android:backgroundTint="@color/btn_all_events"
         android:visibility="gone"
+        app:borderWidth="0dp"
         app:srcCompat="@drawable/sponsors_fab_btn" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -82,10 +53,11 @@ android:background="@color/item_card_bg"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
-        app:borderWidth="0dp"
         android:layout_marginBottom="10dp"
         android:backgroundTint="@color/btn_all_events"
         android:visibility="gone"
+        app:borderWidth="0dp"
         app:srcCompat="@drawable/team_fab_btn" />
+
 
 </RelativeLayout>
