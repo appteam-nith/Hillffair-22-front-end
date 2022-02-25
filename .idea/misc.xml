@@ -7,9 +7,14 @@
         <entry key="..\:/Hillffair-22-front-end/app/src/main/res/drawable/item_event_workshop_card.xml" value="0.1945" />
         <entry key="..\:/Hillffair-22-front-end/app/src/main/res/drawable/sponsors_top_tab.xml" value="0.1945" />
         <entry key="..\:/Hillffair-22-front-end/app/src/main/res/drawable/tab_indicator.xml" value="0.1945" />
+        <entry key="..\:/Hillffair-22-front-end/app/src/main/res/layout/activity_play_quiz.xml" value="0.20416666666666666" />
+        <entry key="..\:/Hillffair-22-front-end/app/src/main/res/layout/activity_team_details.xml" value="0.20416666666666666" />
+        <entry key="..\:/Hillffair-22-front-end/app/src/main/res/layout/fragment_all_events_and_workshops.xml" value="0.20416666666666666" />
         <entry key="..\:/Hillffair-22-front-end/app/src/main/res/layout/fragment_event_and_workshop_details.xml" value="0.20416666666666666" />
+        <entry key="..\:/Hillffair-22-front-end/app/src/main/res/layout/fragment_quiz_standings.xml" value="0.20416666666666666" />
         <entry key="..\:/Hillffair-22-front-end/app/src/main/res/layout/list_all_events_workshops.xml" value="0.20416666666666666" />
         <entry key="..\:/Hillffair-22-front-end/app/src/main/res/layout/list_item_sponsors.xml" value="0.20416666666666666" />
+        <entry key="..\:/Hillffair-22-front-end/app/src/main/res/layout/list_quiz_item.xml" value="0.20416666666666666" />
         <entry key="app/src/main/res/drawable/custom_button.xml" value="0.273" />
         <entry key="app/src/main/res/drawable/custom_text.xml" value="0.2305" />
         <entry key="app/src/main/res/drawable/events_tab.xml" value="0.231" />
