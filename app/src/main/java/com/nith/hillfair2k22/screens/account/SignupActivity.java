@@ -34,6 +34,8 @@ public class SignupActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
+
+
         inputEmail=findViewById(R.id.etEmail);
         inputPassword=findViewById(R.id.etPassword);
         inputConfirmPassword=findViewById(R.id.etReEnterPassword);
