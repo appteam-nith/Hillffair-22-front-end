@@ -133,8 +133,9 @@
                     android:src="@drawable/ic_baseline_message_24" />
 
                 <ToggleButton
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:id="@+id/like_button"
+                    android:layout_width="20dp"
+                    android:layout_height="18dp"
                     android:layout_toStartOf="@+id/user_feed_message_icon"
                     android:background="@drawable/toggle_selector"
 

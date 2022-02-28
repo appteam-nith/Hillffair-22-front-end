@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ToggleButton;
 
 import com.nith.hillfair2k22.MainActivity;
 import com.nith.hillfair2k22.R;
@@ -45,6 +46,7 @@ public class UserFeedFragment extends Fragment {
     private String mParam1;
     private String mParam2;
     ImageView imageView;
+
 
     public UserFeedFragment() {
         // Required empty public constructor
@@ -112,6 +114,7 @@ public class UserFeedFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getActivity(),CreateNewFeedFragment.class);
+
                 startActivity(intent);
             }
         });

@@ -1,5 +1,6 @@
 package com.nith.hillfair2k22.screens.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,25 +10,26 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.nith.hillfair2k22.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link CreateNewFeedFragment#newInstance} factory method to
+ * Use the {@link CreateNewFeedFragment#} factory method to
  * create an instance of this fragment.
  */
 public class CreateNewFeedFragment extends AppCompatActivity {
+    ImageView imgaeview1;
     ImageView imageview2;
+    ImageView imageview3;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+
 
     // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+
 
     public CreateNewFeedFragment() {
         // Required empty public constructor
@@ -37,8 +39,7 @@ public class CreateNewFeedFragment extends AppCompatActivity {
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
      *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
+     *
      * @return A new instance of fragment CreateNewFeedFragment.
      */
     // TODO: Rename and change types and number of parameters
@@ -72,11 +73,29 @@ public class CreateNewFeedFragment extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_create_new_feed);
+        imgaeview1=findViewById(R.id.btn_user_post_image);
+        imgaeview1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(CreateNewFeedFragment.this, "Image Uploaded", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        });
         imageview2= findViewById(R.id.user_post_back_icon);
         imageview2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+        imageview3=findViewById(R.id.user_post_image_upload);
+        imageview3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Intent.ACTION_PICK,
+                        android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+                final int ACTIVITY_SELECT_IMAGE = 1234;
+                startActivityForResult(i, ACTIVITY_SELECT_IMAGE);
             }
         });
     }

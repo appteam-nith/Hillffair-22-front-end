@@ -112,23 +112,37 @@
                         android:textAppearance="@style/caption_goe"
                         android:textSize="14sp" />
 
+
+                    <ToggleButton
+                        android:id="@+id/heart_icon"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_toStartOf="@+id/user_comment_message_icon"
+
+                        android:background="@drawable/toggle_selector"
+                        android:textOff=""
+                        android:textOn="" />
+
                     <ImageView
                         android:id="@+id/user_comment_message_icon"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
+                        android:contentDescription="comments button"
                         android:padding="8dp"
-                        android:src="@drawable/ic_baseline_message_24"
-                        android:contentDescription="comments button"/>
+                        android:src="@drawable/ic_baseline_message_24" />
 
-                    <ImageView
-                        android:id="@+id/heart_icon"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_toStartOf="@+id/user_comment_message_icon"
-                        android:padding="8dp"
-                        android:src="@drawable/vector"
-                        android:contentDescription="like button"/>
+<!--                    <ImageView-->
+<!--                        android:id="@+id/heart_icon"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_toStartOf="@+id/user_comment_message_icon"-->
+<!--                        android:contentDescription="like button"-->
+<!--                        android:padding="8dp"-->
+<!--                        android:src="@drawable/vector" />-->
+
+
 
                 </RelativeLayout>
 
@@ -182,9 +196,9 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentEnd="true"
                                 android:layout_marginEnd="12dp"
+                                android:contentDescription="comment post button"
                                 android:padding="12dp"
-                                android:src="@drawable/user_feed_send_icon"
-                                android:contentDescription="comment post button"/>
+                                android:src="@drawable/user_feed_send_icon" />
                         </RelativeLayout>
 
 
