@@ -8,9 +8,14 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="brown">#462609</color>
+    <color name="orange">#DBB05E</color>
     <color name="imgbg">#DBB05E</color>
 
-
+    <color name="item_signup_text_color">#c37332</color>
+    <color name="item_signup_bg_color">#DBB05E</color>
+    <color name="background_color">#DEC699</color>
+    <color name="button_text_color">#DBB05E</color>
+    <color name="et_text_color">#462609</color>
 
     <!-- Navigation bar colors-->
     <color name="bottom_navigation_background">#462609</color>
@@ -23,5 +28,9 @@
     <color name="register">#462609</color>
     <color name="btn_all_events">#E7CC9D</color>
     <color name="bg_event_details">#DEC699</color>
+    <color name="option_quiz">#D7AE64</color>
+    <color name="correct_incorrect">#DBB05E</color>
+    <color name="correct">#14AF2D</color>
+    <color name="Incorrect">#FF3D00</color>
 
 </resources>

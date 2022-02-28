@@ -4,16 +4,21 @@
 
     <!--permissions for INTERNET-->
     <uses-permission android:name="android.permission.INTERNET"/>
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Hillfair2k22">
+        android:theme="@style/Theme.Hillfair2k22" >
         <activity
             android:name=".screens.account.EditProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".screens.home.CommentUserFeedFragment"
+            android:exported="false" />
+        <activity
+            android:name=".screens.home.CreateNewFeedFragment"
             android:exported="false" />
         <activity
             android:name=".screens.account.ForgotPasswordActivity"
@@ -29,10 +34,10 @@
             android:exported="false" />
         <activity
             android:name=".screens.teams.TeamDetailsActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".screens.splashScreen.SplashScreenActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -42,8 +47,11 @@
         <activity
             android:name=".MainActivity"
             android:exported="false">
-
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

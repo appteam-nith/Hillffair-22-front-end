@@ -1,6 +1,14 @@
+buildscript {
+    // ...
+    dependencies {
+        // ...
+        classpath 'com.google.gms:google-services:4.3.2'
+    }
+}
 plugins {
     id 'com.android.application'
 }
+
 
 android {
     compileSdk 31
@@ -29,6 +37,11 @@ android {
 
 dependencies {
 
+
+    implementation platform('com.google.firebase:firebase-bom:29.1.0')
+    implementation 'com.google.firebase:firebase-auth'
+
+
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation "androidx.cardview:cardview:1.0.0"
     implementation "androidx.recyclerview:recyclerview:1.2.1"
@@ -53,3 +66,5 @@ dependencies {
     //fab
     implementation 'com.balysv:material-ripple:1.0.2'
 }
+
+apply plugin: 'com.google.gms.google-services'
