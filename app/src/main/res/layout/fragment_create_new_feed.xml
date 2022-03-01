@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E7CC9D"
+    android:background="@color/user_feed_secondary_color"
     tools:context=".screens.home.CreateNewFeedFragment">
 
     <ImageView
@@ -13,52 +13,53 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="12dp"
-        android:contentDescription="back button"
+        android:layout_marginStart="@dimen/side_margin_12"
+        android:layout_marginTop="@dimen/side_margin_12"
+        android:contentDescription="@string/back_button"
         android:src="@drawable/bx_arrow_back_svg" />
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="16dp"
-        android:elevation="20dp"
-        android:padding="12dp"
-        app:cardBackgroundColor="#DBB05E"
-        app:cardCornerRadius="24dp"
-        app:cardElevation="20dp">
+        android:layout_marginStart="@dimen/side_margin_14"
+        android:layout_marginEnd="@dimen/side_margin_16"
+        android:elevation="@dimen/card_elevation_20dp"
+        android:padding="@dimen/padding_8dp"
+        app:cardBackgroundColor="@color/user_feed_primary_color"
+        app:cardCornerRadius="@dimen/card_radius_20dp"
+        app:cardElevation="@dimen/card_elevation_20dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:layout_marginEnd="22dp"
+            android:layout_marginStart="@dimen/side_margin_25dp"
+            android:layout_marginEnd="@dimen/side_margin_22dp"
+            android:layout_marginBottom="@dimen/side_margin_20dp"
             android:orientation="vertical">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:padding="6dp">
+                android:layout_marginTop="@dimen/side_margin_10"
+                android:padding="@dimen/padding_8dp">
 
                 <ImageView
                     android:id="@+id/user_post_user_profile_icon"
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
-                    android:layout_marginTop="7dp"
-                    android:layout_marginEnd="7dp"
-                    android:layout_marginBottom="7dp"
+                    android:layout_width="@dimen/user_profile_image_size"
+                    android:layout_height="@dimen/user_profile_image_size"
+                    android:layout_marginTop="@dimen/side_margin_8dp"
+                    android:layout_marginEnd="@dimen/side_margin_8dp"
+                    android:layout_marginBottom="@dimen/side_margin_8dp"
                     android:background="@drawable/user_icon_view"
-                    android:contentDescription="user profile picture" />
+                    android:contentDescription="@string/user_profile_picture" />
 
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="7dp"
+                    android:layout_marginStart="@dimen/side_margin_10"
+                    android:layout_marginTop="@dimen/side_margin_8dp"
                     android:layout_toEndOf="@+id/user_post_user_profile_icon"
                     android:background="@drawable/user_feed_caption_outline">
 
@@ -66,11 +67,11 @@
                         android:id="@+id/user_post_captions"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="#DBB05E"
+                        android:backgroundTint="@color/transparent"
                         android:gravity="start"
-                        android:hint="Captions"
+                        android:hint="@string/captions"
                         android:inputType="textCapSentences|textMultiLine"
-                        android:padding="10dp"
+                        android:padding="@dimen/padding_8dp"
                         android:singleLine="true" />
 
                 </FrameLayout>
@@ -82,10 +83,10 @@
                 android:id="@+id/user_post_image_upload"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:layout_marginTop="7dp"
-                android:layout_marginBottom="7dp"
+                android:layout_marginTop="@dimen/side_margin_8dp"
+                android:layout_marginBottom="@dimen/side_margin_8dp"
                 android:background="@drawable/user_post_image_outline"
-                android:contentDescription="add picture placeholder"
+                android:contentDescription="@string/add_picture_placeholder"
                 android:src="@drawable/ic_add" />
 
         </LinearLayout>
@@ -95,15 +96,15 @@
         android:id="@+id/btn_user_post_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="@dimen/side_margin_25dp"
+        android:layout_marginBottom="@dimen/side_margin_25dp"
         android:clickable="true"
         android:focusable="true"
-        app:backgroundTint="#DBB05E"
-        android:elevation="20dp"
+        app:backgroundTint="@color/user_feed_primary_color"
+        android:elevation="@dimen/card_elevation_20dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         app:srcCompat="@drawable/user_feed_send_icon"
-        android:contentDescription="post user feed button"/>
+        android:contentDescription="@string/post_user_feed_button"/>
 
 </RelativeLayout>

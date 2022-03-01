@@ -33,4 +33,8 @@
     <color name="correct">#14AF2D</color>
     <color name="Incorrect">#FF3D00</color>
 
+    <!-- user feed resources -->
+    <color name="user_feed_secondary_color">#E7CC9D </color>
+    <color name="user_feed_primary_color"> #DBB05E</color>
+
 </resources>

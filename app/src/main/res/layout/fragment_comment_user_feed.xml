@@ -4,22 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E7CC9D"
+    android:background="@color/user_feed_secondary_color"
     tools:context=".screens.home.CommentUserFeedFragment">
 
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="@dimen/side_margin_22dp"
         android:layout_marginTop="40dp"
-
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="@dimen/side_margin_22dp"
         android:layout_marginBottom="42dp"
-        app:cardBackgroundColor="#DBB05E"
-        app:cardElevation="40dp"
-        android:padding="10dp"
-        app:cardCornerRadius="24dp">
+        app:cardBackgroundColor="@color/user_feed_primary_color"
+        app:cardElevation="@dimen/floating_btn_elevation"
+        android:padding="@dimen/padding_8dp"
+        app:cardCornerRadius="@dimen/card_radius_20dp">
 
 
         <LinearLayout
@@ -30,37 +29,38 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
+                android:layout_marginTop="@dimen/side_margin_10">
 
                 <ImageView
                     android:id="@+id/user_comment_profile_image"
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
-                    android:layout_marginStart="25dp"
-                    android:layout_marginTop="7dp"
-                    android:layout_marginEnd="7dp"
-                    android:layout_marginBottom="7dp"
+                    android:layout_width="@dimen/user_profile_image_size"
+                    android:layout_height="@dimen/user_profile_image_size"
+                    android:layout_marginStart="@dimen/side_margin_25dp"
+                    android:layout_marginTop="@dimen/side_margin_8dp"
+                    android:layout_marginEnd="@dimen/side_margin_8dp"
+                    android:layout_marginBottom="@dimen/side_margin_8dp"
                     android:background="@drawable/user_icon_view"
-                    android:contentDescription="user profile picture"/>
+                    android:contentDescription="@string/user_profile_picture"/>
 
                 <TextView
                     android:id="@+id/user_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginStart="10dp"
+                    android:layout_marginStart="@dimen/side_margin_10"
                     android:layout_toEndOf="@+id/user_comment_profile_image"
-                    android:text="user_name" />
+                    android:layout_toStartOf="@+id/user_comment_more_icon"
+                    android:text="@string/user_name" />
 
                 <ImageView
                     android:id="@+id/user_comment_more_icon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginEnd="22dp"
-                    android:padding="15dp"
+                    android:layout_marginEnd="@dimen/side_margin_22dp"
+                    android:layout_centerVertical="true"
                     android:src="@drawable/ic_baseline_more_horiz_24"
-                     android:contentDescription="more option"/>
+                     android:contentDescription="@string/more_option"/>
 
 
             </RelativeLayout>
@@ -69,28 +69,26 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="22dp"
+                android:layout_marginStart="@dimen/side_margin_25dp"
+                android:layout_marginTop="@dimen/side_margin_10"
+                android:layout_marginEnd="@dimen/side_margin_22dp"
                 android:orientation="vertical">
 
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:adjustViewBounds="true"
-                    android:elevation="20dp"
+                    android:elevation="@dimen/card_elevation_20dp"
                     android:scaleType="centerCrop"
-                    app:cardCornerRadius="24dp">
+                    app:cardCornerRadius="@dimen/card_radius_20dp">
 
                     <ImageView
                         android:id="@+id/user_comment_posted_image"
                         android:layout_width="match_parent"
-                        android:layout_height="138dp"
+                        android:layout_height="@dimen/user_post_image_height"
                         android:adjustViewBounds="true"
-                        android:background="#F9FAF6"
-                        android:elevation="20dp"
                         android:scaleType="centerCrop"
-                        android:contentDescription="user post"/>
+                        android:contentDescription="@string/user_post"/>
 
                 </com.google.android.material.card.MaterialCardView>
 
@@ -98,7 +96,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="7dp">
+                    android:layout_marginTop="@dimen/side_margin_8dp">
 
                     <TextView
                         android:id="@+id/user_comment_caption_goe"
@@ -106,37 +104,40 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
                         android:gravity="start"
-                        android:padding="8dp"
-                        android:text="Caption Goes Here"
+                        android:layout_centerVertical="true"
+                        android:padding="@dimen/padding_8dp"
+                        android:text="@string/caption_goes_here"
                         android:layout_toStartOf="@+id/heart_icon"
                         android:textAppearance="@style/caption_goe"
-                        android:textSize="14sp" />
+                        android:textSize="@dimen/text_size_14sp" />
 
                     <ImageView
                         android:id="@+id/user_comment_message_icon"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
-                        android:padding="8dp"
+                        android:layout_centerVertical="true"
+                        android:padding="@dimen/padding_8dp"
                         android:src="@drawable/ic_baseline_message_24"
-                        android:contentDescription="comments button"/>
+                        android:contentDescription="@string/comments_button"/>
 
                     <ImageView
                         android:id="@+id/heart_icon"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:padding="@dimen/padding_8dp"
                         android:layout_toStartOf="@+id/user_comment_message_icon"
-                        android:padding="8dp"
-                        android:src="@drawable/vector"
-                        android:contentDescription="like button"/>
+                        android:contentDescription="@string/like_button"
+                        android:src="@drawable/toggle_selector" />
 
                 </RelativeLayout>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="7dp"
-                    android:layout_marginBottom="20dp">
+                    android:layout_marginTop="@dimen/side_margin_8dp"
+                    android:layout_marginBottom="@dimen/side_margin_20dp">
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/user_comment_recyclerview"
@@ -149,11 +150,11 @@
                     <androidx.cardview.widget.CardView
                         android:id="@+id/comment_section"
                         android:layout_width="match_parent"
-                        android:layout_height="40dp"
+                        android:layout_height="43dp"
                         android:layout_alignParentStart="true"
                         android:layout_alignParentBottom="true"
-                        android:backgroundTint="#DBB05E"
-                        android:padding="30dp"
+                        android:backgroundTint="@color/user_feed_primary_color"
+                        android:padding="@dimen/padding_8dp"
                         >
 
                         <RelativeLayout
@@ -166,12 +167,13 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_centerVertical="true"
+                                android:layout_alignParentStart="true"
                                 android:layout_toStartOf="@+id/user_comment_post_comment_icon"
-                                android:backgroundTint="#DBB05E"
+                                android:backgroundTint="@color/transparent"
                                 android:gravity="start"
-                                android:hint="Write your comment"
+                                android:hint="@string/write_your_comment"
                                 android:inputType="textLongMessage"
-                                android:padding="7dp"
+                                android:padding="@dimen/padding_8dp"
                                 android:singleLine="true"
 
                                 />
@@ -181,10 +183,11 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentEnd="true"
-                                android:layout_marginEnd="12dp"
-                                android:padding="12dp"
+                                android:layout_centerVertical="true"
+                                android:layout_marginEnd="@dimen/side_margin_8dp"
+                                android:padding="@dimen/padding_8dp"
                                 android:src="@drawable/user_feed_send_icon"
-                                android:contentDescription="comment post button"/>
+                                android:contentDescription="@string/comment_post_button"/>
                         </RelativeLayout>
 
 
