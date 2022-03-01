@@ -22,8 +22,8 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="115dp"
-        android:layout_height="112dp"
+        android:layout_width="@dimen/UserImageLayoutWidth"
+        android:layout_height="@dimen/UserImageLayoutHeight"
         app:layout_constraintBottom_toBottomOf="@+id/imageView"
 
         app:layout_constraintEnd_toEndOf="parent"
@@ -54,8 +54,8 @@
 
             <EditText
                 android:id="@+id/etName"
-                android:layout_width="316dp"
-                android:layout_height="53dp"
+                android:layout_width="@dimen/EditText_Width"
+                android:layout_height="@dimen/EditText_Height"
                 android:layout_gravity="center"
                 android:layout_marginTop="12dp"
                 android:layout_marginBottom="22dp"
@@ -73,8 +73,8 @@
 
             <EditText
                 android:id="@+id/etRN"
-                android:layout_width="316dp"
-                android:layout_height="53dp"
+                android:layout_width="@dimen/EditText_Width"
+                android:layout_height="@dimen/EditText_Height"
                 android:layout_gravity="center"
                 android:layout_marginBottom="22dp"
                 android:background="@drawable/custom_text"
@@ -91,8 +91,8 @@
 
             <EditText
                 android:id="@+id/etPhoneNumber"
-                android:layout_width="316dp"
-                android:layout_height="53dp"
+                android:layout_width="@dimen/EditText_Width"
+                android:layout_height="@dimen/EditText_Height"
                 android:layout_gravity="center"
                 android:layout_marginBottom="22dp"
                 android:background="@drawable/custom_text"
@@ -109,8 +109,8 @@
 
             <EditText
                 android:id="@+id/etInstaId"
-                android:layout_width="316dp"
-                android:layout_height="53dp"
+                android:layout_width="@dimen/EditText_Width"
+                android:layout_height="@dimen/EditText_Height"
                 android:layout_gravity="center"
                 android:background="@drawable/custom_text"
                 android:ems="10"
@@ -126,8 +126,8 @@
 
             <Button
                 android:id="@+id/btnsave"
-                android:layout_width="180dp"
-                android:layout_height="60dp"
+                android:layout_width="@dimen/Button_width"
+                android:layout_height="@dimen/Button_Height"
                 android:layout_gravity="center"
                 android:layout_marginTop="44dp"
                 android:background="@drawable/custom_button"

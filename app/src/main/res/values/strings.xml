@@ -28,6 +28,8 @@
     <string name="sign_in">Sign In</string>
     <string name="don_t_have_an_accout_sign_up_here">Don\'t have an accout? Sign up here</string>
     <string name="sign_up">Sign Up</string>
+    <string name="forgot_password">Forgot Password ?</string>
+    <string name="re_enter_your_password">Re-Enter Your Password</string>
 
 
 </resources>
