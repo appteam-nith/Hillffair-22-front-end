@@ -1,6 +1,7 @@
 package com.nith.hillfair2k22.screens.home;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,6 +24,7 @@ public class CreateNewFeedFragment extends AppCompatActivity {
     ImageView imgaeview1;
     ImageView imageview2;
     ImageView imageview3;
+    int SELECT_PICTURE = 200;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -68,7 +70,6 @@ public class CreateNewFeedFragment extends AppCompatActivity {
 //        return inflater.inflate(R.layout.fragment_create_new_feed, container, false);
 //    }
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -92,11 +93,37 @@ public class CreateNewFeedFragment extends AppCompatActivity {
         imageview3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Intent.ACTION_PICK,
-                        android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
-                final int ACTIVITY_SELECT_IMAGE = 1234;
-                startActivityForResult(i, ACTIVITY_SELECT_IMAGE);
+                imageChooser();
+
             }
+
         });
+
     }
+
+    void imageChooser(){
+//        Intent i = new Intent(Intent.ACTION_PICK,
+//                android.provider.MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+//        final int ACTIVITY_SELECT_IMAGE = 1234;
+//        startActivityForResult(i, ACTIVITY_SELECT_IMAGE);
+        Intent i=new Intent();
+        i.setType("image/*");
+        i.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(i,"Select Picture"),SELECT_PICTURE);
+    }
+    public void onActivityResult(int requestCode,int resultCode,Intent data) {
+
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(resultCode==RESULT_OK){
+            if(resultCode==SELECT_PICTURE){
+                Uri selectedImageUri=data.getData();
+                if(null!=selectedImageUri){
+                    imageview3.setImageURI(selectedImageUri);
+                }
+            }
+        }
+    }
+
+
 }
