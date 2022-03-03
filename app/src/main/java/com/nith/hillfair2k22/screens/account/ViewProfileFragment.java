@@ -1,14 +1,23 @@
 package com.nith.hillfair2k22.screens.account;
 
+import static com.nith.hillfair2k22.apis.New_User_VolleyHelper.userRead;
+
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.google.firebase.auth.FirebaseAuth;
+import com.nith.hillfair2k22.Models.NewUserList;
 import com.nith.hillfair2k22.R;
+import com.nith.hillfair2k22.apis.New_User_VolleyHelper;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,7 +38,11 @@ public class ViewProfileFragment extends Fragment {
     public ViewProfileFragment() {
         // Required empty public constructor
     }
-
+    ImageView img;
+    TextView name;
+    TextView rollno;
+    TextView phoneno;
+    TextView insta;
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
@@ -61,6 +74,30 @@ public class ViewProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_view_profile, container, false);
+        FirebaseAuth auth;
+        auth=FirebaseAuth.getInstance();
+        View view  = inflater.inflate(R.layout.fragment_view_profile,container,false);
+        img  = view.findViewById(R.id.imageView3);
+        name = view.findViewById(R.id.fullname);
+        phoneno=view.findViewById(R.id.phonenumber);
+        rollno = view.findViewById(R.id.rollnumber);
+        insta = view.findViewById(R.id.username);
+        New_User_VolleyHelper n1  = new New_User_VolleyHelper(getContext());
+        n1.readUser(auth.getUid());
+        final androidx.lifecycle.Observer<NewUserList> obs = new androidx.lifecycle.Observer<NewUserList>() {
+            @Override
+            public void onChanged(NewUserList newUserList) {
+                Log.e("Nlis",String.valueOf(newUserList.getProfileImage()));
+                Glide.with(getActivity()).load(newUserList.getProfileImage().replace("http","https")).into(img);
+                name.setText(newUserList.getUsername());
+                phoneno.setText(newUserList.getPhone());
+                rollno.setText(newUserList.getEmail());
+                insta.setText(newUserList.getInstagramId());
+            }
+        };
+        userRead.observe(getActivity(),obs);
+        return view;
+
+        // return inflater.inflate(R.layout.fragment_view_profile, container, false);
     }
 }
