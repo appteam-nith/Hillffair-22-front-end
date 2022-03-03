@@ -96,15 +96,15 @@
         android:id="@+id/btn_user_post_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
         android:layout_marginEnd="@dimen/side_margin_25dp"
         android:layout_marginBottom="@dimen/side_margin_25dp"
         android:clickable="true"
+        android:contentDescription="@string/post_user_feed_button"
+        android:elevation="@dimen/card_elevation_20dp"
         android:focusable="true"
         app:backgroundTint="@color/user_feed_primary_color"
-        android:elevation="@dimen/card_elevation_20dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        app:srcCompat="@drawable/user_feed_send_icon"
-        android:contentDescription="@string/post_user_feed_button"/>
+        app:srcCompat="@drawable/user_feed_send_icon" />
 
 </RelativeLayout>

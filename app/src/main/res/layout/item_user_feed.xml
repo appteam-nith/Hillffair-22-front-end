@@ -133,15 +133,16 @@
                     tools:ignore="RedundantDescriptionCheck" />
 
 
-                <ImageView
+                <ToggleButton
                     android:id="@+id/user_feed_heart_icon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toStartOf="@+id/user_feed_message_icon"
-                    android:contentDescription="@string/like_button_icon"
+                    android:layout_width="@dimen/size_25dp"
+                    android:layout_height="@dimen/size_25dp"
                     android:padding="@dimen/padding_8dp"
-                    android:src="@drawable/toggle_selector"
-                    tools:ignore="RedundantDescriptionCheck" />
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@+id/user_feed_message_icon"
+                    android:background="@drawable/toggle_selector"
+                    android:textOff=""
+                    android:textOn="" />
 
 
             </RelativeLayout>
