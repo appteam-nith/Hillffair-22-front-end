@@ -3,15 +3,17 @@ package com.nith.hillfair2k22.Models;
 public class NewMembersList {
     int id;
     String name;
+    String team_name;
     String position;
     String image;
 
     public NewMembersList() {
     }
 
-    public NewMembersList(int id, String name, String position, String image) {
+    public NewMembersList(int id, String name,String team_name, String position, String image) {
         this.id = id;
         this.name = name;
+        this.team_name = team_name;
         this.position = position;
         this.image = image;
     }
@@ -46,5 +48,11 @@ public class NewMembersList {
 
     public void setImage(String image) {
         this.image = image;
+    }
+    public String getTeam_name(){
+        return team_name;
+    }
+    public void setTeam_name(String team_name){
+        this.team_name = team_name;
     }
 }
