@@ -3,64 +3,75 @@ package com.nith.hillfair2k22.screens.quiz;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateDecelerateInterpolator;
 
+import com.nith.hillfair2k22.Models.Events;
+import com.nith.hillfair2k22.Models.Quiz_List;
 import com.nith.hillfair2k22.R;
+import com.nith.hillfair2k22.adapters.EventAdapter;
+import com.nith.hillfair2k22.adapters.QuizAdapter;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link AllQuizzesFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+
+import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter;
+
+
 public class AllQuizzesFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private RecyclerView quizRV;
 
-    public AllQuizzesFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment AllQuizzesFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static AllQuizzesFragment newInstance(String param1, String param2) {
-        AllQuizzesFragment fragment = new AllQuizzesFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    private QuizAdapter quizAdapter;
+    private ArrayList<Quiz_List> quizListArrayList;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_all_quizzes, container, false);
+        View view = inflater.inflate(R.layout.fragment_all_quizzes, container, false);
+
+        quizRV = view.findViewById(R.id.all_quiz_RV);
+
+        quizListArrayList = new ArrayList<>();
+
+        getQuizData();
+        buildQuizRV();
+
+
+
+        return view;
+    }
+
+    private void getQuizData() {
+        for (int i = 0; i < 19; i++) {
+            quizListArrayList.add(new Quiz_List("id", "quiz_name", "count", "sendCount", "startTime","endTime"));
+        }
+    }
+
+    private void buildQuizRV() {
+
+        quizAdapter = new QuizAdapter(quizListArrayList, getActivity());
+
+        LinearLayoutManager manager = new LinearLayoutManager(getActivity());
+        quizRV.setHasFixedSize(true);
+
+        quizRV.setLayoutManager(manager);
+
+        // <-----ANIMATIONS---->
+
+        AlphaInAnimationAdapter animationAdapter = new AlphaInAnimationAdapter(quizAdapter);
+        animationAdapter.setDuration(1000);
+        animationAdapter.setInterpolator(new AccelerateDecelerateInterpolator());
+        animationAdapter.setFirstOnly(false);
+        quizRV.setAdapter(animationAdapter);
+
+
+
     }
 }

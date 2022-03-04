@@ -18,13 +18,14 @@ import com.nith.hillfair2k22.R;
 import com.nith.hillfair2k22.screens.eventsAndWorkshops.EventAndWorkshopDetailsFragment;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHolder> {
 
-    private ArrayList<Events> eventsModalArrayList;
+    private List<Events> eventsModalArrayList;
     private Context context;
 
-    public EventAdapter(ArrayList<Events> eventsModalArrayList, Context context) {
+    public EventAdapter(List<Events> eventsModalArrayList, Context context) {
         this.eventsModalArrayList = eventsModalArrayList;
         this.context = context;
     }
@@ -40,9 +41,11 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
     public void onBindViewHolder(@NonNull EventViewHolder holder, int position) {
 
         Events events = eventsModalArrayList.get(position);
-        holder.eventTitle.setText(events.getTitle());
-        holder.clubName.setText(events.getClubName());
-        holder.dateTime.setText(events.getStartTime());
+//        if(events.getType()==1){
+            holder.eventTitle.setText(events.getTitle());
+            holder.clubName.setText(events.getClubName());
+            holder.dateTime.setText(events.getStartTime());
+//        }
 
 
         holder.item_CV.setOnClickListener(view -> {
