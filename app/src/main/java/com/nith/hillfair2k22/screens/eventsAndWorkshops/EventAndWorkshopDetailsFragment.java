@@ -40,7 +40,11 @@ public class EventAndWorkshopDetailsFragment extends Fragment {
 
         titleTV.setText(title);
         descriptionTV.setText(description);
-        Picasso.get().load(imageUrl).into(eventImage);
+        if (imageUrl.isEmpty()){
+//            Picasso.get().load(imgUrl.replace("http", "https")).into(holder.sponsorImage);
+        }else {
+            Picasso.get().load(imageUrl).into(eventImage);
+        }
         regBtn.setOnClickListener(view1 -> {
             Uri uri = Uri.parse(regUrl);
             startActivity(new Intent(Intent.ACTION_VIEW,uri));

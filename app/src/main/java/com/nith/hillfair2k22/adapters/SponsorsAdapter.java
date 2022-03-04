@@ -2,6 +2,7 @@ package com.nith.hillfair2k22.adapters;
 
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,20 +12,21 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.nith.hillfair2k22.Models.NewSponsors;
 import com.nith.hillfair2k22.Models.Sponsor;
 import com.nith.hillfair2k22.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-
+import java.util.List;
 
 
 public class SponsorsAdapter extends RecyclerView.Adapter<SponsorsAdapter.SponsorsViewHolder> {
 
-    private ArrayList<Sponsor> sponsorsModalArrayList;
+    private List<NewSponsors> sponsorsModalArrayList;
     private Context context;
 
-    public SponsorsAdapter(ArrayList<Sponsor> sponsorsModalArrayList, Context context) {
+    public SponsorsAdapter(List<NewSponsors> sponsorsModalArrayList, Context context) {
         this.sponsorsModalArrayList = sponsorsModalArrayList;
         this.context = context;
     }
@@ -39,10 +41,17 @@ public class SponsorsAdapter extends RecyclerView.Adapter<SponsorsAdapter.Sponso
     @Override
     public void onBindViewHolder(@NonNull SponsorsViewHolder holder, int position) {
 
-        Sponsor sponsor = sponsorsModalArrayList.get(position);
+        NewSponsors sponsor = sponsorsModalArrayList.get(position);
         holder.sponsorDetatils.setText(sponsor.getName());
+        String imgUrl = sponsor.getImage();
 
-        Picasso.get().load(sponsor.getImage()).into(holder.sponsorImage);
+        if (imgUrl.isEmpty()){
+//            Picasso.get().load(imgUrl.replace("http", "https")).into(holder.sponsorImage);
+        }else {
+            Picasso.get().load(imgUrl.replace("http", "https")).into(holder.sponsorImage);
+        }
+
+
     }
 
     @Override
