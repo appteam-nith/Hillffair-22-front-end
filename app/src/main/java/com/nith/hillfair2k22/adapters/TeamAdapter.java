@@ -11,6 +11,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.BaseRequestOptions;
+import com.bumptech.glide.request.RequestOptions;
 import com.nith.hillfair2k22.Models.Teams;
 import com.nith.hillfair2k22.R;
 import com.nith.hillfair2k22.screens.teams.Team;
@@ -22,11 +25,16 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.MyViewHolder> 
     private OnItemClickListener mListener;
     private final Context context;
     private List<Teams> teamList;
+    RequestOptions options;
+
 
     public TeamAdapter(List<Teams> teamList, Context context) {
         this.teamList = teamList;
         this.context = context;
+        //request option for glide
+        options= new RequestOptions().centerCrop().placeholder(R.drawable.loading_image).error(R.drawable.loading_image);
     }
+
 
 
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -39,7 +47,9 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.MyViewHolder> 
         Teams team = teamList.get(position);
 
         holder.teamNameTextView.setText(team.getClub_name());
-//        holder.teamImageImageView.setImageURI(Uri.parse(team.getTimage()));
+        holder.teamImageImageView.setImageURI(Uri.parse(team.getImage()));
+        //loading image using glide
+        Glide.with(context).load(team.getImage().replace("http","https")).apply(options).into(holder.teamImageImageView);
     }
 
     @Override

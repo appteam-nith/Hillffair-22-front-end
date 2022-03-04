@@ -2,6 +2,7 @@ package com.nith.hillfair2k22.screens.teams;
 
 import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
 import static com.nith.hillfair2k22.apis.MemberVolleyHelper.memberList;
+import static com.nith.hillfair2k22.apis.MemberVolleyHelper.teamMemberList;
 import static com.nith.hillfair2k22.screens.teams.TeamsFragment.EXTRA_TEAM_NAME;
 
 import static java.security.AccessController.getContext;
@@ -49,11 +50,12 @@ public class TeamDetailsActivity extends AppCompatActivity {
         TextView textViewTeamName = findViewById(R.id.team_name1);
         textViewTeamName.setText(Team_Name);
         MemberVolleyHelper n1 = new MemberVolleyHelper(TeamDetailsActivity.this);
-        n1.getMembers();
+        n1.getTeamMember(Team_Name);
          final androidx.lifecycle.Observer<List<NewMembersList>> observer = new androidx.lifecycle.Observer<List<NewMembersList>>() {
                      @Override
                      public void onChanged(List<NewMembersList> newMembersList) {
                          Log.e("abcd43",String.valueOf(newMembersList));
+                         Log.e("abcd45",String.valueOf(newMembersList.get(0).getImage()));
                          for(int i=0;i<newMembersList.size();i++) {
                              Log.e("nnn", newMembersList.get(i).getName());
                          }
@@ -69,15 +71,7 @@ public class TeamDetailsActivity extends AppCompatActivity {
 //
                      }
                  };
-                 memberList.observe(this,observer);
-
-
-
-//         teamDetailAdapter =(TeamDetailAdapter) new TeamDetailAdapter(membersLists,this);
-//        recyclerView.setAdapter(( teamDetailAdapter));
-//        StaggeredGridLayoutManager gridLayoutManager =
-//                new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
-//        recyclerView.setLayoutManager(gridLayoutManager);
+                 teamMemberList.observe(this,observer);
 
     }
 }

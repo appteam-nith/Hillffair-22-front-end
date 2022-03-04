@@ -42,19 +42,12 @@ public class TeamsFragment extends Fragment implements TeamAdapter.OnItemClickLi
     public TeamsFragment() {
         // Required empty public constructor
     }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
          View view=inflater.inflate(R.layout.fragment_teams, container, false);
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
-//        TeamAdapter teamAdapter = new TeamAdapter(mTeamList,getContext());
-//        recyclerView.setAdapter(teamAdapter);
-//        teamAdapter.setItemOnClickListener(TeamsFragment.this);
-//        StaggeredGridLayoutManager gridLayoutManager =
-//                new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
-//        recyclerView.setLayoutManager(gridLayoutManager);
         MemberVolleyHelper n2 = new MemberVolleyHelper (getContext());
         n2.getTeamList();
         final androidx.lifecycle.Observer<List<Teams>> observer = new androidx.lifecycle.Observer<List<Teams>>() {
@@ -79,50 +72,8 @@ public class TeamsFragment extends Fragment implements TeamAdapter.OnItemClickLi
         };
 
         teamList.observe(getActivity(),observer);
-
-
-//        addTeamDataFromJSON();
         return view;
-
     }
-//
-//    private void addTeamDataFromJSON() {
-//        try {
-//            String jsonDataString= readJSONDataFromFile();
-//            JSONArray jsonArray= new JSONArray(jsonDataString);
-//            for(int i=0 ; i< jsonArray.length();++i){
-//                System.out.println(jsonArray.get(i).toString());
-//                JSONObject itemObj = jsonArray.getJSONObject(i);
-//                String teamName = itemObj.getString("Team_Name");
-//                String  teamImgUrl=itemObj.getString("team image");
-//                Teams teamData = new Teams(teamName);
-//                mTeamList.add(teamData) ;
-//
-//            }
-//        } catch (JSONException | IOException e) {
-//            Log.d(TAG,"addTeamDataFromJSON:", e);
-//        }
-//    }
-//
-//    // function to read teams' json data from file
-//    private String readJSONDataFromFile() throws IOException {
-//        InputStream inputStream = null;
-//        StringBuilder builder = new StringBuilder();
-//        try {
-//            String jsonString = null;
-//            inputStream = getResources().openRawResource(R.raw.teamdata);
-//            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream,"UTF-8"));
-//            while ((jsonString = bufferedReader.readLine()) != null){
-//                builder.append(jsonString);
-//            }
-//        } finally {
-//            if (inputStream != null) {
-//                inputStream.close();
-//            }
-//        } return new String(builder);
-//    }
-
-
     @Override
     public void onItemClick(int position) {
         mTeamList.get(position);
