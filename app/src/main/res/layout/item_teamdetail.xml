@@ -6,8 +6,6 @@
     android:layout_height="wrap_content"
     android:padding="10sp">
 
-
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="163dp"
         android:layout_height="151dp"
@@ -70,14 +68,16 @@
 
                 <TextView
                     android:id="@+id/designation"
-                    android:layout_width="54dp"
+                    android:layout_width="match_parent"
                     android:layout_height="18dp"
+                    android:layout_marginBottom="4dp"
                     android:text="@string/designation"
                     android:textColor="@color/brown"
-                    android:textSize="10sp"
+                    android:textAlignment="center"
+                    android:textSize="11sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.495"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
 
                     app:layout_constraintVertical_bias="0.0" />
