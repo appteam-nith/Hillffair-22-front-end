@@ -23,6 +23,7 @@ import org.json.JSONObject;
 import java.nio.channels.MulticastChannel;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.locks.ReadWriteLock;
 
 public class MemberVolleyHelper {
     Context context;
@@ -36,7 +37,7 @@ public class MemberVolleyHelper {
     public static MutableLiveData<List<NewMembersList>> memberList;
     public void getMembers(){
         memberList = new MutableLiveData<>();
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, "https://anmolcoder.pythonanywhere.com/members/", null, new Response.Listener<JSONArray>() {
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, "https://anmolcoder.pythonanywhere.com/teams/member/", null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
          List<NewMembersList> Mlist = new ArrayList<>();
@@ -68,7 +69,7 @@ public class MemberVolleyHelper {
     public static MutableLiveData<NewMembersList> memberRead;
     public void readMember(int id){
         memberRead = new MutableLiveData<>();
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, "https://anmolcoder.pythonanywhere.com/members/"+id, null, new Response.Listener<JSONObject>() {
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, "https://anmolcoder.pythonanywhere.com/teams/member/"+id, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {
@@ -96,7 +97,7 @@ public class MemberVolleyHelper {
     public static MutableLiveData<List<Teams>> teamList;
     public void getTeamList(){
         teamList = new MutableLiveData<>();
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, "https://anmolcoder.pythonanywhere.com/members/Team/", null, new Response.Listener<JSONArray>() {
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, "https://anmolcoder.pythonanywhere.com/teams/team/", null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
                  List<Teams> Team = new ArrayList<>();
@@ -105,8 +106,10 @@ public class MemberVolleyHelper {
                     try {
 
                         JSONObject jsonObject = response.getJSONObject(i);
+                        int id = jsonObject.getInt("id");
                         String club_name = jsonObject.getString("club_name");
-                        Team.add(new Teams(club_name));
+                        String image = jsonObject.getString("image");
+                        Team.add(new Teams(id,club_name,image));
                     } catch (JSONException e) {
                         Log.e("ExTeam",String.valueOf(e));
                         e.printStackTrace();
@@ -125,15 +128,18 @@ public class MemberVolleyHelper {
 
     }
     public static MutableLiveData<Teams> teamRead;
-    public void getTeamRead(String club_name){
+    public void getTeamRead(int id){
         teamRead = new MutableLiveData<>();
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, "https://anmolcoder.pythonanywhere.com/members/Team/"+club_name, null, new Response.Listener<JSONObject>() {
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, "https://anmolcoder.pythonanywhere.com/teams/team/"+id, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {
                     Log.e("REadteam",String.valueOf(response));
+                    int id = response.getInt("id");
                     String club_name = response.getString("club_name");
-                    Teams T1 = new Teams(club_name);
+                    String image = response.getString("image");
+
+                    Teams T1 = new Teams(id,club_name,image);
                     teamRead.postValue(T1);
                 } catch (JSONException e) {
                     Log.e("exRead",e.getMessage());
@@ -148,6 +154,38 @@ public class MemberVolleyHelper {
         });
         requestQueue.add(jsonObjectRequest);
     }
+    public static MutableLiveData<List<NewMembersList>> teamMemberList ;
+public void getTeamMember(String teamname){
+   teamMemberList = new MutableLiveData<>();
+   JsonObjectRequest jsonObjectRequest  =new JsonObjectRequest(Request.Method.GET, "https://anmolcoder.pythonanywhere.com/teams/"+teamname, null, new Response.Listener<JSONObject>() {
+       @Override
+       public void onResponse(JSONObject response) {
+           try {
+               JSONArray jsonArray = response.getJSONArray(teamname+"Members");
+               List<NewMembersList> Mmlist = new ArrayList<>();
+               for(int i=0;i<jsonArray.length();i++){
 
+                   JSONObject jsonObject = jsonArray.getJSONObject(i);
+                   int id = jsonObject.getInt("id");
+                   String name = jsonObject.getString("name");
+                   String team_name = jsonObject.getString("team_name");
+                   String position = jsonObject.getString("position");
+                   String image  = jsonObject.getString("position");
+                   Mmlist.add(new NewMembersList(id,name,team_name,position,image));
+               }
+               teamMemberList.postValue(Mmlist);
+           } catch (JSONException e) {
+               e.printStackTrace();
+           };
+       }
+   }, new Response.ErrorListener() {
+       @Override
+       public void onErrorResponse(VolleyError error) {
+
+       }
+   });
+   requestQueue.add(jsonObjectRequest);
+
+}
 
 }
