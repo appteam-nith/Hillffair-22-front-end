@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.nith.hillfair2k22.Models.Teams;
 import com.nith.hillfair2k22.R;
 import com.nith.hillfair2k22.screens.teams.Team;
 import com.nith.hillfair2k22.screens.teams.TeamsFragment;
@@ -20,9 +21,9 @@ import java.util.List;
 public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.MyViewHolder> {
     private OnItemClickListener mListener;
     private final Context context;
-    private List<Team> teamList;
+    private List<Teams> teamList;
 
-    public TeamAdapter(List<Team> teamList, Context context) {
+    public TeamAdapter(List<Teams> teamList, Context context) {
         this.teamList = teamList;
         this.context = context;
     }
@@ -35,10 +36,10 @@ public class TeamAdapter extends RecyclerView.Adapter<TeamAdapter.MyViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        Team team = teamList.get(position);
+        Teams team = teamList.get(position);
 
-        holder.teamNameTextView.setText(team.getTeam_Name());
-        holder.teamImageImageView.setImageURI(Uri.parse(team.getTeamImage()));
+        holder.teamNameTextView.setText(team.getClub_name());
+//        holder.teamImageImageView.setImageURI(Uri.parse(team.getTimage()));
     }
 
     @Override
