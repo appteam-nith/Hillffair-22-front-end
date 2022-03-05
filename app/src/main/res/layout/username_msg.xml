@@ -50,4 +50,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginBottom="568dp"
+        android:background="@color/bg_event_details"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="65dp"
+        android:layout_marginEnd="95dp"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
