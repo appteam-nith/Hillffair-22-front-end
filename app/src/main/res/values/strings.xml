@@ -40,4 +40,13 @@
     <string name="question">Question:</string>
     <string name="Next_Submit">Next/Submit</string>
 
+    <string name="send">Send</string>
+    <string name="display">Enter your display name</string>
+    <string name="message">Message</string>
+    <string name="Hii">Hii</string>
+
+    <string name="delete_chat">Delete Chat</string>
+    <string name="profile">Profile</string>
+    <string name="Recent_Chats">Recent Chats</string>
+
 </resources>
