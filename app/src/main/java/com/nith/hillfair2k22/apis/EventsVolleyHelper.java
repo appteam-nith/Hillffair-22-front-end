@@ -34,7 +34,7 @@ public class EventsVolleyHelper {
     public static MutableLiveData<List<Events>> eventList;
     public void getEvents() {
         eventList = new MutableLiveData<>();
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, "http://anmolcoder.pythonanywhere.com/events/", null, new Response.Listener<JSONArray>() {
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, "https://anmolcoder.pythonanywhere.com/events/", null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
                 List<Events> a3 = new ArrayList<>();
@@ -60,7 +60,7 @@ public class EventsVolleyHelper {
         requestQueue.add(jsonArrayRequest);
     }
 
-   public static MutableLiveData<Events> EventRead;
+    public static MutableLiveData<Events> EventRead;
     public void getEvents_Read(String title) {
         EventRead = new MutableLiveData<>();
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, "http://anmolcoder.pythonanywhere.com/events/"+title, null, new Response.Listener<JSONObject>() {
@@ -89,12 +89,4 @@ public class EventsVolleyHelper {
                 });
         requestQueue.add(jsonObjectRequest);
     }
-
-
-
-
-
-
-
-
 }

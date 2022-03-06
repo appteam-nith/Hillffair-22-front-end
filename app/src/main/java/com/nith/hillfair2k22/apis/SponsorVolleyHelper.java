@@ -38,31 +38,31 @@ public class SponsorVolleyHelper {
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, "https://anmolcoder.pythonanywhere.com/sponsors/", null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
-           List<NewSponsors> slist = new ArrayList<>();
-           for(int i=0;i<response.length();i++){
-               try {
-                   Log.e("sponsor",String.valueOf(response));
-                   JSONObject jsonObject = response.getJSONObject(i);
-                   int id = jsonObject.getInt("id");
-                   String name = jsonObject.getString("name");
-                   String link = jsonObject.getString("link");
-                   String image = jsonObject.getString("image");
-                   String position = jsonObject.getString("position");
-                   int priority = jsonObject.getInt("priority");
-                   slist.add(new NewSponsors(id,name,link,image,position,priority));
+                List<NewSponsors> slist = new ArrayList<>();
+                for(int i=0;i<response.length();i++){
+                    try {
+                        Log.e("sponsor",String.valueOf(response));
+                        JSONObject jsonObject = response.getJSONObject(i);
+                        int id = jsonObject.getInt("id");
+                        String name = jsonObject.getString("name");
+                        String link = jsonObject.getString("link");
+                        String image = jsonObject.getString("image");
+                        String position = jsonObject.getString("position");
+                        int priority = jsonObject.getInt("priority");
+                        slist.add(new NewSponsors(id,name,link,image,position,priority));
 
 
-               } catch (JSONException e) {
-                   e.printStackTrace();
-                   Log.e("sponserror",e.getMessage());
-               }
-           }
-           sponsorList.postValue(slist);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                        Log.e("sponserror",e.getMessage());
+                    }
+                }
+                sponsorList.postValue(slist);
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-               Log.e("ErrorSPons",error.getMessage());
+                Log.e("ErrorSPons",error.getMessage());
             }
         });
         requestQueue.add(jsonArrayRequest);
@@ -100,8 +100,4 @@ public class SponsorVolleyHelper {
 
 
     }
-
-
-
-
 }
