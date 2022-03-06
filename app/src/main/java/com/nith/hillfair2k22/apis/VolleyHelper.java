@@ -525,9 +525,9 @@ public class VolleyHelper {
         StringRequest stringRequest = new StringRequest(Request.Method.GET, Server_Url_User_Check_User_Read + firebase, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                User_Check_User_Read check_user = new User_Check_User_Read();
-                Log.e("CheckUser", String.valueOf(response));
-                user_check_user_read_details.postValue(check_user);
+////                User_Check_User_Read check_user = new User_Check_User_Read(String.valueOf(response));
+//                Log.e("CheckUser", String.valueOf(response));
+//                user_check_user_read_details.postValue(check_user);
             }
         }, new Response.ErrorListener() {
             @Override

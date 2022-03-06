@@ -1,10 +1,11 @@
 package com.nith.hillfair2k22.screens.account;
 
+import static com.nith.hillfair2k22.apis.New_User_VolleyHelper.Check;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -31,12 +32,12 @@ import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.single.PermissionListener;
 import com.nith.hillfair2k22.MainActivity;
 import com.nith.hillfair2k22.Models.NewUserList;
+import com.nith.hillfair2k22.Models.User_Check_User_Read;
 import com.nith.hillfair2k22.R;
 import com.nith.hillfair2k22.apis.New_User_VolleyHelper;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
-import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -51,18 +52,19 @@ public class EditProfileActivity extends AppCompatActivity {
     byte[] bytesofimage;
     String encodedimg;
     String picUrl;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
 
         btnsave=findViewById(R.id.btnsave);
-        etName=findViewById(R.id.etName);
-        etPhoneNumber=findViewById(R.id.etPhoneNumber);
-        etRN=findViewById(R.id.etRN);
-        etInstaID=findViewById(R.id.etInstaId);
+        etName=findViewById(R.id.etNameedit);
+        etPhoneNumber=findViewById(R.id.etPhoneNumberedit);
+        etRN=findViewById(R.id.etRNedit);
+        etInstaID=findViewById(R.id.etInstaIdedit);
         auth=FirebaseAuth.getInstance();
-        image=findViewById(R.id.imageView3);
+        image=findViewById(R.id.imageView4);
 
         image.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,8 +110,28 @@ public class EditProfileActivity extends AppCompatActivity {
                 }else{
                     NewUserList user=new NewUserList(auth.getUid(),txtName,txtPhoneNumber,txtRn,0,txtInstaID,picUrl);
                     New_User_VolleyHelper User=new New_User_VolleyHelper(EditProfileActivity.this);
-                    User.postUser(user);
-                    startActivity(new Intent(EditProfileActivity.this, MainActivity.class));
+                    User.checkUser(txtRn);
+
+
+                    final androidx.lifecycle.Observer<User_Check_User_Read> ob1 = new androidx.lifecycle.Observer<User_Check_User_Read>() {
+                        @Override
+                        public void onChanged(User_Check_User_Read user_check_user_read) {
+                            Log.e("String123",String.valueOf(user_check_user_read.isResponse()));
+                            if(user_check_user_read.isResponse()==true)
+                                 User.updateUser(auth.getUid(),user);
+                            else
+                                 User.postUser(user);
+
+                         startActivity(new Intent(EditProfileActivity.this, MainActivity.class));
+                        }
+                    };
+                    Check.observe(EditProfileActivity.this,ob1);
+
+//                    User.updateUser(auth.getUid(),user);
+//
+//                    User.postUser(user);
+//
+//                    startActivity(new Intent(EditProfileActivity.this, MainActivity.class));
                 }
             }
         });

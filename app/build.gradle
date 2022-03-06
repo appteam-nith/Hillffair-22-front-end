@@ -68,6 +68,16 @@ dependencies {
 
     //fab
     implementation 'com.balysv:material-ripple:1.0.2'
+
+    //cloudinary
+    implementation 'com.cloudinary:cloudinary-android:2.0.0'
+
+    //dexter
+    implementation("com.karumi:dexter:6.2.3")
+
+    //glide
+    implementation 'com.github.bumptech.glide:glide:4.13.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.13.0'
 }
 
 apply plugin: 'com.google.gms.google-services'
