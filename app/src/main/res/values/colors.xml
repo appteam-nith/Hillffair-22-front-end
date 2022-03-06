@@ -32,5 +32,6 @@
     <color name="correct_incorrect">#DBB05E</color>
     <color name="correct">#14AF2D</color>
     <color name="Incorrect">#FF3D00</color>
+    <color name="transparent_send_btn">#c4c4c4</color>
 
 </resources>

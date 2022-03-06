@@ -34,6 +34,7 @@
     <string name="club_name">English Club</string>
 
     <string name="team_name">Team Name</string>
+    <integer name="score">100</integer>
     <string name="designation">Member</string>
 
     // bottom nav
@@ -43,4 +44,36 @@
     <string name="bottom_nav_blind_date">Blind Date</string>
     <string name="bottom_nav_profile">Profile</string>
 
+    <string name="event_name">Treasure hunt event </string>
+    <string name="club_name">English Club</string>
+    <string name="Event_workshop_details">Title of Workshop</string>
+    <string name="Description">Description</string>
+    <string name="Register">Register</string>
+    <string name="TODO">TODO</string>
+    <string name="Sponsors">Sponsors</string>
+    <string name="sponsors">Sponsors</string>
+
+    <string name="April">April</string>
+    <string name="Quiz">Quiz</string>
+    <string name="Name_leaderboard">Name</string>
+    <string name="Leaderboard">Leaderboard</string>
+    <string name="_100">100</string>
+    <string name="_1000">1000</string>
+    <string name="option_A">A.</string>
+    <string name="option_B">B.</string>
+    <string name="option_C">C.</string>
+    <string name="option_D">D.</string>
+    <string name="Correct">Correct</string>
+    <string name="Incorrect">Incorrect</string>
+    <string name="question">Question:</string>
+    <string name="Next_Submit">Next/Submit</string>
+
+    <string name="send">Send</string>
+    <string name="display">Enter your display name</string>
+    <string name="message">Message</string>
+    <string name="Hii">Hii</string>
+
+    <string name="delete_chat">Delete Chat</string>
+    <string name="profile">Profile</string>
+    <string name="Recent_Chats">Recent Chats</string>
 </resources>
