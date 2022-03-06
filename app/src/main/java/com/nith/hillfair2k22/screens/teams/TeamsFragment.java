@@ -1,66 +1,86 @@
 package com.nith.hillfair2k22.screens.teams;
 
+import static com.nith.hillfair2k22.apis.MemberVolleyHelper.memberList;
+import static com.nith.hillfair2k22.apis.MemberVolleyHelper.teamList;
+
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.nith.hillfair2k22.Models.NewMembersList;
+import com.nith.hillfair2k22.Models.Teams;
 import com.nith.hillfair2k22.R;
+import com.nith.hillfair2k22.adapters.TeamAdapter;
+import com.nith.hillfair2k22.apis.MemberVolleyHelper;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link TeamsFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class TeamsFragment extends Fragment {
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
+public class TeamsFragment extends Fragment implements TeamAdapter.OnItemClickListener {
+    public static final String EXTRA_TEAM_NAME="Team_Name";
+    private final List<Teams> mTeamList = new ArrayList<>();
+    private RecyclerView recyclerView;
+    private TeamAdapter teamAdapter;
+    private static final String TAG="MainActivity";
     public TeamsFragment() {
         // Required empty public constructor
     }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment TeamsFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static TeamsFragment newInstance(String param1, String param2) {
-        TeamsFragment fragment = new TeamsFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_teams, container, false);
+         View view=inflater.inflate(R.layout.fragment_teams, container, false);
+        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
+        MemberVolleyHelper n2 = new MemberVolleyHelper (getContext());
+        n2.getTeamList();
+        final androidx.lifecycle.Observer<List<Teams>> observer = new androidx.lifecycle.Observer<List<Teams>>() {
+            @Override
+            public void onChanged(List<Teams> newMembersList1) {
+                Log.e("abcd43",String.valueOf(newMembersList1));
+                for(int i=0;i<newMembersList1.size();i++) {
+                    Log.e("nnn", newMembersList1.get(i).getClub_name());
+                }
+
+                TeamAdapter teamAdapter = new TeamAdapter(newMembersList1,getContext());
+                recyclerView.setAdapter(teamAdapter);
+                teamAdapter.setItemOnClickListener(TeamsFragment.this);
+                StaggeredGridLayoutManager gridLayoutManager =
+                        new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+                recyclerView.setLayoutManager(gridLayoutManager);
+                for (int i=0; i<newMembersList1.size();i++ ){
+                    mTeamList.add(newMembersList1.get(i));
+                }
+
+            }
+        };
+
+        teamList.observe(getActivity(),observer);
+        return view;
     }
+    @Override
+    public void onItemClick(int position) {
+        mTeamList.get(position);
+        Intent intent = new Intent(getActivity(), TeamDetailsActivity.class);
+        // put team name in the intent as extra
+        intent.putExtra(EXTRA_TEAM_NAME, mTeamList.get(position).getClub_name());
+        startActivity(intent);
+    }
+
 }

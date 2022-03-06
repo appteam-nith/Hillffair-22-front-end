@@ -4,6 +4,138 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_color"
+    android:orientation="vertical"
     tools:context=".screens.account.EditProfileActivity">
 
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/todo"
+        android:scaleType="fitXY"
+        app:srcCompat="@drawable/ic_frame_image" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="115dp"
+        android:layout_height="112dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_add" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/todo"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:srcCompat="@drawable/ic_group_37" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="@dimen/layout_padding_left"
+            android:paddingEnd="@dimen/layout_padding_right">
+
+            <EditText
+                android:id="@+id/etName"
+                android:layout_width="316dp"
+                android:layout_height="53dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="22dp"
+                android:background="@drawable/custom_text"
+                android:ems="10"
+                android:hint="@string/name"
+                android:inputType="textPersonName"
+                android:paddingStart="@dimen/et_padding_left"
+                android:paddingTop="@dimen/et_padding_top"
+                android:paddingEnd="@dimen/et_padding_right"
+                android:paddingBottom="@dimen/et_padding_bottom"
+                android:textAlignment="center"
+                android:textColor="@color/et_text_color"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/etRN"
+                android:layout_width="316dp"
+                android:layout_height="53dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="22dp"
+                android:background="@drawable/custom_text"
+                android:ems="10"
+                android:hint="@string/roll_no"
+                android:inputType="textPersonName"
+                android:paddingStart="@dimen/et_padding_left"
+                android:paddingTop="@dimen/et_padding_top"
+                android:paddingEnd="@dimen/et_padding_right"
+                android:paddingBottom="@dimen/et_padding_bottom"
+                android:textAlignment="center"
+                android:textColor="@color/et_text_color"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/etPhoneNumber"
+                android:layout_width="316dp"
+                android:layout_height="53dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="22dp"
+                android:background="@drawable/custom_text"
+                android:ems="10"
+                android:hint="@string/phone_no"
+                android:inputType="phone"
+                android:paddingStart="@dimen/et_padding_left"
+                android:paddingTop="@dimen/et_padding_top"
+                android:paddingEnd="@dimen/et_padding_right"
+                android:paddingBottom="@dimen/et_padding_bottom"
+                android:textAlignment="center"
+                android:textColor="@color/et_text_color"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/etInstaId"
+                android:layout_width="316dp"
+                android:layout_height="53dp"
+                android:layout_gravity="center"
+                android:background="@drawable/custom_text"
+                android:ems="10"
+                android:hint="@string/instagram_id"
+                android:inputType="textEmailAddress"
+                android:paddingStart="@dimen/et_padding_left"
+                android:paddingTop="@dimen/et_padding_top"
+                android:paddingEnd="@dimen/et_padding_right"
+                android:paddingBottom="@dimen/et_padding_bottom"
+                android:textAlignment="center"
+                android:textColor="@color/et_text_color"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/btnsave"
+                android:layout_width="180dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="44dp"
+                android:background="@drawable/custom_button"
+                android:text="@string/save"
+                android:textAllCaps="false"
+                android:textColor="@color/button_text_color"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
