@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "339348749335",
+    "project_id": "hillffair22",
+    "storage_bucket": "hillffair22.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:339348749335:android:26e85df79d6b43806af052",
+        "android_client_info": {
+          "package_name": "com.nith.hillfair2k22"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "339348749335-95clst4snuom47senakou70vpj2s5405.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9ut9FMht_B9mBD-VFhztElppi7-yqCsE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "339348749335-95clst4snuom47senakou70vpj2s5405.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

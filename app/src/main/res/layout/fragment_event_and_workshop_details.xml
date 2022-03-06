@@ -1,14 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".screens.eventsAndWorkshops.EventAndWorkshopDetailsFragment">
+    android:layout_gravity="top"
+    android:orientation="horizontal"
+    tools:context=".screens.eventsAndWorkshops.EventAndWorkshopDetailsFragment"
+    android:background="@color/bg_event_details"
+    >
 
-    <!-- TODO: Update blank fragment layout -->
+
     <TextView
+        android:id="@+id/textView3"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="697dp"
+        android:background="@drawable/tab_indicator"
+        android:text="@string/Event_workshop_details"
+        android:gravity="center"
+        android:textColor="@color/tab_event"
+        android:textSize="25sp"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="50dp"
+        android:elevation="10dp"
+        app:cardBackgroundColor="@color/item_card_bg"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/event_register"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3">
+
+        <ImageView
+            android:id="@+id/event_detail_poster"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:background="@drawable/full_spec_poster"
+            android:contentDescription="@string/TODO"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/event_detail_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="360dp"
+            android:text="@string/Description"
+            android:textSize="20sp" />
+
+        <View
+            android:id="@+id/line_event_details"
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="395dp"
+            android:layout_marginRight="15dp"
+            android:background="@color/register" />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/event_register"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="130dp"
+        android:background="@drawable/tab_indicator"
+        android:gravity="center"
+        android:text="@string/Register"
+        android:textAlignment="center"
+        android:textColor="@color/correct_incorrect"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
