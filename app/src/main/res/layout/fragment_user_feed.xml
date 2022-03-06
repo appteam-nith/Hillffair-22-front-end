@@ -8,30 +8,26 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/orange"
+        android:background="@color/user_feed_secondary_color"
         />
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btn_add_new_post"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="@dimen/side_margin_10"
+        android:layout_marginBottom="@dimen/side_margin_14"
         android:clickable="true"
         android:focusable="true"
-        app:elevation="40dp"
-        app:backgroundTint="#DBB05E"
+        app:elevation="@dimen/floating_btn_elevation"
+        app:backgroundTint="@color/user_feed_primary_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_add"
-        android:contentDescription="button to add post" />
+        android:contentDescription="@string/button_to_add_post" />
 </androidx.constraintlayout.widget.ConstraintLayout>

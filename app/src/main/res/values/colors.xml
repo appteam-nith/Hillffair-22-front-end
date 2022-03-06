@@ -34,4 +34,8 @@
     <color name="Incorrect">#FF3D00</color>
     <color name="transparent_send_btn">#c4c4c4</color>
 
+    <!-- user feed resources -->
+    <color name="user_feed_secondary_color">#E7CC9D </color>
+    <color name="user_feed_primary_color"> #DBB05E</color>
+
 </resources>

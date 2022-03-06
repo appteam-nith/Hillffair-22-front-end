@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="10dp"
-    app:cardBackgroundColor="#DBB05E"
-    android:padding="10dp">
+    android:layout_marginTop="@dimen/side_margin_10"
+    app:cardBackgroundColor="@color/user_feed_primary_color"
+    android:padding="@dimen/padding_8dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,22 +16,21 @@
             android:id="@+id/user_comment_user_name_in_comment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="7dp"
-            android:text="Username"/>
+            android:padding="@dimen/padding_8dp"
+            android:text="@string/username"/>
 
         <TextView
             android:id="@+id/user_comment_comment_in_comment_section"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="7dp"
-            android:text="Comments"/>
+            android:padding="@dimen/padding_8dp"
+            android:text="@string/comments"/>
 
         <View
             android:id="@+id/line_1"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="@dimen/side_margin_10"
             android:background="@drawable/line_3"
             />
 
