@@ -134,13 +134,13 @@
 
 
                 <ToggleButton
-                    android:id="@+id/user_feed_heart_icon"
+                    android:id="@+id/like_button"
                     android:layout_width="@dimen/size_25dp"
                     android:layout_height="@dimen/size_25dp"
-                    android:padding="@dimen/padding_8dp"
                     android:layout_centerVertical="true"
                     android:layout_toStartOf="@+id/user_feed_message_icon"
                     android:background="@drawable/toggle_selector"
+                    android:padding="@dimen/padding_8dp"
                     android:textOff=""
                     android:textOn="" />
 

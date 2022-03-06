@@ -2,6 +2,8 @@ package com.nith.hillfair2k22.adapters;
 
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.nith.hillfair2k22.Models.NewSponsors;
@@ -51,6 +54,13 @@ public class SponsorsAdapter extends RecyclerView.Adapter<SponsorsAdapter.Sponso
             Picasso.get().load(imgUrl.replace("http", "https")).into(holder.sponsorImage);
         }
 
+        if(!sponsor.getLink().isEmpty()){
+            Uri sponsorsUri = Uri.parse(sponsor.getLink());
+            holder.sponsorsCV.setOnClickListener(view -> {
+            context. startActivity(new Intent(Intent.ACTION_VIEW, sponsorsUri));
+            });
+        }
+
 
     }
 
@@ -63,11 +73,13 @@ public class SponsorsAdapter extends RecyclerView.Adapter<SponsorsAdapter.Sponso
 
         private ImageView sponsorImage;
         private TextView sponsorDetatils;
+        private CardView sponsorsCV;
         public SponsorsViewHolder(@NonNull View itemView) {
             super(itemView);
 
             sponsorImage =itemView.findViewById(R.id.sponsors_IV);
             sponsorDetatils =itemView.findViewById(R.id.sponsors_detailsTV);
+            sponsorsCV=itemView.findViewById(R.id.item_sponsor_card);
         }
     }
 }

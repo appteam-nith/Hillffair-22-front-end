@@ -33,7 +33,7 @@ android:background="@color/item_card_bg"
             app:tabIndicatorColor="@color/item_card"
             app:tabIndicatorAnimationMode="elastic"
             app:tabIndicatorGravity="stretch"
-            app:tabMode="fixed"
+            app:tabMode="auto"
             app:tabSelectedTextColor="@color/white" />
 </androidx.cardview.widget.CardView>
     <androidx.viewpager2.widget.ViewPager2

@@ -47,7 +47,9 @@ public class EventAndWorkshopDetailsFragment extends Fragment {
         }
         regBtn.setOnClickListener(view1 -> {
             Uri uri = Uri.parse(regUrl);
-            startActivity(new Intent(Intent.ACTION_VIEW,uri));
+            if (!regUrl.isEmpty()){
+                startActivity(new Intent(Intent.ACTION_VIEW, uri));
+            }
         });
 
 

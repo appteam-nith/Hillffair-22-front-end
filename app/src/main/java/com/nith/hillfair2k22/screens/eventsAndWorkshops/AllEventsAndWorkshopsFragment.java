@@ -120,7 +120,7 @@ public class AllEventsAndWorkshopsFragment extends Fragment {
     private void changeFragment(Fragment fragment) {
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        //TODO : replace id
+        //TODO: change replace id to --"fragment_frame_layout"--
         fragmentTransaction.replace(R.id.all_events_workshop_RL, fragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();

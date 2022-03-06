@@ -39,7 +39,6 @@ public class SponsorsFragment extends Fragment {
     private RelativeLayout sponsorRL;
 
     private SponsorsAdapter sponsorsAdapter;
-//    private ArrayList<Sponsor> sponsorsModalArrayList;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -51,9 +50,6 @@ public class SponsorsFragment extends Fragment {
         sponsorRL = view.findViewById(R.id.sponsors_RL);
 
         sponsorsRV = view.findViewById(R.id.sponsors_RecV);
-//        sponsorsModalArrayList = new ArrayList<>();
-
-//        getSponsorsData();
 
         SponsorVolleyHelper sponsorVolleyHelper = new SponsorVolleyHelper(getContext());
         sponsorVolleyHelper.getSponsors();
@@ -86,31 +82,9 @@ public class SponsorsFragment extends Fragment {
         sponsorList.observe(getActivity(), observer);
 
 
-//        buildRecyclerView();
 
         return view;
     }
 
-//    private void getSponsorsData() {
-//        for (int i = 0; i < 19; i++) {
-//            sponsorsModalArrayList.add(new Sponsor("name","https://media.geeksforgeeks.org/img-practice/banner/dsa-self-paced-thumbnail.png","link","position",1));
-//        }
-//    }
 
-//    private void buildRecyclerView() {
-//        sponsorsAdapter = new SponsorsAdapter(sponsorsModalArrayList, getActivity());
-//
-//        LinearLayoutManager manager = new LinearLayoutManager(getActivity());
-//        sponsorsRV.setHasFixedSize(true);
-//
-//        sponsorsRV.setLayoutManager(manager);
-//
-//        // <-----ANIMATIONS---->
-//
-//        AlphaInAnimationAdapter animationAdapter = new AlphaInAnimationAdapter(sponsorsAdapter);
-//        animationAdapter.setDuration(1000);
-//        animationAdapter.setInterpolator(new AccelerateDecelerateInterpolator());
-//        animationAdapter.setFirstOnly(false);
-//        sponsorsRV.setAdapter(animationAdapter);
-//    }
 }

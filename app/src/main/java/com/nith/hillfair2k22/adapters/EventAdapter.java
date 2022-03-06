@@ -61,7 +61,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
 
 
         AppCompatActivity activity = (AppCompatActivity) view.getContext();
-        //TODO: replace id
+        //TODO: change replace id to --"fragment_frame_layout"--
         activity.getSupportFragmentManager().beginTransaction().replace(R.id.all_events_workshop_RL, fragment).addToBackStack(null).commit();
 
         Bundle bundle = new Bundle();
