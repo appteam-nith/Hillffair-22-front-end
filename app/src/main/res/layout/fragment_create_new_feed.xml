@@ -76,7 +76,6 @@
             </RelativeLayout>
 
 
-
             <ImageView
                 android:id="@+id/user_post_image_upload"
                 android:layout_width="match_parent"
@@ -86,8 +85,8 @@
                 android:layout_marginEnd="7dp"
                 android:layout_marginBottom="7dp"
                 android:background="@drawable/user_post_image_outline"
-                android:src="@drawable/ic_add"
-                android:contentDescription="add picture placeholder"/>
+                android:contentDescription="add picture placeholder"
+                android:src="@drawable/ic_add" />
 
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>

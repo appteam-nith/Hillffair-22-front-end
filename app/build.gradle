@@ -37,8 +37,9 @@ android {
 }
 
 dependencies {
+    implementation 'com.cloudinary:cloudinary-android:2.0.0'
 
-
+    implementation("com.karumi:dexter:6.2.3")
     implementation platform('com.google.firebase:firebase-bom:29.1.0')
     implementation 'com.google.firebase:firebase-auth'
 
