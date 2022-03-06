@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
@@ -28,6 +29,7 @@ import com.nith.hillfair2k22.adapters.NewCustomAdapter;
 public class CommentUserFeedFragment extends AppCompatActivity {
     ImageView img;
     ImageView img2;
+    EditText editText;
     ToggleButton togglebtn;
 //
 //    // TODO: Rename parameter arguments, choose names that match
@@ -99,6 +101,8 @@ protected void onCreate(Bundle savedInstanceState) {
     boolean like=intent.getBooleanExtra("post_like",false);
     togglebtn=findViewById(R.id.heart_icon);
     togglebtn.setChecked(like);
+    editText=findViewById(R.id.user_comment_write_your_comment);
+
     Log.e( "onCreate: ",like+"" );
     img2=findViewById(R.id.user_comment_post_comment_icon);
 
@@ -106,6 +110,8 @@ protected void onCreate(Bundle savedInstanceState) {
         @Override
         public void onClick(View v) {
             Toast.makeText(CommentUserFeedFragment.this, "Comment added", Toast.LENGTH_SHORT).show();
+            editText.setText("");
+
         }
     });
     img=findViewById(R.id.user_comment_message_icon);
