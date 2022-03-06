@@ -10,7 +10,7 @@ public class Teams {
         Club_name = club_name;
         this.image = image;
     }
-
+  
     public int getId() {
         return id;
     }
