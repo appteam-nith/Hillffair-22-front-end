@@ -30,7 +30,7 @@
                 android:id="@+id/Event_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12px"
+                android:layout_marginTop="12dp"
                 android:text="Treasure hunt Events"
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_size_24"
@@ -61,10 +61,6 @@
                 >
 
             </TextView>
-
-
-
-
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

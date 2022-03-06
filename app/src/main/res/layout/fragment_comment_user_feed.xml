@@ -111,6 +111,18 @@
                         android:textAppearance="@style/caption_goe"
                         android:textSize="@dimen/text_size_14sp" />
 
+
+                    <ToggleButton
+                        android:id="@+id/heart_icon"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_toStartOf="@+id/user_comment_message_icon"
+
+                        android:background="@drawable/toggle_selector"
+                        android:textOff=""
+                        android:textOn="" />
+
                     <ImageView
                         android:id="@+id/user_comment_message_icon"
                         android:layout_width="wrap_content"
@@ -132,7 +144,6 @@
                         android:background="@drawable/toggle_selector"
                         android:textOff=""
                         android:textOn=""/>
-
 
                 </RelativeLayout>
 

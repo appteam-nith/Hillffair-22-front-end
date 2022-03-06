@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -22,6 +23,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     private TextView user_feed_name;
     private TextView user_feed_caption_goes_here;
     private ImageView imageview2;
+    private ToggleButton toggleButton;
     /**
      * Provide a reference to the type of views that you are using
      * (custom ViewHolder).
@@ -59,11 +61,14 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
                 .inflate(R.layout.item_user_feed, viewGroup, false);
         user_feed_name=view.findViewById(R.id.user_feed_name);
         user_feed_caption_goes_here=view.findViewById(R.id.user_feed_caption_goes_here);
+        toggleButton=view.findViewById(R.id.like_button);
+
         imageview2=view.findViewById(R.id.user_feed_message_icon);
         imageview2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(view.getContext(), CommentUserFeedFragment.class);
+                intent.putExtra("post_like",toggleButton.isChecked());
                 view.getContext().startActivity(intent);
             }
         });

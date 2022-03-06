@@ -9,8 +9,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.Observer;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+import com.nith.hillfair2k22.Models.Members_List;
+import com.nith.hillfair2k22.Models.NewMembersList;
 import com.nith.hillfair2k22.R;
 import com.nith.hillfair2k22.screens.teams.TeamDetail;
 
@@ -18,11 +23,13 @@ import java.util.List;
 
 public class TeamDetailAdapter extends RecyclerView.Adapter<TeamDetailAdapter.MyViewHolder>{
     private final Context context;
-    private final List<TeamDetail> teamDetailList;
+    private final List<NewMembersList> teamDetailList;
+    RequestOptions option;
 
-    public TeamDetailAdapter(List<TeamDetail> teamDetailList, Context context) {
+    public TeamDetailAdapter(List<NewMembersList> teamDetailList, Context context) {
         this.context = context;
         this.teamDetailList=teamDetailList;
+        option= new RequestOptions().centerCrop().placeholder(R.drawable.loading_image).error(R.drawable.loading_image);
     }
 
     @NonNull
@@ -34,11 +41,12 @@ public class TeamDetailAdapter extends RecyclerView.Adapter<TeamDetailAdapter.My
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder detailholder, int position) {
-        TeamDetail teamDetail = teamDetailList.get(position);
-       detailholder.teamNameTextView.setText(teamDetail.getTeam_Name1());
-        detailholder.teamMemImageView.setImageURI(Uri.parse(teamDetail.getTeam_mem_Img()));
-        detailholder.teamMemName.setText(teamDetail.getTeam_Member_Name());
-        detailholder.memDesignation.setText(teamDetail.getDesignation());
+        NewMembersList teamDetail = teamDetailList.get(position);
+//       detailholder.teamNameTextView.setText(teamDetail.getTeam_name());
+        detailholder.teamMemImageView.setImageURI(Uri.parse(teamDetail.getImage()));
+        detailholder.teamMemName.setText(teamDetail.getName());
+        detailholder.memDesignation.setText(teamDetail.getPosition());
+        Glide.with(context).load(teamDetail.getImage().replace("http","https")).apply(option).into(detailholder.teamMemImageView);
 
     }
 
@@ -48,6 +56,7 @@ public class TeamDetailAdapter extends RecyclerView.Adapter<TeamDetailAdapter.My
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
+        int id;
         TextView teamNameTextView;
         ImageView teamMemImageView;
         TextView teamMemName;
@@ -56,6 +65,7 @@ public class TeamDetailAdapter extends RecyclerView.Adapter<TeamDetailAdapter.My
 
         public MyViewHolder(View detailview) {
             super(detailview);
+            id=detailview.getId();
             teamNameTextView = (TextView) detailview.findViewById(R.id.team_name1);
             teamMemImageView = (ImageView) detailview.findViewById(R.id.team_mem_img);
             teamMemName=(TextView) detailview.findViewById(R.id.team_member_name);
