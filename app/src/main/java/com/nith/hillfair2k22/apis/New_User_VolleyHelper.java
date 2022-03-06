@@ -21,6 +21,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.nith.hillfair2k22.Models.NewUserList;
+import com.nith.hillfair2k22.Models.User_Check_User_Read;
 import com.nith.hillfair2k22.Models.User_List;
 
 import org.json.JSONArray;
@@ -128,11 +129,28 @@ public static MutableLiveData<List<NewUserList>> newUserArrayList;
                 });
                   requestQueue.add(jsonObjectRequest);
     }
+
+    public static MutableLiveData<User_Check_User_Read> Check;
     public void checkUser(String email){
+
+        Check = new MutableLiveData<>();
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, "https://anmolcoder.pythonanywhere.com/user/checkUser/"+email, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
              Log.e("ChekUser",String.valueOf(response));
+                try {
+                  boolean res =response.getBoolean("user_present");
+                  Log.e("abcd",String.valueOf(res));
+                  User_Check_User_Read U1 = new User_Check_User_Read(res);
+
+                    Check.postValue(U1);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
+
+
             }
         }, new Response.ErrorListener() {
             @Override
@@ -140,7 +158,10 @@ public static MutableLiveData<List<NewUserList>> newUserArrayList;
 
             }
         });
+
+
         requestQueue.add(jsonObjectRequest);
+
     }
 
     public void postUser(NewUserList alist){
@@ -426,5 +447,6 @@ public static MutableLiveData<List<NewUserList>> newUserArrayList;
         requestQueue.add(jsonObjectRequest);
 
     }
+
 
 }

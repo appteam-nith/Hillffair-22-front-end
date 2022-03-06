@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginEnd="18dp"
-    android:layout_marginTop="61dp"
-    android:layout_marginStart="22dp"
-    android:padding="10dp"
-    app:cardBackgroundColor="#DBB05E"
-    app:cardElevation="20dp"
-    app:cardCornerRadius="12dp">
+    android:layout_marginEnd="@dimen/side_margin_15dp"
+    android:layout_marginTop="@dimen/side_margin_10"
+    android:layout_marginStart="@dimen/side_margin_15dp"
+    android:padding="@dimen/padding_8dp"
+    app:cardBackgroundColor="@color/user_feed_primary_color"
+    app:cardElevation="@dimen/card_elevation_20dp"
+    app:cardCornerRadius="@dimen/card_radius_12dp">
 
 
     <LinearLayout
@@ -21,38 +22,42 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             >
 
             <ImageView
                 android:id="@+id/user_feed_profile_image"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="7dp"
-                android:layout_marginEnd="7dp"
-                android:layout_marginBottom="7dp"
+                android:layout_width="@dimen/user_profile_image_size"
+                android:layout_height="@dimen/user_profile_image_size"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="@dimen/side_margin_25dp"
+                android:layout_marginTop="@dimen/side_margin_8dp"
+                android:layout_marginEnd="@dimen/side_margin_8dp"
+                android:layout_marginBottom="@dimen/side_margin_8dp"
                 android:background="@drawable/user_icon_view"
-                android:contentDescription="User profile image" />
+                android:contentDescription="@string/user_profile_image"
+                android:scaleType="centerCrop" />
+
 
             <TextView
                 android:id="@+id/user_feed_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="@dimen/side_margin_10"
+                android:layout_toStartOf="@+id/user_feed_more"
                 android:layout_toEndOf="@+id/user_feed_profile_image"
-                android:text="user_name" />
+                android:text="@string/user_name"
+                android:textColor="#5D4037" />
 
             <ImageView
                 android:id="@+id/user_feed_more"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:padding="15dp"
-                android:layout_marginEnd="22dp"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/side_margin_22dp"
                 android:src="@drawable/ic_baseline_more_horiz_24"
-                android:contentDescription="more option"/>
+                android:contentDescription="@string/more_option"/>
 
 
         </RelativeLayout>
@@ -61,55 +66,49 @@
             android:id="@+id/line_1"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginStart="25dp"
-            android:layout_marginEnd="22dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginStart="@dimen/side_margin_25dp"
+            android:layout_marginEnd="@dimen/side_margin_22dp"
             android:background="@drawable/line_3"
             />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="@dimen/side_margin_8dp"
             android:orientation="vertical">
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
-                android:layout_height="138dp"
-                android:scaleType="centerCrop"
-                android:adjustViewBounds="true"
-                android:layout_marginStart="25dp"
-                android:layout_marginEnd="22dp"
-                android:elevation="20dp"
-                app:cardCornerRadius="24dp">
+                android:layout_height="@dimen/user_post_image_height"
+                android:layout_marginStart="@dimen/side_margin_25dp"
+                android:layout_marginEnd="@dimen/side_margin_22dp"
+                android:elevation="@dimen/card_elevation_20dp"
+                app:cardCornerRadius="@dimen/card_radius_20dp">
 
                 <ImageView
                     android:id="@+id/user_feed_posted_image"
                     android:layout_width="match_parent"
-                    android:layout_height="138dp"
+                    android:layout_height="match_parent"
                     android:adjustViewBounds="true"
-                    android:background="#F9FAF6"
-                    android:elevation="20dp"
                     android:scaleType="centerCrop"
-                    android:contentDescription="user post"/>
+                    android:contentDescription="@string/user_post"/>
 
             </com.google.android.material.card.MaterialCardView>
             <View
                 android:id="@+id/line_2"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginStart="25dp"
-                android:layout_marginEnd="22dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="@dimen/side_margin_25dp"
+                android:layout_marginEnd="@dimen/side_margin_22dp"
+                android:layout_marginTop="@dimen/side_margin_8dp"
                 android:background="@drawable/line_3"
                 />
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="7dp"
-                android:layout_marginStart="25dp"
-                android:layout_marginEnd="22dp">
+                android:layout_marginStart="@dimen/side_margin_25dp"
+                android:layout_marginEnd="@dimen/side_margin_22dp">
 
                 <TextView
                     android:id="@+id/user_feed_caption_goes_here"
@@ -118,37 +117,32 @@
                     android:layout_alignParentStart="true"
                     android:layout_toStartOf="@+id/user_feed_heart_icon"
                     android:gravity="start"
-                    android:padding="8dp"
-                    android:text="Caption Goes Here"
+                    android:padding="@dimen/padding_8dp"
+                    android:text="@string/caption_goes_here"
                     android:textAppearance="@style/caption_goe"
-                    android:textSize="14sp" />
+                    android:textSize="@dimen/text_size_14sp" />
 
                 <ImageView
                     android:id="@+id/user_feed_message_icon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:contentDescription="comments button"
-                    android:padding="8dp"
-                    android:src="@drawable/ic_baseline_message_24" />
+                    android:contentDescription="@string/comments_button_icon"
+                    android:padding="@dimen/padding_8dp"
+                    android:src="@drawable/ic_baseline_message_24"
+                    tools:ignore="RedundantDescriptionCheck" />
+
 
                 <ToggleButton
-                    android:id="@+id/like_button"
-                    android:layout_width="20dp"
-                    android:layout_height="18dp"
+                    android:id="@+id/user_feed_heart_icon"
+                    android:layout_width="@dimen/size_25dp"
+                    android:layout_height="@dimen/size_25dp"
+                    android:padding="@dimen/padding_8dp"
+                    android:layout_centerVertical="true"
                     android:layout_toStartOf="@+id/user_feed_message_icon"
                     android:background="@drawable/toggle_selector"
-
                     android:textOff=""
                     android:textOn="" />
-<!--                <ImageView-->
-<!--                    android:id="@+id/user_feed_heart_icon"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_toStartOf="@+id/user_feed_message_icon"-->
-<!--                    android:contentDescription="like button"-->
-<!--                    android:padding="8dp"-->
-<!--                    android:src="@drawable/vector" />-->
 
 
             </RelativeLayout>

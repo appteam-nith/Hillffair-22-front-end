@@ -89,12 +89,4 @@ public class EventsVolleyHelper {
                 });
         requestQueue.add(jsonObjectRequest);
     }
-
-
-
-
-
-
-
-
 }

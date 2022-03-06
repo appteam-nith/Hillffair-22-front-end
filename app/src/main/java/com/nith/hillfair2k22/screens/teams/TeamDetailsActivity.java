@@ -1,6 +1,8 @@
 package com.nith.hillfair2k22.screens.teams;
 
 import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
+import static com.nith.hillfair2k22.apis.MemberVolleyHelper.memberList;
+import static com.nith.hillfair2k22.apis.MemberVolleyHelper.teamMemberList;
 import static com.nith.hillfair2k22.screens.teams.TeamsFragment.EXTRA_TEAM_NAME;
 
 import static java.security.AccessController.getContext;
@@ -9,10 +11,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
+
+import com.nith.hillfair2k22.Models.Members_List;
+import com.nith.hillfair2k22.Models.NewMembersList;
 import com.nith.hillfair2k22.R;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -24,9 +30,14 @@ import java.io.InputStreamReader;
 import com.nith.hillfair2k22.adapters.TeamDetailAdapter;
 import java.util.ArrayList;
 import java.util.List;
-public class TeamDetailsActivity<TeamDetailAdapter> extends AppCompatActivity {
-    private final List<TeamDetail> mTeamDetailList = new ArrayList<>();
+
+import com.nith.hillfair2k22.apis.MemberVolleyHelper;
+import com.nith.hillfair2k22.apis.VolleyHelper;
+public class TeamDetailsActivity extends AppCompatActivity {
+    private final List<NewMembersList> membersLists = new ArrayList<>();
     private static final String TAG = "TeamDetailsActivity";
+    TeamDetailAdapter teamDetailAdapter;
+    Context context= TeamDetailsActivity.this;
 
 
     @Override
@@ -38,49 +49,29 @@ public class TeamDetailsActivity<TeamDetailAdapter> extends AppCompatActivity {
         String Team_Name = intent.getStringExtra(EXTRA_TEAM_NAME);
         TextView textViewTeamName = findViewById(R.id.team_name1);
         textViewTeamName.setText(Team_Name);
+        MemberVolleyHelper n1 = new MemberVolleyHelper(TeamDetailsActivity.this);
+        n1.getTeamMember(Team_Name);
+         final androidx.lifecycle.Observer<List<NewMembersList>> observer = new androidx.lifecycle.Observer<List<NewMembersList>>() {
+                     @Override
+                     public void onChanged(List<NewMembersList> newMembersList) {
+                         Log.e("abcd43",String.valueOf(newMembersList));
+                         Log.e("abcd45",String.valueOf(newMembersList.get(0).getImage()));
+                         for(int i=0;i<newMembersList.size();i++) {
+                             Log.e("nnn", newMembersList.get(i).getName());
+                         }
+                         for (int i=0; i<newMembersList.size();i++ ){
+                             membersLists.add(newMembersList.get(i));
+                         }
+                         Log.e("abcd42",String.valueOf(membersLists.get(0).getName()));
+                         teamDetailAdapter =(TeamDetailAdapter) new TeamDetailAdapter(membersLists,getApplicationContext());
+                         recyclerView.setAdapter(( teamDetailAdapter));
+                         StaggeredGridLayoutManager gridLayoutManager =
+                                 new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+                         recyclerView.setLayoutManager(gridLayoutManager);
+//
+                     }
+                 };
+                 teamMemberList.observe(this,observer);
 
-//        TeamDetailAdapter teamDetailAdapter =(TeamDetailAdapter) new TeamDetailAdapter(mTeamDetailList,this);
-//        recyclerView.setAdapter((RecyclerView.Adapter<RecyclerView.ViewHolder>) teamDetailAdapter);
-        StaggeredGridLayoutManager gridLayoutManager =
-                new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
-        recyclerView.setLayoutManager(gridLayoutManager);
-        addTeamDataFromJSON();
-    }
-    private void addTeamDataFromJSON() {
-        try {
-            String jsonDataString= readJSONDataFromFile();
-            JSONArray jsonArray= new JSONArray(jsonDataString);
-            for(int i=0 ; i< jsonArray.length();++i){
-                System.out.println(jsonArray.get(i).toString());
-                JSONObject itemObj1 = jsonArray.getJSONObject(i);
-                String team_Name = itemObj1.getString("Team_Name");
-                String teamMemName = itemObj1.getString("Team_mem_Name");
-                String teamMemImgUrl = itemObj1.getString("team member image");
-                String designation = itemObj1.getString("designation");
-                TeamDetail teamDetailData = new TeamDetail(team_Name, teamMemName, designation, teamMemImgUrl);
-                mTeamDetailList.add(teamDetailData) ;
-
-            }
-        } catch (JSONException | IOException e) {
-            Log.d(TAG,"addTeamDataFromJSON:", e);
-        }
-    }
-
-    // function to read teams' json data from file
-    private String readJSONDataFromFile() throws IOException {
-        InputStream inputStream = null;
-        StringBuilder builder = new StringBuilder();
-        try {
-            String jsonString = null;
-            inputStream = getResources().openRawResource(R.raw.teamdata);
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream,"UTF-8"));
-            while ((jsonString = bufferedReader.readLine()) != null){
-                builder.append(jsonString);
-            }
-        } finally {
-            if (inputStream != null) {
-                inputStream.close();
-            }
-        } return new String(builder);
     }
 }

@@ -28,4 +28,21 @@
     <dimen name="text_size_24">24dp</dimen>
     <dimen name="text_size_15">15dp</dimen>
     <dimen name="layout_margin_bottom_5">5dp</dimen>
+
+    <!-- user feed dimen -->
+    <dimen name="floating_btn_elevation">40dp</dimen>
+    <dimen name="side_margin_25dp">25dp</dimen>
+    <dimen name="side_margin_20dp">20dp</dimen>
+    <dimen name="side_margin_22dp">22dp</dimen>
+    <dimen name="side_margin_15dp">15dp</dimen>
+    <dimen name="side_margin_8dp">8dp</dimen>
+    <dimen name="padding_8dp">8dp</dimen>
+    <dimen name="card_radius_12dp">12dp</dimen>
+    <dimen name="card_radius_20dp">20dp</dimen>
+    <dimen name="card_elevation_20dp">20dp</dimen>
+    <dimen name="text_size_14sp">14sp</dimen>
+    <dimen name="user_profile_image_size">45dp</dimen>
+    <dimen name="user_post_image_height">138dp</dimen>
+    <dimen name="size_25dp">25dp</dimen>
+
 </resources>

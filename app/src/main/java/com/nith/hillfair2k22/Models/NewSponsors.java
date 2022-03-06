@@ -1,6 +1,5 @@
 package com.nith.hillfair2k22.Models;
 
-
 public class NewSponsors {
     int id;
     String  name;
