@@ -35,8 +35,8 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="115dp"
-        android:layout_height="112dp"
+        android:layout_width="@dimen/UserImageLayoutWidth"
+        android:layout_height="@dimen/UserImageLayoutHeight"
         app:layout_constraintBottom_toTopOf="@+id/profileDetails"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -36,8 +36,8 @@
 
             <EditText
                 android:id="@+id/etEmail"
-                android:layout_width="316dp"
-                android:layout_height="53dp"
+                android:layout_width="@dimen/EditText_Width"
+                android:layout_height="@dimen/EditText_Height"
                 android:layout_marginBottom="20dp"
                 android:gravity="center"
                 android:hint="@string/enter_your_email"
@@ -55,8 +55,8 @@
 
             <EditText
                 android:id="@+id/etPassword"
-                android:layout_width="316dp"
-                android:layout_height="53dp"
+                android:layout_width="@dimen/EditText_Width"
+                android:layout_height="@dimen/EditText_Height"
                 android:layout_marginBottom="20dp"
                 android:gravity="center"
                 android:hint="@string/enter_your_password"
@@ -73,12 +73,12 @@
 
             <EditText
                 android:id="@+id/etReEnterPassword"
-                android:layout_width="316dp"
-                android:layout_height="53dp"
+                android:layout_width="@dimen/EditText_Width"
+                android:layout_height="@dimen/EditText_Height"
                 android:layout_marginBottom="30dp"
                 android:ems="10"
                 android:gravity="center"
-                android:hint="Re-Enter Your Password"
+                android:hint="@string/re_enter_your_password"
                 android:inputType="textPassword"
                 android:minHeight="48dp"
                 android:paddingStart="@dimen/et_padding_left"
@@ -94,8 +94,8 @@
 
             <Button
                 android:id="@+id/signup"
-                android:layout_width="180dp"
-                android:layout_height="60dp"
+                android:layout_width="@dimen/Button_width"
+                android:layout_height="@dimen/Button_Height"
                 android:gravity="center"
                 android:textAllCaps="false"
                 android:text="@string/sign_up"
