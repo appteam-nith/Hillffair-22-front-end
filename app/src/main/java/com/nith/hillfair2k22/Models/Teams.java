@@ -5,15 +5,12 @@ public class Teams {
     String Club_name;
     String image;
 
-    public Teams() {
-    }
-
     public Teams(int id, String club_name, String image) {
         this.id = id;
         Club_name = club_name;
         this.image = image;
     }
-
+  
     public int getId() {
         return id;
     }
