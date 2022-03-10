@@ -38,7 +38,7 @@ public class LeaderboardAdapter extends RecyclerView.Adapter<LeaderboardAdapter.
 
         Quiz_Leaderboard_Results_Read LB_result_card = LBArrayList.get(position);
         holder.LBname.setText(LB_result_card.getUsername());
-        holder.LBscore.setText(LB_result_card.getScore());
+        holder.LBscore.setText(String.valueOf(LB_result_card.getScore()));
 
         Picasso.get().load(LB_result_card.getProfileImage()).into(holder.LBimg);
     }

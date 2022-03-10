@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity_play_quiz">
+    android:background="@color/background_color"
+    tools:context=".screens.PlayQuizActivity">
 
 
   <androidx.cardview.widget.CardView
