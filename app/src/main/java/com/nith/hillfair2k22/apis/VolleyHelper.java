@@ -335,7 +335,7 @@ public class VolleyHelper {
                     try {
                         Log.e("QuizList", String.valueOf(response));
                         JSONObject jsonObject = response.getJSONObject(i);
-                        a6.add(new Quiz_List(jsonObject.getString("id"), jsonObject.getString("name"), jsonObject.getString("count"), jsonObject.getString("sendCount"), jsonObject.getString("startTime"), jsonObject.getString("endTime")));
+                        a6.add(new Quiz_List(jsonObject.getString("id"), jsonObject.getString("name"),jsonObject.getString("clubname"), jsonObject.getInt("count"), jsonObject.getInt("sendCount"), jsonObject.getString("startTime"), jsonObject.getString("endTime")));
 
                     } catch (JSONException e) {
                         Log.e("QuizListError", String.valueOf(e.getMessage()));
@@ -481,7 +481,7 @@ public class VolleyHelper {
                     try {
                         Log.e("Quiz_read", String.valueOf(response));
                         JSONObject jsonObject = response.getJSONObject(i);
-                        a11.add(new Quiz_List(jsonObject.getString("id"), jsonObject.getString("name"), jsonObject.getString("count"), jsonObject.getString("sendCount"), jsonObject.getString("startTime"), jsonObject.getString("endTime")));
+                        a11.add(new Quiz_List(jsonObject.getString("id"), jsonObject.getString("name"),jsonObject.getString("clubName"), jsonObject.getInt("count"), jsonObject.getInt("sendCount"), jsonObject.getString("startTime"), jsonObject.getString("endTime")));
 
                     } catch (JSONException e) {
                         e.printStackTrace();

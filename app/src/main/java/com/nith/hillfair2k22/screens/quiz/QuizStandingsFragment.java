@@ -32,22 +32,7 @@ public class QuizStandingsFragment extends Fragment {
     private LeaderboardAdapter leaderboardAdapter;
     private ArrayList<Quiz_Leaderboard_Results_Read> LBArrayList;
 
-//    @Override
-//    public void onCreate(@Nullable Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//
-//
-//
-//        OnBackPressedCallback callback = new OnBackPressedCallback(true ) {
-//            @Override
-//            public void handleOnBackPressed() {
-////                Toast.makeText(getActivity(), "Back pressed", Toast.LENGTH_SHORT).show();
-//
-//            }
-//        };
-//        requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
-//
-//    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

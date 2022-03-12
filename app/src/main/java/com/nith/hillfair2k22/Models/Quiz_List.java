@@ -3,17 +3,16 @@ package com.nith.hillfair2k22.Models;
 public class Quiz_List {
     String id;
     String name;
-    String count;
-    String sendCount;
+    String clubName;
+    int count;
+    int sendCount;
     String startTime;
     String endTime;
 
-    public Quiz_List() {
-    }
-
-    public Quiz_List(String id, String name, String count, String sendCount, String startTime, String endTime) {
+    public Quiz_List(String id, String name, String clubName, int count, int sendCount, String startTime, String endTime) {
         this.id = id;
         this.name = name;
+        this.clubName = clubName;
         this.count = count;
         this.sendCount = sendCount;
         this.startTime = startTime;
@@ -36,19 +35,27 @@ public class Quiz_List {
         this.name = name;
     }
 
-    public String getCount() {
+    public String getClubName() {
+        return clubName;
+    }
+
+    public void setClubName(String clubName) {
+        this.clubName = clubName;
+    }
+
+    public int getCount() {
         return count;
     }
 
-    public void setCount(String count) {
+    public void setCount(int count) {
         this.count = count;
     }
 
-    public String getSendCount() {
+    public int getSendCount() {
         return sendCount;
     }
 
-    public void setSendCount(String sendCount) {
+    public void setSendCount(int sendCount) {
         this.sendCount = sendCount;
     }
 
